@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     public int ATK;
     public float ATKD;
     public int DEF;
+    public List<int> ItemID;
     
     void Start()
     {

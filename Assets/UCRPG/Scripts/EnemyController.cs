@@ -8,16 +8,23 @@ public class EnemyController : MonoBehaviour
 {
     [Title("Run")]
     public bool _Spawn;
+
     public bool _Live;
 
     [Title("Configurations")]
     public GameObject EnemyWrapper;
+
     public EnemyDatabase EnemyDatabase;
     public GameObject EnemySpawnParent;
     public Transform EnemySpawnPoint;
+    public GameObject ItemWrapper;
+    public ItemDatabase ItemDatabase;
+    public GameObject ItemSpawnParent;
+    public Transform ItemSpawnPoint;
 
     [Title("Controllers")]
     public LocationController LocationController;
+
     public HealthController HealthController;
     public AnimatorProvider AnimatorProvider;
 
@@ -26,8 +33,9 @@ public class EnemyController : MonoBehaviour
 
     [Title("Moving Points")]
     public Transform[] Points;
-    
+
     private GameObject enemy;
+    private GameObject item;
     private Tween tween;
     private Tween virtualTween;
     private bool paused = false;
@@ -39,20 +47,58 @@ public class EnemyController : MonoBehaviour
     public Enemy Enemy;
 
     [Title("Buttons")]
+    [Button("Drop Item", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void Drop()
+    {
+        foreach (var id in Enemy.ItemID)
+        {
+            foreach (var child in ItemDatabase.Items)
+            {
+                if (child.ID == id)
+                {
+                    float chance = child.Chance;
+                    float rndchance = Random.Range(0f, 100f);
+                    Debug.Log(
+                        $"[DEBUG] - Trying drop item \"{child.Name} - [{child.ID}]\" with chance \"{chance}\", you throw \"{rndchance}\"");
+                    if (rndchance >= 0f && rndchance <= chance)
+                    {
+                        item = Instantiate(
+                            child.Prefab,
+                            ItemSpawnPoint.transform.position,
+                            ItemSpawnPoint.transform.rotation *
+                            Quaternion.Euler(0f, 90f, 0f)
+                        ) as GameObject;
+
+                        Item Item = item.AddComponent<Item>();
+
+                        Item.Chance = child.Chance;
+                        Item.Price = child.Price;
+                        Item.Type = (Item._Type) child.Type;
+
+                        item.name = child.Name;
+                        item.transform.parent = ItemSpawnParent.transform;
+
+                        Debug.Log($"[DEBUG] - Item \"{child.Name}\" successful dropped by \"{enemy.name}\"");
+                    }
+                }
+            }
+        }
+    }
+
     [Button("Spawn Enemy", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Spawn()
     {
         int rnd = Random.Range(0, EnemyDatabase.Enemies.Count);
-        
+
         enemy = Instantiate(
             EnemyDatabase.Enemies[rnd].Prefab,
             EnemySpawnPoint.transform.position,
             EnemySpawnPoint.transform.rotation *
             Quaternion.Euler(0f, 90f, 0f)
         ) as GameObject;
-        
+
         Enemy Enemy = enemy.AddComponent<Enemy>();
-        
+
         Enemy.LVL = EnemyDatabase.Enemies[rnd].LVL;
         Enemy.BEXP = EnemyDatabase.Enemies[rnd].BEXP;
         Enemy.JEXP = EnemyDatabase.Enemies[rnd].JEXP;
@@ -62,36 +108,39 @@ public class EnemyController : MonoBehaviour
         Enemy.ATKD = EnemyDatabase.Enemies[rnd].ATKD;
         Enemy.DEF = EnemyDatabase.Enemies[rnd].DEF;
         Enemy.MOD = (Enemy._MOD) EnemyDatabase.Enemies[rnd].MOD;
-        
+        Enemy.ItemID = EnemyDatabase.Enemies[rnd].ItemID;
+
         enemy.name = EnemyDatabase.Enemies[rnd].Name;
         enemy.transform.parent = EnemySpawnParent.transform;
 
         this.Enemy = Enemy;
         HealthController.Enemy = Enemy;
-        
+
         Enemy.Status = Enemy._Status.Init;
         enemy.transform.localPosition = new Vector3(0, 0, 0);
-        
-        Enemy.transform.DORotate(new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
-        Enemy.transform.DOLocalRotate(new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
+
+        Enemy.transform.DORotate(
+            new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
+        Enemy.transform.DOLocalRotate(
+            new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
         //EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, 0f, 0f), 0.01f);
-        
+
         Debug.Log($"[DEBUG] - Spawn enemy \"{enemy.name}\".");
-        
-        if(_Live){
+
+        if (_Live)
+        {
             Debug.Log($"[DEBUG] - Position \"{EnemySpawnPoint.transform.position}\".");
-            virtualTween = DOVirtual.DelayedCall(0.1f, () =>
-            {
-                this.Live();
-            });
+            virtualTween = DOVirtual.DelayedCall(0.1f, () => { this.Live(); });
         }
     }
+
     [Button("Remove Enemy", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Remove()
     {
         Debug.Log($"[DEBUG] - Removing enemy \"{enemy.name}\".");
         DestroyImmediate(enemy.gameObject);
     }
+
     [Button("Enemy Live", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Live()
     {
@@ -296,6 +345,7 @@ public class EnemyController : MonoBehaviour
         {
             GetComponent<BoxCollider>().isTrigger = true;
         }
+
         if (_Spawn)
         {
             this.Spawn();

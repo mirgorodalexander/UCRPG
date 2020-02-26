@@ -4,39 +4,34 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class EnemyDatabase : SerializedMonoBehaviour
+public class ItemDatabase : SerializedMonoBehaviour
 {
-    [Header("Enemy Setup")]
-    [TableList] public List<EnemySetupClass> Enemies;
+    [Header("Item Setup")]
+    [TableList] public List<ItemSetupClass> Items;
 
     [Serializable]
-    public class EnemySetupClass
+    public class ItemSetupClass
     {
+        [TableColumnWidth(50, Resizable = false)]
+        public int ID;
+        
         [TableColumnWidth(50, Resizable = false)]
         [PreviewField(50, ObjectFieldAlignment.Center)]
         public GameObject Prefab;
         
-        [VerticalGroup("Preferences")]
-        public int LVL, BEXP, JEXP, HP, MP, ATK;
-        [VerticalGroup("Preferences")]
-        public float ATKD;
-        [VerticalGroup("Preferences")]
-        public int DEF;
-
         [VerticalGroup("Settings")]
         public string Name;
         
         [VerticalGroup("Settings")]
-        public _MOD MOD;
-        public enum _MOD { Neutral, Aggresive };
+        public float Chance;
         
         [VerticalGroup("Settings")]
-        public int SLID;
+        public _Type Type;
+        public enum _Type { Weapon, Armor, Accessory, Potion, Ammo, Loot };
 
-        [VerticalGroup("Loot List")]
-        [ListDrawerSettings(DraggableItems = false, Expanded = true)]
-        //public List<DroppedClass> Dropped;
-        public List<int> ItemID;
+        [VerticalGroup("Preferences")]
+        public int Amount, Price;
+
     }
 
     [Serializable]
@@ -51,9 +46,9 @@ public class EnemyDatabase : SerializedMonoBehaviour
     [Button("Print All", ButtonSizes.Large), GUIColor(1, 1, 1)]
     private void DebugPrintAll()
     {
-        foreach (var child in Enemies)
+        foreach (var child in Items)
         {
-            Debug.Log($"[DEBUG] - Name: {child.Name} Level: {child.LVL}");
+            Debug.Log($"[DEBUG] - Name: {child.Name}");
         }
     }
     
