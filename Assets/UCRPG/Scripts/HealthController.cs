@@ -25,7 +25,6 @@ public class HealthController : MonoBehaviour
     public GameObject EnemyAttackedLight;
     public GameObject EnemyAttackedParticles;
     public GameObject PlayerAttackedParticles;
-    public GameObject WeaponAttackParticles;
     public GameObject PlayerDamagePopupPrefab;
     public GameObject EnemyDamagePopupPrefab;
     public GameObject DamagePopupCanvas;
@@ -89,7 +88,6 @@ public class HealthController : MonoBehaviour
 
         DamagePopup(damage, EnemyDamagePopupPrefab);
         
-        WeaponAttackParticles.SetActive(true);
         EnemyAttackedParticles.SetActive(true);
 
         EnemyAttackedLight.SetActive(true);
@@ -117,7 +115,6 @@ public class HealthController : MonoBehaviour
         });
         DOVirtual.DelayedCall(0.2f, () =>
         {
-            WeaponAttackParticles.SetActive(false);
             EnemyAttackedParticles.SetActive(false);
         });
     }
@@ -140,7 +137,6 @@ public class HealthController : MonoBehaviour
     void Start()
     {
         EnemyAttackedLight.SetActive(false);
-        WeaponAttackParticles.SetActive(false);
         EnemyAttackedParticles.SetActive(false);
         PlayerAttackedParticles.SetActive(false);
         EnemyDeathParticles.SetActive(false);
