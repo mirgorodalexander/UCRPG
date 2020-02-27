@@ -98,12 +98,9 @@ MonoBehaviour:
   EnemyDatabase: {fileID: 7659881289415179144}
   EnemySpawnParent: {fileID: 0}
   EnemySpawnPoint: {fileID: 0}
-  ItemWrapper: {fileID: 0}
-  ItemDatabase: {fileID: 3414366689277110001}
-  ItemSpawnParent: {fileID: 0}
-  ItemSpawnPoint: {fileID: 0}
   LocationController: {fileID: 3874880924033241922}
   HealthController: {fileID: 287899903}
+  ItemController: {fileID: 2945537047249253597}
   AnimatorProvider: {fileID: 0}
   CompleteMoveInSeconds: 3
   IsTrigger: 0
@@ -205,9 +202,63 @@ Transform:
   - {fileID: 1847205541013682924}
   - {fileID: 1102095132}
   - {fileID: 7081846405767315820}
+  - {fileID: 8361072696982026438}
   m_Father: {fileID: 22519331772352798}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1067523399730056777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8361072696982026438}
+  - component: {fileID: 2945537047249253597}
+  m_Layer: 0
+  m_Name: Item Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8361072696982026438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067523399730056777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8689763457821985943}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2945537047249253597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067523399730056777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f517ce155948a448aa89db419f2ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemWrapper: {fileID: 0}
+  ItemDatabase: {fileID: 3414366689277110001}
+  ItemSpawnParent: {fileID: 0}
+  Points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Items: []
+  Enemy: {fileID: 0}
 --- !u!1 &1721965233329326336
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +290,7 @@ Transform:
   - {fileID: 8158885085446884920}
   - {fileID: 3915399753362941097}
   m_Father: {fileID: 22519331772352798}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3438877728793334904
 GameObject:
@@ -368,7 +419,7 @@ MonoBehaviour:
       type: 3}
     Name: Fluff
     Chance: 20
-    Type: 0
+    Type: 5
     Amount: 1
     Price: 200
 --- !u!1 &5568134727502789316
@@ -443,6 +494,7 @@ Transform:
   m_LocalPosition: {x: -0.7570593, y: 1.3434324, z: 1.5448194}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2422095455621216716}
   - {fileID: 6651053121564575577}
   - {fileID: 8689763457821985943}
   m_Father: {fileID: 0}
@@ -616,6 +668,36 @@ MonoBehaviour:
     - Assembly-CSharp-firstpass
     showAdvancedSettings: 1
   autoSaves: []
+--- !u!1 &7034423603985923807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2422095455621216716}
+  m_Layer: 0
+  m_Name: Scene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2422095455621216716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7034423603985923807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22519331772352798}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7722912718601171221
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +765,8 @@ MonoBehaviour:
     MOD: 0
     SLID: 0
     ItemID: 0100000002000000
-  - Prefab: {fileID: 714419232728918326, guid: 7b753e0c363185f44b241722089c7b59, type: 3}
+  - Prefab: {fileID: 6806717933766679724, guid: 7b753e0c363185f44b241722089c7b59,
+      type: 3}
     LVL: 14
     BEXP: 81
     JEXP: 44

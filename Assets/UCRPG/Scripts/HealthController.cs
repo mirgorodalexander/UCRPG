@@ -9,8 +9,9 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
     [Title("Controllers")]
-    public EnemyController EnemyController;
     public PlayerController PlayerController;
+    public EnemyController EnemyController;
+    public ItemController ItemController;
     
     [Title("Configurations")]
     public Player Player;
@@ -75,10 +76,15 @@ public class HealthController : MonoBehaviour
                 enemyHealthDefault = 0;
                 DOVirtual.DelayedCall(0.3f, () =>
                 {  
+                    Enemy.gameObject.SetActive(false);
                     PlayerController.GainEXP(Enemy.BEXP);
-                    EnemyController.Die();
                     EnemyDeathParticles.SetActive(true);
-                    DOVirtual.DelayedCall(2f, () => { EnemyDeathParticles.SetActive(false); });
+                    DOVirtual.DelayedCall(0f, () =>
+                    {
+                        EnemyDeathParticles.SetActive(false);
+                        ItemController.Drop();
+                        EnemyController.Die();
+                    });
                 });
             }
         }

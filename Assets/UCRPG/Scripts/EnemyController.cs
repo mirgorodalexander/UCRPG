@@ -17,15 +17,11 @@ public class EnemyController : MonoBehaviour
     public EnemyDatabase EnemyDatabase;
     public GameObject EnemySpawnParent;
     public Transform EnemySpawnPoint;
-    public GameObject ItemWrapper;
-    public ItemDatabase ItemDatabase;
-    public GameObject ItemSpawnParent;
-    public Transform ItemSpawnPoint;
 
     [Title("Controllers")]
     public LocationController LocationController;
-
     public HealthController HealthController;
+    public ItemController ItemController;
     public AnimatorProvider AnimatorProvider;
 
     public float CompleteMoveInSeconds;
@@ -47,44 +43,6 @@ public class EnemyController : MonoBehaviour
     public Enemy Enemy;
 
     [Title("Buttons")]
-    [Button("Drop Item", ButtonSizes.Large), GUIColor(1, 1, 1)]
-    public void Drop()
-    {
-        foreach (var id in Enemy.ItemID)
-        {
-            foreach (var child in ItemDatabase.Items)
-            {
-                if (child.ID == id)
-                {
-                    float chance = child.Chance;
-                    float rndchance = Random.Range(0f, 100f);
-                    Debug.Log(
-                        $"[DEBUG] - Trying drop item \"{child.Name} - [{child.ID}]\" with chance \"{chance}\", you throw \"{rndchance}\"");
-                    if (rndchance >= 0f && rndchance <= chance)
-                    {
-                        item = Instantiate(
-                            child.Prefab,
-                            ItemSpawnPoint.transform.position,
-                            ItemSpawnPoint.transform.rotation *
-                            Quaternion.Euler(0f, 90f, 0f)
-                        ) as GameObject;
-
-                        Item Item = item.AddComponent<Item>();
-
-                        Item.Chance = child.Chance;
-                        Item.Price = child.Price;
-                        Item.Type = (Item._Type) child.Type;
-
-                        item.name = child.Name;
-                        item.transform.parent = ItemSpawnParent.transform;
-
-                        Debug.Log($"[DEBUG] - Item \"{child.Name}\" successful dropped by \"{enemy.name}\"");
-                    }
-                }
-            }
-        }
-    }
-
     [Button("Spawn Enemy", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Spawn()
     {
@@ -115,6 +73,7 @@ public class EnemyController : MonoBehaviour
 
         this.Enemy = Enemy;
         HealthController.Enemy = Enemy;
+        ItemController.Enemy = Enemy;
 
         Enemy.Status = Enemy._Status.Init;
         enemy.transform.localPosition = new Vector3(0, 0, 0);
@@ -145,7 +104,7 @@ public class EnemyController : MonoBehaviour
     public void Live()
     {
         Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" begin live.");
-        LocationController.Move();
+        //LocationController.Move();
         virtualTween = DOVirtual.DelayedCall(LocationController.MovementSpeed, () => { this.WalkIn(); });
     }
 
