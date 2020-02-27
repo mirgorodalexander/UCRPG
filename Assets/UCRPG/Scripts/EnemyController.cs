@@ -229,6 +229,19 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    [Button("Stop Attack", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void StopAttack()
+    {
+        Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" stops attack.");
+        Enemy.Status = Enemy._Status.Dying;
+        AnimatorProvider.AttackAnimationEnd();
+        AnimatorProvider.JumpAnimationEnd();
+        virtualTween.Kill();
+        tween.Kill();
+        EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 0);
+
+    }
+
     [Title("Attack Event")]
     public List<GameObject> EnableOnAttackBegin;
 

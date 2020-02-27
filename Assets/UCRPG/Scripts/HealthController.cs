@@ -10,19 +10,25 @@ public class HealthController : MonoBehaviour
 {
     [Title("Controllers")]
     public PlayerController PlayerController;
+
     public EnemyController EnemyController;
     public ItemController ItemController;
-    
+
     [Title("Configurations")]
     public Player Player;
+
     public Enemy Enemy;
-    
+    private int FlashNumsCount;
+    public int FlashNums;
+
     [Title("Sliders")]
     public Slider PlayerHealth;
+
     public Slider EnemyHealth;
-    
+
     [Title("FX")]
     public GameObject EnemyDeathParticles;
+
     public GameObject EnemyAttackedLight;
     public GameObject EnemyAttackedParticles;
     public GameObject PlayerAttackedParticles;
@@ -30,11 +36,12 @@ public class HealthController : MonoBehaviour
     public GameObject EnemyDamagePopupPrefab;
     public GameObject DamagePopupCanvas;
     public DOTweenAnimation CameraPunchEffect;
-    
+
     [Title("Debug")]
     public int playerHealthDefault;
+
     public int enemyHealthDefault;
-    
+
     [Title("Buttons")]
     [Button("Player Damage", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void PlayerDamage(int damage)
@@ -50,19 +57,49 @@ public class HealthController : MonoBehaviour
         }
 
         PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
-        PlayerHealth.gameObject.transform.Find("Value").GetComponent<Text>().text = $"{Player.HP} / {playerHealthDefault}";
-        
+        PlayerHealth.gameObject.transform.Find("Value").GetComponent<Text>().text =
+            $"{Player.HP} / {playerHealthDefault}";
+
         DamagePopup(damage, PlayerDamagePopupPrefab);
 
         CameraPunchEffect.DORestart();
-        
+
         PlayerAttackedParticles.SetActive(true);
 
-        DOVirtual.DelayedCall(0.2f, () =>
+        DOVirtual.DelayedCall(0.2f, () => { PlayerAttackedParticles.SetActive(false); });
+    }
+
+    private void EnemyDyingAnimation()
+    {
+        EnemyAttackedLight.SetActive(true);
+        DOVirtual.DelayedCall(0.06f, () =>
         {
-            PlayerAttackedParticles.SetActive(false);
+            EnemyAttackedLight.SetActive(false);
+            DOVirtual.DelayedCall(0.06f, () =>
+            {
+                //Enemy.gameObject.transform.DOPunchPosition(new Vector3(0f, 0.05f, 0.05f), 0.3f, 10)
+                //    .SetEase(Ease.OutQuad);
+                if (FlashNumsCount < FlashNums)
+                {
+                    EnemyDyingAnimation();
+                    FlashNumsCount++;
+                }
+                else
+                {
+                    FlashNumsCount = 0;
+                    Enemy.gameObject.SetActive(false);
+                    PlayerController.GainEXP(Enemy.BEXP);
+                    EnemyAttackedLight.SetActive(false);
+                    EnemyDeathParticles.SetActive(true);
+
+                    ItemController.Drop();
+                    EnemyController.Die();
+                    DOVirtual.DelayedCall(2f, () => { EnemyDeathParticles.SetActive(false); });
+                }
+            });
         });
     }
+
     [Button("Enemy Damage", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void EnemyDamage(int damage)
     {
@@ -74,26 +111,16 @@ public class HealthController : MonoBehaviour
             {
                 Enemy.HP = 0;
                 enemyHealthDefault = 0;
-                DOVirtual.DelayedCall(0.3f, () =>
-                {  
-                    Enemy.gameObject.SetActive(false);
-                    PlayerController.GainEXP(Enemy.BEXP);
-                    EnemyDeathParticles.SetActive(true);
-                    DOVirtual.DelayedCall(0f, () =>
-                    {
-                        EnemyDeathParticles.SetActive(false);
-                        ItemController.Drop();
-                        EnemyController.Die();
-                    });
-                });
+                EnemyController.StopAttack();
+                EnemyDyingAnimation();
             }
         }
-        
-        EnemyHealth.value = (1f/ enemyHealthDefault) * Enemy.HP;
+
+        EnemyHealth.value = (1f / enemyHealthDefault) * Enemy.HP;
         EnemyHealth.gameObject.transform.Find("Value").GetComponent<Text>().text = $"{Enemy.HP} / {enemyHealthDefault}";
 
         DamagePopup(damage, EnemyDamagePopupPrefab);
-        
+
         EnemyAttackedParticles.SetActive(true);
 
         EnemyAttackedLight.SetActive(true);
@@ -103,7 +130,8 @@ public class HealthController : MonoBehaviour
             EnemyAttackedLight.SetActive(false);
             DOVirtual.DelayedCall(0.06f, () =>
             {
-                Enemy.gameObject.transform.DOPunchPosition(new Vector3(0f, 0.05f, 0.05f), 0.3f, 10).SetEase(Ease.OutQuad);
+                Enemy.gameObject.transform.DOPunchPosition(new Vector3(0f, 0.05f, 0.05f), 0.3f, 10)
+                    .SetEase(Ease.OutQuad);
                 EnemyAttackedLight.SetActive(true);
                 DOVirtual.DelayedCall(0.06f, () =>
                 {
@@ -111,27 +139,22 @@ public class HealthController : MonoBehaviour
                     DOVirtual.DelayedCall(0.06f, () =>
                     {
                         EnemyAttackedLight.SetActive(true);
-                        DOVirtual.DelayedCall(0.06f, () =>
-                        {
-                            EnemyAttackedLight.SetActive(false);
-                        });
+                        DOVirtual.DelayedCall(0.06f, () => { EnemyAttackedLight.SetActive(false); });
                     });
                 });
             });
         });
-        DOVirtual.DelayedCall(0.2f, () =>
-        {
-            EnemyAttackedParticles.SetActive(false);
-        });
+        DOVirtual.DelayedCall(0.2f, () => { EnemyAttackedParticles.SetActive(false); });
     }
+
     [Button("Damage Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void DamagePopup(int damage, GameObject prefab)
     {
-        if(prefab == null)
+        if (prefab == null)
         {
             prefab = EnemyDamagePopupPrefab;
         }
-        
+
         GameObject Damage =
             Instantiate(prefab, DamagePopupCanvas.transform.position, Quaternion.identity) as GameObject;
         Damage.transform.SetParent(DamagePopupCanvas.transform);
@@ -139,24 +162,30 @@ public class HealthController : MonoBehaviour
         Damage.name = $"Damage - {damage}";
         DOVirtual.DelayedCall(1f, () => { DestroyImmediate(Damage.gameObject); });
     }
-    
+
     void Start()
     {
         EnemyAttackedLight.SetActive(false);
         EnemyAttackedParticles.SetActive(false);
         PlayerAttackedParticles.SetActive(false);
         EnemyDeathParticles.SetActive(false);
+        FlashNumsCount = 0;
     }
 
     void Update()
     {
-        if(Player != null && playerHealthDefault == 0){
+        if (Player != null && playerHealthDefault == 0)
+        {
             playerHealthDefault = Player.HP;
-            PlayerHealth.gameObject.transform.Find("Value").GetComponent<Text>().text = $"{Player.HP} / {playerHealthDefault}";
+            PlayerHealth.gameObject.transform.Find("Value").GetComponent<Text>().text =
+                $"{Player.HP} / {playerHealthDefault}";
         }
-        if(Enemy != null && enemyHealthDefault == 0){
+
+        if (Enemy != null && enemyHealthDefault == 0)
+        {
             enemyHealthDefault = Enemy.HP;
-            EnemyHealth.gameObject.transform.Find("Value").GetComponent<Text>().text = $"{Enemy.HP} / {enemyHealthDefault}";
+            EnemyHealth.gameObject.transform.Find("Value").GetComponent<Text>().text =
+                $"{Enemy.HP} / {enemyHealthDefault}";
         }
     }
 }

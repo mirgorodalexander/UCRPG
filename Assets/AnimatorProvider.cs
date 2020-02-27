@@ -33,6 +33,7 @@ public class AnimatorProvider : MonoBehaviour
 
     public void AttackAnimationEnd()
     {
+        tweenVirtual.Kill();
         this.GetComponent<Animator>().SetInteger("Motion", 0);
         if (EnemyController.Enemy != null)
         {
