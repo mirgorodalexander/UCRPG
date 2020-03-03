@@ -132,6 +132,7 @@ public class EnemyController : MonoBehaviour
                 },
                 CompleteMoveInSeconds,
                 PathType.Linear)
+            //.SetLookAt(Points[1].position, Vector3.back, Vector3.back)
             .SetDelay(0)
             .SetEase(Ease.Linear)
             .SetOptions(false)
