@@ -15,12 +15,12 @@ public class AnimatorProvider : MonoBehaviour
 
     private Tween tweenVirtual;
 
-    public void AttackAnimationStart()
+    public void AnimationAttackBegin()
     {
         this.GetComponent<Animator>().SetInteger("Motion", 2);
     }
 
-    public void AttackAnimationComplete()
+    public void AnimationAttackPlayer()
     {
         HealthController.PlayerDamage(EnemyController.Enemy.ATK);
     }
@@ -31,7 +31,7 @@ public class AnimatorProvider : MonoBehaviour
         this.GetComponent<Animator>().SetInteger("Motion", 0);
     }
 
-    public void AttackAnimationEnd()
+    public void AnimationAttackEnd()
     {
         tweenVirtual.Kill();
         this.GetComponent<Animator>().SetInteger("Motion", 0);

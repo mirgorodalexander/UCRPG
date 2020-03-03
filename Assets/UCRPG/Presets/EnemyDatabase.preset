@@ -44,8 +44,7 @@ Preset:
   - target: {fileID: 0}
     propertyPath: serializationData.Prefab
     value: 
-    objectReference: {fileID: 7659881289415179144, guid: 4ab827b5164686346b31528a6bbc137d,
-      type: 3}
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
     value: 0
@@ -60,7 +59,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.size
-    value: 3
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].Prefab
@@ -73,35 +72,35 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].BEXP
-    value: 27
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].JEXP
-    value: 20
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].HP
-    value: 50
+    value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].MP
-    value: 30
+    value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].ATK
-    value: 8
+    value: 7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].ATKD
-    value: 1.87
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].DEF
-    value: 10
+    value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].Name
-    value: Poring
+    value: Poppy
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].MOD
@@ -113,48 +112,40 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[0].ItemID.Array.size
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Enemies.Array.data[0].ItemID.Array.data[0]
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Enemies.Array.data[0].ItemID.Array.data[1]
-    value: 2
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].Prefab
     value: 
-    objectReference: {fileID: 6806717933766679724, guid: 7b753e0c363185f44b241722089c7b59,
+    objectReference: {fileID: 4169343324720926272, guid: eb9cb8f33240be048be7edd073a97198,
       type: 3}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].LVL
-    value: 14
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].BEXP
-    value: 81
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].JEXP
-    value: 44
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].HP
-    value: 50
+    value: 40
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].MP
-    value: 60
+    value: 29
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].ATK
-    value: 20
+    value: 13
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].ATKD
-    value: 1.67
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].DEF
@@ -162,7 +153,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].Name
-    value: Poporing
+    value: Droppy
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].MOD
@@ -174,15 +165,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[1].ItemID.Array.size
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Enemies.Array.data[1].ItemID.Array.data[0]
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Enemies.Array.data[1].ItemID.Array.data[1]
-    value: 2
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[2].Prefab
@@ -215,7 +198,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[2].ATKD
-    value: 1.67
+    value: 1.87
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[2].DEF
@@ -243,5 +226,66 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Enemies.Array.data[2].ItemID.Array.data[1]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].Prefab
+    value: 
+    objectReference: {fileID: 1246708330645655, guid: 82a585f1486bb814b9f3d4a3e626d03c,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].LVL
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].BEXP
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].JEXP
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].HP
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].MP
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].ATK
+    value: 7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].ATKD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].DEF
+    value: 9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].Name
+    value: "\u0421hrysalis"
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].SLID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].ItemID.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].ItemID.Array.data[0]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Enemies.Array.data[3].ItemID.Array.data[1]
     value: 2
     objectReference: {fileID: 0}

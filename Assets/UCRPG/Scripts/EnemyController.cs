@@ -51,8 +51,7 @@ public class EnemyController : MonoBehaviour
         enemy = Instantiate(
             EnemyDatabase.Enemies[rnd].Prefab,
             EnemySpawnPoint.transform.position,
-            EnemySpawnPoint.transform.rotation *
-            Quaternion.Euler(0f, 90f, 0f)
+            EnemyDatabase.Enemies[rnd].Prefab.transform.rotation
         ) as GameObject;
 
         Enemy Enemy = enemy.AddComponent<Enemy>();
@@ -67,6 +66,7 @@ public class EnemyController : MonoBehaviour
         Enemy.DEF = EnemyDatabase.Enemies[rnd].DEF;
         Enemy.MOD = (Enemy._MOD) EnemyDatabase.Enemies[rnd].MOD;
         Enemy.ItemID = EnemyDatabase.Enemies[rnd].ItemID;
+        
 
         enemy.name = EnemyDatabase.Enemies[rnd].Name;
         enemy.transform.parent = EnemySpawnParent.transform;
@@ -94,7 +94,7 @@ public class EnemyController : MonoBehaviour
         if (_Live)
         {
             Debug.Log($"[DEBUG] - Position \"{EnemySpawnPoint.transform.position}\".");
-            virtualTween = DOVirtual.DelayedCall(0.1f, () => { this.Live(); });
+            virtualTween = DOVirtual.DelayedCall(0f, () => { this.Live(); });
         }
     }
 
@@ -113,7 +113,7 @@ public class EnemyController : MonoBehaviour
         }
         Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" begin live.");
         //LocationController.Move();
-        virtualTween = DOVirtual.DelayedCall(LocationController.MovementSpeed, () => { this.WalkIn(); });
+        virtualTween = DOVirtual.DelayedCall(0f, () => { this.WalkIn(); });
     }
 
     [Button("Walk In", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -132,7 +132,7 @@ public class EnemyController : MonoBehaviour
                 },
                 CompleteMoveInSeconds,
                 PathType.Linear)
-            .SetDelay(1)
+            .SetDelay(0)
             .SetEase(Ease.Linear)
             .SetOptions(false)
             .OnWaypointChange((int point) => { })
@@ -273,7 +273,7 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" stops attack.");
         Enemy.Status = Enemy._Status.Dying;
-        AnimatorProvider.AttackAnimationEnd();
+        AnimatorProvider.AnimationAttackEnd();
         AnimatorProvider.JumpAnimationEnd();
         virtualTween.Kill();
         tween.Kill();
@@ -314,7 +314,7 @@ public class EnemyController : MonoBehaviour
         EnemyWrapper.transform.localPosition = enemyWrapperDefaultPosition;
         EnemyWrapper.transform.localRotation = Quaternion.Euler(enemyWrapperDefaultRotation);
 
-        virtualTween = DOVirtual.DelayedCall(0.1f, () => { this.Spawn(); });
+        virtualTween = DOVirtual.DelayedCall(0f, () => { this.Spawn(); });
     }
 
     [Button("Wait Time", ButtonSizes.Large), GUIColor(1, 1, 1)]
