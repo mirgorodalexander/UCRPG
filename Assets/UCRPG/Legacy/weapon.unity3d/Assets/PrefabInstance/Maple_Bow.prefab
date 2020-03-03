@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1293692031797679}
+  m_IsPrefabParent: 1
+--- !u!1 &1293692031797679
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4493512401870211}
+  - component: {fileID: 33715983525998644}
+  - component: {fileID: 23951652443456911}
+  m_Layer: 0
+  m_Name: Maple_Bow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4493512401870211
+Transform:
+  m_GameObject: {fileID: 1293692031797679}
+  m_LocalRotation: {x: -2.18557E-08, y: 4.371139E-08, z: -4.371139E-08, w: 1}
+  m_LocalPosition: {x: -3.501085E-09, y: -0.004066476, z: 1.777513E-10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.504479E-06, y: -5.008956E-06, z: 5.008956E-06}
+--- !u!33 &33715983525998644
+MeshFilter:
+  m_GameObject: {fileID: 1293692031797679}
+  m_Mesh: {fileID: 4300000, guid: 60effcbb0c8c0194caa7093506d9a79b, type: 2}
+--- !u!23 &23951652443456911
+MeshRenderer:
+  m_GameObject: {fileID: 1293692031797679}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 3ffc94180212bfc46a00242fa04aaf38, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

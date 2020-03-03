@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1572918352527284}
+  m_IsPrefabParent: 1
+--- !u!1 &1572918352527284
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4813553504391903}
+  - component: {fileID: 95144835777071603}
+  m_Layer: 0
+  m_Name: Holy_Mace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4813553504391903
+Transform:
+  m_GameObject: {fileID: 1572918352527284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4376697395244905}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95144835777071603
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1572918352527284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: bc33f2b50ceafa84da6536e849a31a90, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 0
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1727384171893318
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4376697395244905}
+  - component: {fileID: 137358672672997662}
+  m_Layer: 0
+  m_Name: Holy_Mace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4376697395244905
+Transform:
+  m_GameObject: {fileID: 1727384171893318}
+  m_LocalRotation: {x: 3.94776E-07, y: -3.94776E-07, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4813553504391903}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 6.397618E-05, y: 0, z: 90}
+--- !u!137 &137358672672997662
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1727384171893318}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: bc18b77a3c9faea4c929d38c488ffdce, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 3407d9f043a67934f8dd1fe0e9dd1c33, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: -0.2949137, y: -0.006580725, z: -0.0138713}
+    m_Extent: {x: 0.6188142, y: 0.1411889, z: 0.1590263}
+  m_DirtyAABB: 0

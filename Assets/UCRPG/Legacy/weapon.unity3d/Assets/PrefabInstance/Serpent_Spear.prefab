@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1470387785439253}
+  m_IsPrefabParent: 1
+--- !u!1 &1470387785439253
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4787790166257801}
+  m_Layer: 0
+  m_Name: Serpent_Spear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4787790166257801
+Transform:
+  m_GameObject: {fileID: 1470387785439253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4239523171438891}
+  - {fileID: 4876964106970036}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1725931774242214
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4239523171438891}
+  m_Layer: 0
+  m_Name: ECP_28
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4239523171438891
+Transform:
+  m_GameObject: {fileID: 1725931774242214}
+  m_LocalRotation: {x: 2.185569E-08, y: 5.960464E-08, z: -1.302701E-15, w: 1}
+  m_LocalPosition: {x: 7.12277E-09, y: 0.6645519, z: -0.0003190204}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4787790166257801}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.504478E-06, y: -6.830189E-06, z: 0}
+--- !u!1 &1468346560590343
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4876964106970036}
+  - component: {fileID: 33922500021602220}
+  - component: {fileID: 23430338986006221}
+  m_Layer: 0
+  m_Name: Serpent_Spear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4876964106970036
+Transform:
+  m_GameObject: {fileID: 1468346560590343}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0.0001353957, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4787790166257801}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
+--- !u!33 &33922500021602220
+MeshFilter:
+  m_GameObject: {fileID: 1468346560590343}
+  m_Mesh: {fileID: 4300000, guid: 48d03c2029d812346ba2e03a1c8dc89a, type: 2}
+--- !u!23 &23430338986006221
+MeshRenderer:
+  m_GameObject: {fileID: 1468346560590343}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 90392b5c65fc22142a1722e4d010d56f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
