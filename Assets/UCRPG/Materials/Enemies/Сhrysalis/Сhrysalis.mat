@@ -3,8 +3,12 @@
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
-  m_Name: pupa
-  m_Shader: {fileID: 4800000, guid: 0000000deadbeef15deadf00d0000000, type: 3}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "\u0421hrysalis"
+  m_Shader: {fileID: 4800000, guid: ccfc7d68845db8341944b3091b59be55, type: 3}
   m_ShaderKeywords: _ToonLight_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -15,12 +19,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 68842968809e1c84aae2e1f6cda29c27, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatcapMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 2800000, guid: abc83c21d57d4a74cabe12065fa1a8b2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -42,6 +54,8 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineWidth: 0.013
     - _Parallax: 0.02
+    - _RampSmooth: 0.1
+    - _RampThreshold: 0.5
     - _SatValue: 1
     - _ShiftOffset: 0.3
     - _SrcBlend: 1
@@ -52,8 +66,9 @@ Material:
     m_Colors:
     - _BodySpecColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _ChangeColor: {r: 1, g: 1, b: 1, a: 0}
-    - _Color: {r: 0.588, g: 0.588, b: 0.588, a: 1}
+    - _Color: {r: 0.8666667, g: 0.8666667, b: 0.8666667, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
     - _HairBlack1: {r: 0.68, g: 0.65, b: 0.55, a: 0}
     - _LightColor1: {r: 1, g: 1, b: 1, a: 1}
     - _LightColor2: {r: 1, g: 1, b: 1, a: 1}
@@ -64,6 +79,7 @@ Material:
     - _MaskColor: {r: 1, g: 1, b: 1, a: 0}
     - _OutlineColor: {r: 0.188235, g: 0.121569, b: 0.121569, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SColor: {r: 0.195, g: 0.195, b: 0.195, a: 1}
     - _SkinColor_Add: {r: 0.25, g: 0.15, b: 0.15, a: 0}
     - _SkinColor_Multiply: {r: 0.3, g: 0.08, b: 0.08, a: 0}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
