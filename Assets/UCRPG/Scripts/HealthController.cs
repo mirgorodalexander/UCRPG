@@ -126,12 +126,10 @@ public class HealthController : MonoBehaviour
         EnemyAttackedLight.SetActive(true);
         DOVirtual.DelayedCall(0.06f, () =>
         {
-            Enemy.gameObject.transform.DOPunchPosition(new Vector3(0f, 0.05f, 0.05f), 0.3f, 10).SetEase(Ease.OutQuad);
+            Enemy.gameObject.transform.DOPunchPosition(new Vector3(0f, 0.05f, 0.05f), 0.6f, 20, 0f).SetEase(Ease.OutQuad);
             EnemyAttackedLight.SetActive(false);
             DOVirtual.DelayedCall(0.06f, () =>
             {
-                Enemy.gameObject.transform.DOPunchPosition(new Vector3(0f, 0.05f, 0.05f), 0.3f, 10)
-                    .SetEase(Ease.OutQuad);
                 EnemyAttackedLight.SetActive(true);
                 DOVirtual.DelayedCall(0.06f, () =>
                 {

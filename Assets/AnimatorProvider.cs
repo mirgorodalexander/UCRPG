@@ -65,7 +65,16 @@ public class AnimatorProvider : MonoBehaviour
 
     public void DOTogglePause()
     {
+        //Debug.Log("[DEBUG] - Tween paused.");
         this.transform.DOTogglePause();
+        this.transform.parent.transform.parent.transform.DOTogglePause();
+    }
+
+    void Start()
+    {
+        HealthController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().HealthController;
+        PlayerController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().PlayerController;
+        EnemyController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().EnemyController;
     }
 
     void Update()

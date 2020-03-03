@@ -252,12 +252,17 @@ MonoBehaviour:
   ItemWrapper: {fileID: 0}
   ItemDatabase: {fileID: 3414366689277110001}
   ItemSpawnParent: {fileID: 0}
+  ItemSpawnPoint: {fileID: 0}
+  JumpPower: 0
+  JumpDuration: 0
   Points:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  ItemsDroppedParticles: {fileID: 0}
   Items: []
+  Player: {fileID: 0}
   Enemy: {fileID: 0}
 --- !u!1 &1721965233329326336
 GameObject:
@@ -335,10 +340,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d0af0571bdabf45a305abac4ed87cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyController: {fileID: 506032668}
   PlayerController: {fileID: 395909322}
+  EnemyController: {fileID: 506032668}
+  ItemController: {fileID: 0}
   Player: {fileID: 0}
   Enemy: {fileID: 0}
+  FlashNums: 0
   PlayerHealth: {fileID: 0}
   EnemyHealth: {fileID: 0}
   EnemyDeathParticles: {fileID: 0}
