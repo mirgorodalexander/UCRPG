@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     [Title("Preferences")]
     public _MOD MOD;
     public enum _MOD { Neutral, Aggresive };
+    public _MOVE MOVE;
+    public enum _MOVE { Walking, Flying, Static };
 
     [Title("Status")]
     public _Status Status;

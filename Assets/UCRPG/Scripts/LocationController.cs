@@ -8,6 +8,12 @@ public class LocationController : MonoBehaviour
 {
     [Title("Configurations")]
     public float MovementSpeed;
+    
+    [Title("Controllers")]
+    public WeaponController WeaponController;
+    public PlayerController PlayerController;
+    public EnemyController EnemyController;
+    public ItemController ItemController;
 
     public GameObject Ground;
 
@@ -45,9 +51,11 @@ public class LocationController : MonoBehaviour
             {
                 Ground.SetActive(true);
                 this.Remove();
+                
+                Debug.Log($"[DEBUG] - Player move end.");
+                EnemyController.PlayerReady();
             });
 
-        Debug.Log($"[DEBUG] - Player move end.");
     }
 
     [Button("Remove", ButtonSizes.Large), GUIColor(1, 1, 1)]

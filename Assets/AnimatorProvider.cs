@@ -8,10 +8,10 @@ using UnityEngine;
 public class AnimatorProvider : MonoBehaviour
 {
     [Title("Controllers")]
-    public EnemyController EnemyController;
-
-    public PlayerController PlayerController;
     public HealthController HealthController;
+    public PlayerController PlayerController;
+    public WeaponController WeaponController;
+    public EnemyController EnemyController;
 
     private Tween tweenVirtual;
 
@@ -23,6 +23,16 @@ public class AnimatorProvider : MonoBehaviour
     public void AnimationAttackPlayer()
     {
         HealthController.PlayerDamage(EnemyController.Enemy.ATK);
+    }
+    
+    public void AnimationAttackEnemy()
+    {
+        HealthController.EnemyDamage(PlayerController.Player.ATK);
+    }
+    public void AnimationAttackEnemyEnd()
+    {
+        WeaponController.AttackLock = false;
+        this.GetComponent<Animator>().SetInteger("Motion", 0);
     }
 
     public void AnimationEnd()
@@ -72,9 +82,18 @@ public class AnimatorProvider : MonoBehaviour
 
     void Start()
     {
-        HealthController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().HealthController;
-        PlayerController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().PlayerController;
-        EnemyController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().EnemyController;
+        if(HealthController == null){
+            HealthController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().HealthController;
+        }
+        if (PlayerController == null){
+            PlayerController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().PlayerController;
+        }
+        if (WeaponController == null){
+            WeaponController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().WeaponController;
+        }
+        if (EnemyController == null){
+            EnemyController = this.transform.parent.transform.parent.GetComponent<ControllerProvider>().EnemyController;
+        }
     }
 
     void Update()

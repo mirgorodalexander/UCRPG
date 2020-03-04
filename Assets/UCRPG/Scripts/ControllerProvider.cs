@@ -9,6 +9,7 @@ public class ControllerProvider : MonoBehaviour
     public LocationController LocationController;
     public HealthController HealthController;
     public PlayerController PlayerController;
+    public WeaponController WeaponController;
     public EnemyController EnemyController;
     public ItemController ItemController;
 }

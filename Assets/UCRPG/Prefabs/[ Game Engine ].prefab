@@ -99,9 +99,10 @@ MonoBehaviour:
   EnemySpawnParent: {fileID: 0}
   EnemySpawnPoint: {fileID: 0}
   LocationController: {fileID: 3874880924033241922}
+  WeaponController: {fileID: 1102095133}
   HealthController: {fileID: 287899903}
-  ItemController: {fileID: 2945537047249253597}
   AnimatorProvider: {fileID: 0}
+  ItemController: {fileID: 2945537047249253597}
   CompleteMoveInSeconds: 3
   IsTrigger: 0
   Points:
@@ -162,12 +163,14 @@ MonoBehaviour:
   HealthController: {fileID: 287899903}
   Weapon: {fileID: 0}
   WeaponWrapper: {fileID: 0}
+  WeaponAnimator: {fileID: 0}
   AttackSpeed: 0.3
   AttackPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  attackLock: 0
+  AttackLock: 0
+  Taked: 0
 --- !u!1 &46266326377853976
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,9 +256,13 @@ MonoBehaviour:
   ItemDatabase: {fileID: 3414366689277110001}
   ItemSpawnParent: {fileID: 0}
   ItemSpawnPoint: {fileID: 0}
-  JumpPower: 0
-  JumpDuration: 0
+  JumpPower: 0.5
+  JumpDuration: 0.4
   Points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -340,12 +347,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d0af0571bdabf45a305abac4ed87cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponController: {fileID: 1102095133}
   PlayerController: {fileID: 395909322}
   EnemyController: {fileID: 506032668}
-  ItemController: {fileID: 0}
+  ItemController: {fileID: 2945537047249253597}
   Player: {fileID: 0}
   Enemy: {fileID: 0}
-  FlashNums: 0
+  FlashNums: 4
   PlayerHealth: {fileID: 0}
   EnemyHealth: {fileID: 0}
   EnemyDeathParticles: {fileID: 0}
@@ -417,7 +425,7 @@ MonoBehaviour:
     Prefab: {fileID: 1867094929688976188, guid: 70d0b41962c92454a891c45517fc2e8c,
       type: 3}
     Name: Jelly
-    Chance: 50
+    Chance: 100
     Type: 5
     Amount: 1
     Price: 100
@@ -425,7 +433,7 @@ MonoBehaviour:
     Prefab: {fileID: 1867094929688976188, guid: 70d0b41962c92454a891c45517fc2e8c,
       type: 3}
     Name: Fluff
-    Chance: 20
+    Chance: 100
     Type: 5
     Amount: 1
     Price: 200
@@ -761,28 +769,54 @@ MonoBehaviour:
   - Prefab: {fileID: 4169343324720926272, guid: 2b06fa9d79f894e4baff5931e55ee69f,
       type: 3}
     LVL: 1
-    BEXP: 27
-    JEXP: 20
-    HP: 50
-    MP: 30
-    ATK: 10
+    BEXP: 1
+    JEXP: 1
+    HP: 20
+    MP: 20
+    ATK: 7
+    ATKD: 1
+    DEF: 20
+    Name: Poppy
+    MOD: 0
+    SLID: 0
+    ItemID: 
+  - Prefab: {fileID: 4169343324720926272, guid: eb9cb8f33240be048be7edd073a97198,
+      type: 3}
+    LVL: 1
+    BEXP: 2
+    JEXP: 3
+    HP: 40
+    MP: 29
+    ATK: 13
+    ATKD: 1
+    DEF: 20
+    Name: Droppy
+    MOD: 0
+    SLID: 0
+    ItemID: 
+  - Prefab: {fileID: 1429117272214014, guid: 35195304d9093de4494e5042417fb5a6, type: 3}
+    LVL: 3
+    BEXP: 36
+    JEXP: 27
+    HP: 55
+    MP: 60
+    ATK: 12
     ATKD: 1.87
-    DEF: 10
-    Name: Poring
+    DEF: 21
+    Name: Fluffy
     MOD: 0
     SLID: 0
     ItemID: 0100000002000000
-  - Prefab: {fileID: 6806717933766679724, guid: 7b753e0c363185f44b241722089c7b59,
-      type: 3}
-    LVL: 14
-    BEXP: 81
-    JEXP: 44
-    HP: 50
-    MP: 60
-    ATK: 20
-    ATKD: 1.67
-    DEF: 20
-    Name: Poporing
+  - Prefab: {fileID: 1246708330645655, guid: 82a585f1486bb814b9f3d4a3e626d03c, type: 3}
+    LVL: 2
+    BEXP: 3
+    JEXP: 4
+    HP: 20
+    MP: 6
+    ATK: 7
+    ATKD: 1
+    DEF: 9
+    Name: "\u0421hrysalis"
     MOD: 0
     SLID: 0
     ItemID: 0100000002000000

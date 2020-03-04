@@ -31,6 +31,10 @@ public class EnemyDatabase : SerializedMonoBehaviour
         public enum _MOD { Neutral, Aggresive };
         
         [VerticalGroup("Settings")]
+        public _MOVE MOVE;
+        public enum _MOVE { Walking, Flying, Static };
+        
+        [VerticalGroup("Settings")]
         public int SLID;
 
         [VerticalGroup("Loot List")]

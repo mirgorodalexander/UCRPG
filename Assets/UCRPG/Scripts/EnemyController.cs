@@ -8,8 +8,8 @@ public class EnemyController : MonoBehaviour
 {
     [Title("Run")]
     public bool _Spawn;
-
     public bool _Live;
+    public bool _Moving;
 
     [Title("Configurations")]
     public GameObject EnemyWrapper;
@@ -18,14 +18,19 @@ public class EnemyController : MonoBehaviour
     public GameObject EnemySpawnParent;
     public Transform EnemySpawnPoint;
 
-    [Title("Controllers")]
-    public LocationController LocationController;
-    public HealthController HealthController;
-    public ItemController ItemController;
-    public AnimatorProvider AnimatorProvider;
-
     public float CompleteMoveInSeconds;
     public bool IsTrigger = false;
+
+    [Title("Controllers")]
+    public LocationController LocationController;
+
+    public WeaponController WeaponController;
+    public HealthController HealthController;
+    public AnimatorProvider AnimatorProvider;
+    public ItemController ItemController;
+    
+    [Title("FX")]
+    public GameObject EnemySpawnParticles;
 
     [Title("Moving Points")]
     public Transform[] Points;
@@ -48,6 +53,17 @@ public class EnemyController : MonoBehaviour
     {
         int rnd = Random.Range(0, EnemyDatabase.Enemies.Count);
 
+        if (EnemyDatabase.Enemies[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Walking ||
+            EnemyDatabase.Enemies[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Flying)
+        {
+            EnemySpawnPoint = Points[0];
+        }
+
+        if (EnemyDatabase.Enemies[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Static)
+        {
+            EnemySpawnPoint = Points[1];
+        }
+
         enemy = Instantiate(
             EnemyDatabase.Enemies[rnd].Prefab,
             EnemySpawnPoint.transform.position,
@@ -65,8 +81,9 @@ public class EnemyController : MonoBehaviour
         Enemy.ATKD = EnemyDatabase.Enemies[rnd].ATKD;
         Enemy.DEF = EnemyDatabase.Enemies[rnd].DEF;
         Enemy.MOD = (Enemy._MOD) EnemyDatabase.Enemies[rnd].MOD;
+        Enemy.MOVE = (Enemy._MOVE) EnemyDatabase.Enemies[rnd].MOVE;
         Enemy.ItemID = EnemyDatabase.Enemies[rnd].ItemID;
-        
+
 
         enemy.name = EnemyDatabase.Enemies[rnd].Name;
         enemy.transform.parent = EnemySpawnParent.transform;
@@ -86,8 +103,9 @@ public class EnemyController : MonoBehaviour
         //EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, 0f, 0f), 0.01f);
 
         Debug.Log($"[DEBUG] - Spawn enemy \"{enemy.name}\".");
-        
-        if(Enemy.GetComponent<Animator>() != null){
+
+        if (Enemy.GetComponent<Animator>() != null)
+        {
             Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
         }
 
@@ -108,12 +126,13 @@ public class EnemyController : MonoBehaviour
     [Button("Enemy Live", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Live()
     {
-        if(Enemy.GetComponent<Animator>() != null){
+        if (Enemy.GetComponent<Animator>() != null)
+        {
             Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
         }
+
         Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" begin live.");
-        //LocationController.Move();
-        virtualTween = DOVirtual.DelayedCall(0f, () => { this.WalkIn(); });
+        virtualTween = DOVirtual.DelayedCall(0.5f, () => { this.WalkIn(); });
     }
 
     [Button("Walk In", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -141,21 +160,48 @@ public class EnemyController : MonoBehaviour
             {
                 Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk in begin.");
                 Enemy.Status = Enemy._Status.Moving;
+
+                if (Enemy.MOVE == Enemy._MOVE.Static)
+                {
+                    if (!WeaponController.Taked)
+                    {
+                        WeaponController.TakeOn();
+                    }
+
+                    DOVirtual.DelayedCall(0f, () =>
+                    {
+                        Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
+                        Enemy.Status = Enemy._Status.Waiting;
+                        tween.Complete();
+                        EnemySpawnParticles.SetActive(true);
+                        DOVirtual.DelayedCall(2f, () =>
+                        {
+                            EnemySpawnParticles.SetActive(false);
+                        });
+                    });
+                }
             })
             .OnPlay(() =>
             {
                 //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 1);
-                if(Enemy.GetComponent<Animator>() != null){
+                if (Enemy.GetComponent<Animator>() != null)
+                {
                     Enemy.GetComponent<Animator>().SetInteger("Motion", 1);
                 }
             })
             .OnComplete(() =>
             {
                 //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 0);
-                if(Enemy.GetComponent<Animator>() != null){
+                if (Enemy.GetComponent<Animator>() != null)
+                {
                     Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
                 }
-                
+
+                if (!WeaponController.Taked)
+                {
+                    WeaponController.TakeOn();
+                }
+
                 Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk in end.");
                 Enemy.Status = Enemy._Status.Waiting;
 
@@ -194,11 +240,12 @@ public class EnemyController : MonoBehaviour
         {
             EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, -180f, 0f), 1f);
             Enemy.Status = Enemy._Status.Moving;
-            
-            if(Enemy.GetComponent<Animator>() != null){
+
+            if (Enemy.GetComponent<Animator>() != null)
+            {
                 Enemy.GetComponent<Animator>().SetInteger("Motion", 1);
             }
-            
+
             tween = EnemyWrapper.transform
                 .DOPath(new[]
                     {
@@ -211,24 +258,28 @@ public class EnemyController : MonoBehaviour
                 .SetEase(Ease.Linear)
                 .SetOptions(false)
                 .OnWaypointChange((int point) => { })
-                .OnStart(() =>
-                {
-                    Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk out begin.");
-                })
+                .OnStart(() => { Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk out begin."); })
                 .OnPlay(() =>
                 {
                     //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 1);
-                    if(Enemy.GetComponent<Animator>() != null){
+                    if (Enemy.GetComponent<Animator>() != null)
+                    {
                         Enemy.GetComponent<Animator>().SetInteger("Motion", 1);
+                    }
+
+                    if (WeaponController.Taked)
+                    {
+                        WeaponController.TakeOff();
                     }
                 })
                 .OnComplete(() =>
                 {
                     EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 0);
-                    if(Enemy.GetComponent<Animator>() != null){
+                    if (Enemy.GetComponent<Animator>() != null)
+                    {
                         Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
                     }
-                    
+
                     Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk out end.");
                     EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, 0f, 0f), 0.1f).OnComplete(() =>
                     {
@@ -254,7 +305,8 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" is attack you!");
         //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 2);
-        if(Enemy.GetComponent<Animator>() != null){
+        if (Enemy.GetComponent<Animator>() != null)
+        {
             Enemy.GetComponent<Animator>().SetInteger("Motion", 2);
         }
 
@@ -279,14 +331,15 @@ public class EnemyController : MonoBehaviour
         virtualTween.Kill();
         tween.Kill();
         //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 0);
-        if(Enemy.GetComponent<Animator>() != null){
+        if (Enemy.GetComponent<Animator>() != null)
+        {
             Enemy.GetComponent<Animator>().SetInteger("Motion", 9);
         }
-
     }
 
     [Title("Attack Event")]
     public List<GameObject> EnableOnAttackBegin;
+
     public List<GameObject> EnableOnAttackEnd;
     public List<GameObject> DisableOnAttackBegin;
     public List<GameObject> DisableOnAttackEnd;
@@ -315,7 +368,7 @@ public class EnemyController : MonoBehaviour
         EnemyWrapper.transform.localPosition = enemyWrapperDefaultPosition;
         EnemyWrapper.transform.localRotation = Quaternion.Euler(enemyWrapperDefaultRotation);
 
-        virtualTween = DOVirtual.DelayedCall(0f, () => { this.Spawn(); });
+        virtualTween = DOVirtual.DelayedCall(0f, () => { LocationController.Move(); });
     }
 
     [Button("Wait Time", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -350,8 +403,19 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void PlayerReady()
+    {
+        Debug.Log($"[DEBUG] - Player is ready.");
+
+        if (_Spawn)
+        {
+            this.Spawn();
+        }
+    }
+    
     void Start()
     {
+        EnemySpawnParticles.SetActive(false);
         enemyWrapperDefaultPosition = EnemyWrapper.transform.localPosition;
         enemyWrapperDefaultRotation = EnemyWrapper.transform.localRotation.eulerAngles;
         gameObject.AddComponent<BoxCollider>();
@@ -360,9 +424,9 @@ public class EnemyController : MonoBehaviour
             GetComponent<BoxCollider>().isTrigger = true;
         }
 
-        if (_Spawn)
+        if (_Moving)
         {
-            this.Spawn();
+            LocationController.Move();
         }
     }
 

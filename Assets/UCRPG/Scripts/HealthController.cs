@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
     [Title("Controllers")]
+    public WeaponController WeaponController;
     public PlayerController PlayerController;
-
     public EnemyController EnemyController;
     public ItemController ItemController;
 
@@ -91,7 +91,9 @@ public class HealthController : MonoBehaviour
                     PlayerController.GainEXP(Enemy.BEXP);
                     EnemyAttackedLight.SetActive(false);
                     EnemyDeathParticles.SetActive(true);
-
+                    
+                    PlayerController.Player.Status = Player._Status.Waiting;
+                    
                     ItemController.Drop();
                     EnemyController.Die();
                     DOVirtual.DelayedCall(2f, () => { EnemyDeathParticles.SetActive(false); });
@@ -113,6 +115,7 @@ public class HealthController : MonoBehaviour
                 enemyHealthDefault = 0;
                 EnemyController.StopAttack();
                 EnemyDyingAnimation();
+                DOVirtual.DelayedCall(0.3f, () => { WeaponController.TakeOff(); });
             }
         }
 
