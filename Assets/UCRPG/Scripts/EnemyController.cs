@@ -72,6 +72,7 @@ public class EnemyController : MonoBehaviour
 
         Enemy Enemy = enemy.AddComponent<Enemy>();
 
+        Enemy.ID = EnemyDatabase.Enemies[rnd].ID;
         Enemy.LVL = EnemyDatabase.Enemies[rnd].LVL;
         Enemy.BEXP = EnemyDatabase.Enemies[rnd].BEXP;
         Enemy.JEXP = EnemyDatabase.Enemies[rnd].JEXP;
@@ -339,7 +340,6 @@ public class EnemyController : MonoBehaviour
 
     [Title("Attack Event")]
     public List<GameObject> EnableOnAttackBegin;
-
     public List<GameObject> EnableOnAttackEnd;
     public List<GameObject> DisableOnAttackBegin;
     public List<GameObject> DisableOnAttackEnd;
@@ -368,7 +368,7 @@ public class EnemyController : MonoBehaviour
         EnemyWrapper.transform.localPosition = enemyWrapperDefaultPosition;
         EnemyWrapper.transform.localRotation = Quaternion.Euler(enemyWrapperDefaultRotation);
 
-        virtualTween = DOVirtual.DelayedCall(0f, () => { LocationController.Move(); });
+        virtualTween = DOVirtual.DelayedCall(1f, () => { LocationController.Move(); });
     }
 
     [Button("Wait Time", ButtonSizes.Large), GUIColor(1, 1, 1)]

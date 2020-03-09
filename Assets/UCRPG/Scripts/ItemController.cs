@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -20,12 +21,15 @@ public class ItemController : MonoBehaviour
 
     public float JumpDuration;
 
-    [Title("Item Spawn Points")]
-    public List<GameObject> Points;
+    [FormerlySerializedAs("Points")] [Title("Item Spawn SpawnPoints")]
+    public List<GameObject> SpawnPoints;
+
+    [Title("Item Take SpawnPoints")]
+    public List<GameObject> TakePoints;
 
     [Title("FX")]
     public GameObject ItemsDroppedParticles;
-
+    public GameObject ItemsDroppedGlowParticles;
 
     [Title("Runtime")]
     public List<GameObject> Items;
@@ -44,7 +48,7 @@ public class ItemController : MonoBehaviour
         {
             virtualTween.Kill();
             this.Remove();
-            List<GameObject> WorkingSpawnPoints = new List<GameObject>(Points);
+            List<GameObject> WorkingSpawnPoints = new List<GameObject>(SpawnPoints);
             foreach (var id in Enemy.ItemID)
             {
                 int rnd = Random.Range(0, WorkingSpawnPoints.Count);
@@ -66,30 +70,28 @@ public class ItemController : MonoBehaviour
                                 ItemSpawnPoint.transform.rotation *
                                 Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f))
                             ) as GameObject;
-
+                            
+                            GameObject particle = Instantiate(ItemsDroppedGlowParticles, item.transform.position,item.transform.rotation * Quaternion.identity) as GameObject;
+                            particle.SetActive(true);
+                            
                             Item Item = item.AddComponent<Item>();
 
+                            Item.ID = child.ID;
                             Item.Chance = child.Chance;
                             Item.Price = child.Price;
                             Item.Type = (Item._Type) child.Type;
 
                             item.name = child.Name;
                             item.transform.parent = ItemSpawnParent.transform;
+                            particle.transform.parent = item.transform;
 
-                            // Adding components in runtime
-                            Button bt = item.AddComponent<Button>();
-                            bt.onClick.AddListener(() =>
-                            {
-                                Debug.Log($"[DEBUG] Taking item \"{item.name} - [{id}]\".");
-                                this.AddToInventory(id);
-                            });
                             Rigidbody rb = item.AddComponent<Rigidbody>();
                             rb.useGravity = true;
                             BoxCollider bc = item.AddComponent<BoxCollider>();
 
-                            item.transform.DOScale(new Vector3(0f, 0f, 0f), 0f);
+                            item.transform.DOScale(0f, 0f);
                             ItemsDroppedParticles.SetActive(true);
-                            item.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), JumpDuration / 2);
+                            item.transform.DOScale(0.1f, JumpDuration / 2);
                             item.transform.DOJump(SelectedSpawnPoint.transform.position, JumpPower, 1, JumpDuration,
                                     false)
                                 .SetEase(Ease.Linear).OnComplete(() => { ItemsDroppedParticles.SetActive(false); });
@@ -101,21 +103,44 @@ public class ItemController : MonoBehaviour
                 }
             }
 
-            Debug.Log($"[DEBUG] - Items will be disappear after 30 seconds.");
-
-            virtualTween = DOVirtual.DelayedCall(30f, () => { this.Remove(); });
+            virtualTween = DOVirtual.DelayedCall(JumpDuration+0.5f, () => { this.AddToInventory(); });
         }
     }
 
     [Button("Add To Inventory", ButtonSizes.Large), GUIColor(1, 1, 1)]
-    public void AddToInventory(int ID)
+    public void AddToInventory()
     {
-        Player.Inventory.Add(ID);
-        if (Items[ID] != null)
+        List<GameObject> WorkingTakePoints = new List<GameObject>(TakePoints);
+        for (int i = 0; i < Items.Count; i++)
         {
-            Debug.Log($"[DEBUG] - Adding item \"{Items[ID].name} - [{ID}]\" to players inventory.");
-            DestroyImmediate(Items[ID].gameObject);
-            Items.RemoveAt(ID);
+            GameObject WorkingItem = Items[i];
+            Item Item = WorkingItem.GetComponent<Item>();
+            
+            if (WorkingTakePoints.Count == 0)
+            {
+                WorkingTakePoints = new List<GameObject>(TakePoints);
+            }
+
+            int rnd = Random.Range(0, WorkingTakePoints.Count);
+            GameObject SelectedTakePoint = WorkingTakePoints[rnd];
+            WorkingTakePoints.RemoveAt(rnd);
+
+            Debug.Log($"[DEBUG] Taking item \"{WorkingItem.name} - [{Item.ID}]\".");
+            WorkingItem.transform
+                .DOPath(new[]
+                {
+                    new Vector3(0f, 0.6801552f, 0.5986252f),
+                    SelectedTakePoint.transform.position
+                }, 0.5f, PathType.CatmullRom, PathMode.Full3D, 10, Color.red)
+                .SetDelay(i*0.2f)
+                .SetEase(Ease.Linear)
+                .OnComplete(() =>
+                {
+                    Player.Inventory.Add(Item.ID);
+                    Debug.Log($"[DEBUG] - Item \"{WorkingItem.name} - [{Item.ID}]\" added to players inventory.");
+                    DestroyImmediate(WorkingItem.gameObject);
+                    Items.Remove(WorkingItem);
+                });
         }
     }
 
@@ -135,9 +160,38 @@ public class ItemController : MonoBehaviour
         }
     }
 
+//    [Button("Getting Item Animation", ButtonSizes.Large), GUIColor(1, 1, 1)]
+//    private void GettingItemAnimation()
+//    {
+//        List<GameObject> WorkingTakePoints = new List<GameObject>(TakePoints);
+//        for (int i = 0; i < Items.Count; i++)
+//        {
+//            if (WorkingTakePoints.Count == 0)
+//            {
+//                WorkingTakePoints = new List<GameObject>(TakePoints);
+//            }
+//
+//            int rnd = Random.Range(0, WorkingTakePoints.Count);
+//            GameObject SelectedTakePoint = WorkingTakePoints[rnd];
+//            WorkingTakePoints.RemoveAt(rnd);
+//            Items[i].transform
+//                .DOPath(new[]
+//                {
+//                    new Vector3(0f, 0.6801552f, 0.5986252f),
+//                    SelectedTakePoint.transform.position
+//                }, 0.5f, PathType.CatmullRom, PathMode.Full3D, 10, Color.red)
+//                .SetEase(Ease.Linear)
+//                .OnComplete(() =>
+//                {
+//                    DestroyImmediate(Items[i].gameObject);
+//                });
+//        }
+//    }
+
     void Start()
     {
         ItemsDroppedParticles.SetActive(false);
+        ItemsDroppedGlowParticles.SetActive(false);
     }
 
     void Update()

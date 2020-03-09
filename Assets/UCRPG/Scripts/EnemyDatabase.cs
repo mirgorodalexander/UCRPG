@@ -11,7 +11,10 @@ public class EnemyDatabase : SerializedMonoBehaviour
 
     [Serializable]
     public class EnemySetupClass
-    {
+    {   
+        [TableColumnWidth(50, Resizable = false)]
+        public int ID;
+        
         [TableColumnWidth(50, Resizable = false)]
         [PreviewField(50, ObjectFieldAlignment.Center)]
         public GameObject Prefab;

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [Title("Preferences")]
+    public int ID;
     public float Chance;
     public int Price;
     public _Type Type;

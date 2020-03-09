@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Title("Preferences")]
+    public int ID;
     public _MOD MOD;
     public enum _MOD { Neutral, Aggresive };
     public _MOVE MOVE;
