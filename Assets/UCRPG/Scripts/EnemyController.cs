@@ -22,8 +22,8 @@ public class EnemyController : MonoBehaviour
     public bool IsTrigger = false;
 
     [Title("Controllers")]
+    public MessageController MessageController;
     public LocationController LocationController;
-
     public WeaponController WeaponController;
     public HealthController HealthController;
     public AnimatorProvider AnimatorProvider;
@@ -133,6 +133,9 @@ public class EnemyController : MonoBehaviour
         }
 
         Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" begin live.");
+        
+        //MessageController.ConsolePopup($"Enemy \"{Enemy.gameObject.name}\" is coming on you");
+        
         virtualTween = DOVirtual.DelayedCall(0.5f, () => { this.WalkIn(); });
     }
 
@@ -347,7 +350,9 @@ public class EnemyController : MonoBehaviour
     [Button("Die", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Die()
     {
-        Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" is died.");
+        Debug.Log($"[DEBUG] - Enemy \"{Enemy.name}\" is died.");
+        
+        MessageController.ConsolePopup($"You killed \"{Enemy.name}\" and got \"{Enemy.BEXP}\" experience");
 
         AnimatorProvider.AnimationEnd();
         virtualTween.Kill();

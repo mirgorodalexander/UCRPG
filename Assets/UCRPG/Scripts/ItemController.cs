@@ -16,6 +16,9 @@ public class ItemController : MonoBehaviour
     public GameObject ItemSpawnParent;
     public GameObject ItemSpawnPoint;
 
+    [Title("Controllers")]
+    public MessageController MessageController;
+    
     [Title("Preferences")]
     public float JumpPower;
 
@@ -77,6 +80,8 @@ public class ItemController : MonoBehaviour
                             Item Item = item.AddComponent<Item>();
 
                             Item.ID = child.ID;
+                            Item.Name = child.Name;
+                            Item.Amount = child.Amount;
                             Item.Chance = child.Chance;
                             Item.Price = child.Price;
                             Item.Type = (Item._Type) child.Type;
@@ -142,7 +147,10 @@ public class ItemController : MonoBehaviour
                 .OnComplete(() =>
                 {
                     Player.Inventory.Add(Item.ID);
-                    Debug.Log($"[DEBUG] - Item \"{WorkingItem.name} - [{Item.ID}]\" added to players inventory.");
+                    
+                    MessageController.ConsolePopup($"You got item \"{Item.Name}\" x {Item.Amount}");
+                    
+                    Debug.Log($"[DEBUG] - Item \"{Item.Name} - [{Item.ID}]\" added to players inventory.");
                     DestroyImmediate(WorkingItem.gameObject);
                     Items.Remove(WorkingItem);
                 });

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
     [Title("Controllers")]
+    public MessageController MessageController;
     public WeaponController WeaponController;
     public PlayerController PlayerController;
     public EnemyController EnemyController;
@@ -95,6 +96,7 @@ public class HealthController : MonoBehaviour
                     PlayerController.Player.Status = Player._Status.Waiting;
                     
                     ItemController.Drop();
+                    
                     EnemyController.Die();
                     DOVirtual.DelayedCall(2f, () => { EnemyDeathParticles.SetActive(false); });
                 }

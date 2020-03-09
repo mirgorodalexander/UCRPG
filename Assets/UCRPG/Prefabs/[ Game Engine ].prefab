@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8689763457821985943}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &395909322
 MonoBehaviour:
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   ExperienceDatabase: {fileID: 4598465437028223556}
+  MessageController: {fileID: 2398333976520409708}
   PlayerExperience: {fileID: 0}
   ExperiencePopupCanvas: {fileID: 0}
   PlayerExperiencePopupPrefab: {fileID: 424737744741208641, guid: fc9fea05f9c30fb4d9b3513ac578cc94,
@@ -78,7 +79,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8689763457821985943}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &506032668
 MonoBehaviour:
@@ -94,17 +95,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Spawn: 1
   _Live: 1
+  _Moving: 1
   EnemyWrapper: {fileID: 0}
   EnemyDatabase: {fileID: 7659881289415179144}
   EnemySpawnParent: {fileID: 0}
   EnemySpawnPoint: {fileID: 0}
+  CompleteMoveInSeconds: 3
+  IsTrigger: 0
+  MessageController: {fileID: 2398333976520409708}
   LocationController: {fileID: 3874880924033241922}
   WeaponController: {fileID: 1102095133}
   HealthController: {fileID: 287899903}
   AnimatorProvider: {fileID: 0}
   ItemController: {fileID: 2945537047249253597}
-  CompleteMoveInSeconds: 3
-  IsTrigger: 0
+  EnemySpawnParticles: {fileID: 0}
   Points:
   - {fileID: 0}
   - {fileID: 0}
@@ -144,7 +148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8689763457821985943}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1102095133
 MonoBehaviour:
@@ -198,6 +202,7 @@ Transform:
   m_LocalPosition: {x: 0.7734104, y: -1.3320327, z: 7.4763904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8361072696982026438}
   - {fileID: 4337474811035206428}
   - {fileID: 395909321}
   - {fileID: 5392727322868743527}
@@ -205,7 +210,7 @@ Transform:
   - {fileID: 1847205541013682924}
   - {fileID: 1102095132}
   - {fileID: 7081846405767315820}
-  - {fileID: 8361072696982026438}
+  - {fileID: 6724466632478634312}
   m_Father: {fileID: 22519331772352798}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -238,7 +243,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8689763457821985943}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2945537047249253597
 MonoBehaviour:
@@ -256,21 +261,79 @@ MonoBehaviour:
   ItemDatabase: {fileID: 3414366689277110001}
   ItemSpawnParent: {fileID: 0}
   ItemSpawnPoint: {fileID: 0}
+  MessageController: {fileID: 2398333976520409708}
   JumpPower: 0.5
   JumpDuration: 0.4
-  Points:
+  SpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TakePoints:
   - {fileID: 0}
   - {fileID: 0}
   ItemsDroppedParticles: {fileID: 0}
+  ItemsDroppedGlowParticles: {fileID: 0}
   Items: []
   Player: {fileID: 0}
   Enemy: {fileID: 0}
+--- !u!1 &1303614239667380168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6724466632478634312}
+  - component: {fileID: 2398333976520409708}
+  m_Layer: 0
+  m_Name: Message Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6724466632478634312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303614239667380168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8689763457821985943}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2398333976520409708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303614239667380168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc4a0ec21d9da848a27bb91b5cf0129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConsolePopupCanvas: {fileID: 0}
+  ExperiencePopupCanvas: {fileID: 0}
+  ExperiencePopupLifetime: 0.6
+  ExperiencePopupFadetime: 1
+  ConsolePopupLifetime: 2
+  ConsolePopupFadetime: 0.8
+  ConsolePopupPrefab: {fileID: 8948829416219952483, guid: f8c2eb3c25df4ce4ba1e2f46c8c7a85c,
+    type: 3}
+  PlayerExperiencePopupPrefab: {fileID: 424737744741208641, guid: fc9fea05f9c30fb4d9b3513ac578cc94,
+    type: 3}
 --- !u!1 &1721965233329326336
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8689763457821985943}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &287899903
 MonoBehaviour:
@@ -347,13 +410,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d0af0571bdabf45a305abac4ed87cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MessageController: {fileID: 2398333976520409708}
   WeaponController: {fileID: 1102095133}
   PlayerController: {fileID: 395909322}
   EnemyController: {fileID: 506032668}
   ItemController: {fileID: 2945537047249253597}
   Player: {fileID: 0}
   Enemy: {fileID: 0}
-  FlashNums: 4
+  FlashNums: 6
   PlayerHealth: {fileID: 0}
   EnemyHealth: {fileID: 0}
   EnemyDeathParticles: {fileID: 0}
@@ -466,7 +530,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8689763457821985943}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3874880924033241922
 MonoBehaviour:
@@ -481,6 +545,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 1
+  WeaponController: {fileID: 1102095133}
+  PlayerController: {fileID: 395909322}
+  EnemyController: {fileID: 506032668}
+  ItemController: {fileID: 2945537047249253597}
   Ground: {fileID: 0}
 --- !u!1 &5696983542445056815
 GameObject:
@@ -544,7 +612,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8689763457821985943}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4388090128332794697
 MonoBehaviour:
@@ -634,7 +702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8689763457821985943}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &977782237564553102
 MonoBehaviour:
@@ -766,10 +834,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   Enemies:
-  - Prefab: {fileID: 4169343324720926272, guid: 2b06fa9d79f894e4baff5931e55ee69f,
+  - ID: 0
+    Prefab: {fileID: 4169343324720926272, guid: 2b06fa9d79f894e4baff5931e55ee69f,
       type: 3}
     LVL: 1
-    BEXP: 1
+    BEXP: 50
     JEXP: 1
     HP: 20
     MP: 20
@@ -778,12 +847,14 @@ MonoBehaviour:
     DEF: 20
     Name: Poppy
     MOD: 0
+    MOVE: 0
     SLID: 0
-    ItemID: 
-  - Prefab: {fileID: 4169343324720926272, guid: eb9cb8f33240be048be7edd073a97198,
+    ItemID: 0100000002000000
+  - ID: 1
+    Prefab: {fileID: 4169343324720926272, guid: eb9cb8f33240be048be7edd073a97198,
       type: 3}
     LVL: 1
-    BEXP: 2
+    BEXP: 80
     JEXP: 3
     HP: 40
     MP: 29
@@ -792,11 +863,13 @@ MonoBehaviour:
     DEF: 20
     Name: Droppy
     MOD: 0
+    MOVE: 0
     SLID: 0
-    ItemID: 
-  - Prefab: {fileID: 1429117272214014, guid: 35195304d9093de4494e5042417fb5a6, type: 3}
+    ItemID: 0100000002000000
+  - ID: 2
+    Prefab: {fileID: 1429117272214014, guid: 35195304d9093de4494e5042417fb5a6, type: 3}
     LVL: 3
-    BEXP: 36
+    BEXP: 120
     JEXP: 27
     HP: 55
     MP: 60
@@ -805,11 +878,13 @@ MonoBehaviour:
     DEF: 21
     Name: Fluffy
     MOD: 0
+    MOVE: 0
     SLID: 0
     ItemID: 0100000002000000
-  - Prefab: {fileID: 1246708330645655, guid: 82a585f1486bb814b9f3d4a3e626d03c, type: 3}
+  - ID: 3
+    Prefab: {fileID: 1246708330645655, guid: 82a585f1486bb814b9f3d4a3e626d03c, type: 3}
     LVL: 2
-    BEXP: 3
+    BEXP: 60
     JEXP: 4
     HP: 20
     MP: 6
@@ -818,5 +893,6 @@ MonoBehaviour:
     DEF: 9
     Name: "\u0421hrysalis"
     MOD: 0
+    MOVE: 2
     SLID: 0
     ItemID: 0100000002000000

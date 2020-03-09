@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public Player Player;
     public ExperienceDatabase ExperienceDatabase;
     
+    [Title("Controllers")]
+    public MessageController MessageController;
+    
     [Title("Sliders")]
     public Slider PlayerExperience;
     
@@ -25,7 +28,9 @@ public class PlayerController : MonoBehaviour
     {    
         if (Player.EXP < ExperienceDatabase.Experience[Player.LVL])
         {
-            ExperiencePopup(exp, PlayerExperiencePopupPrefab);
+            //ExperiencePopup(exp, PlayerExperiencePopupPrefab);
+            MessageController.ExperiencePopup(exp);
+            //MessageController.ConsolePopup($"You got \"{exp}\" experience");
             Player.EXP += exp;
             if (Player.EXP >= ExperienceDatabase.Experience[Player.LVL])
             {
@@ -43,21 +48,22 @@ public class PlayerController : MonoBehaviour
     public void LevelUp()
     {
         Player.LVL += 1;
+        MessageController.ConsolePopup($"You got new level!");
     }
-    public void ExperiencePopup(int experience, GameObject prefab)
-    {
-        if(prefab == null)
-        {
-            prefab = PlayerExperiencePopupPrefab;
-        }
-        
-        GameObject Damage =
-            Instantiate(prefab, ExperiencePopupCanvas.transform.position, Quaternion.identity) as GameObject;
-        Damage.transform.SetParent(ExperiencePopupCanvas.transform);
-        Damage.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"+ {experience}";
-        Damage.name = $"Experience + {experience}";
-        DOVirtual.DelayedCall(1f, () => { DestroyImmediate(Damage.gameObject); });
-    }
+//    public void ExperiencePopup(int experience, GameObject prefab)
+//    {
+//        if(prefab == null)
+//        {
+//            prefab = PlayerExperiencePopupPrefab;
+//        }
+//        
+//        GameObject Damage =
+//            Instantiate(prefab, ExperiencePopupCanvas.transform.position, Quaternion.identity) as GameObject;
+//        Damage.transform.SetParent(ExperiencePopupCanvas.transform);
+//        Damage.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"+ {experience}";
+//        Damage.name = $"Experience + {experience}";
+//        DOVirtual.DelayedCall(1f, () => { DestroyImmediate(Damage.gameObject); });
+//    }
     void Start()
     {
         PlayerExperience.value = (1f / ExperienceDatabase.Experience[Player.LVL]) * Player.EXP;

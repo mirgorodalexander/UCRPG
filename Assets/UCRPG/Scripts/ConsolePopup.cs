@@ -4,9 +4,10 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-public class ExperiencePopup : MonoBehaviour
+public class ConsolePopup : MonoBehaviour
 {
     void Start()
     {
+        
     }
 }
