@@ -115,7 +115,7 @@ public class ItemController : MonoBehaviour
         {
             GameObject WorkingItem = Items[i];
             Item Item = WorkingItem.GetComponent<Item>();
-            
+
             if (WorkingTakePoints.Count == 0)
             {
                 WorkingTakePoints = new List<GameObject>(TakePoints);
@@ -126,14 +126,19 @@ public class ItemController : MonoBehaviour
             WorkingTakePoints.RemoveAt(rnd);
 
             Debug.Log($"[DEBUG] Taking item \"{WorkingItem.name} - [{Item.ID}]\".");
+            WorkingItem.transform.DORotate(new Vector3(2280f, 2280f, 2280f), 0.5f).SetEase(Ease.Linear);
             WorkingItem.transform
                 .DOPath(new[]
                 {
                     new Vector3(0f, 0.6801552f, 0.5986252f),
                     SelectedTakePoint.transform.position
                 }, 0.5f, PathType.CatmullRom, PathMode.Full3D, 10, Color.red)
-                .SetDelay(i*0.2f)
+                .SetDelay(i * 0.2f)
                 .SetEase(Ease.Linear)
+                .OnStart(() =>
+                {
+                    WorkingItem.transform.DOScale(0f, 0.6f).SetEase(Ease.Linear);
+                })
                 .OnComplete(() =>
                 {
                     Player.Inventory.Add(Item.ID);
