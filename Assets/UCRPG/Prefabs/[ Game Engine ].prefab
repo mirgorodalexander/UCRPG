@@ -100,7 +100,7 @@ MonoBehaviour:
   EnemyDatabase: {fileID: 7659881289415179144}
   EnemySpawnParent: {fileID: 0}
   EnemySpawnPoint: {fileID: 0}
-  CompleteMoveInSeconds: 3
+  CompleteMoveInSeconds: 1
   IsTrigger: 0
   MessageController: {fileID: 2398333976520409708}
   LocationController: {fileID: 3874880924033241922}
@@ -328,7 +328,7 @@ MonoBehaviour:
   ExperiencePopupCanvas: {fileID: 0}
   ExperiencePopupLifetime: 0.6
   ExperiencePopupFadetime: 1
-  ConsolePopupLifetime: 2
+  ConsolePopupLifetime: 3
   ConsolePopupFadetime: 0.8
   ConsolePopupPrefab: {fileID: 8948829416219952483, guid: f8c2eb3c25df4ce4ba1e2f46c8c7a85c,
     type: 3}
@@ -849,7 +849,7 @@ MonoBehaviour:
     MOD: 0
     MOVE: 0
     SLID: 0
-    ItemID: 0100000002000000
+    ItemID: 02000000
   - ID: 1
     Prefab: {fileID: 4169343324720926272, guid: eb9cb8f33240be048be7edd073a97198,
       type: 3}
@@ -865,7 +865,7 @@ MonoBehaviour:
     MOD: 0
     MOVE: 0
     SLID: 0
-    ItemID: 0100000002000000
+    ItemID: 01000000
   - ID: 2
     Prefab: {fileID: 1429117272214014, guid: 35195304d9093de4494e5042417fb5a6, type: 3}
     LVL: 3

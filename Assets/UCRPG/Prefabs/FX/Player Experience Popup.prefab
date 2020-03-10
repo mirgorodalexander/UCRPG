@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3163904578485209427}
-  - component: {fileID: 1193526917262019689}
   m_Layer: 5
   m_Name: Player Experience Popup
   m_TagString: Untagged
@@ -37,18 +36,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1193526917262019689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424737744741208641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01fe9b909fb88724498ab3a556891669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3882439011923107760
 GameObject:
   m_ObjectHideFlags: 0

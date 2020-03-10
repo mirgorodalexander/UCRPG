@@ -95,7 +95,8 @@ public class EnemyController : MonoBehaviour
         AnimatorProvider = Enemy.GetComponent<AnimatorProvider>();
 
         Enemy.Status = Enemy._Status.Init;
-        enemy.transform.localPosition = new Vector3(0, 0, 0);
+        enemy.transform.localPosition = EnemySpawnPoint.transform.localPosition;
+        //enemy.transform.localPosition = new Vector3(0, 0, 0);
 
         Enemy.transform.DORotate(
             new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
@@ -114,6 +115,15 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log($"[DEBUG] - Position \"{EnemySpawnPoint.transform.position}\".");
             virtualTween = DOVirtual.DelayedCall(0f, () => { this.Live(); });
+        }
+        
+        if (Enemy.MOVE == Enemy._MOVE.Static)
+        {
+            EnemySpawnParticles.SetActive(true);
+            DOVirtual.DelayedCall(2f, () =>
+            {
+                EnemySpawnParticles.SetActive(false);
+            });
         }
     }
 
@@ -146,8 +156,8 @@ public class EnemyController : MonoBehaviour
             new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
         Enemy.transform.DOLocalRotate(
             new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
-        EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, 0f, 0f), 0.01f);
-        tween = EnemyWrapper.transform
+            //Enemy.transform.DORotate(new Vector3(0f, 0f, 0f), 0.01f);
+        tween = Enemy.transform
             .DOPath(new[]
                 {
                     Points[0].position,
@@ -167,6 +177,7 @@ public class EnemyController : MonoBehaviour
 
                 if (Enemy.MOVE == Enemy._MOVE.Static)
                 {
+                    tween.Complete();
                     if (!WeaponController.Taked)
                     {
                         WeaponController.TakeOn();
@@ -176,12 +187,6 @@ public class EnemyController : MonoBehaviour
                     {
                         Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
                         Enemy.Status = Enemy._Status.Waiting;
-                        tween.Complete();
-                        EnemySpawnParticles.SetActive(true);
-                        DOVirtual.DelayedCall(2f, () =>
-                        {
-                            EnemySpawnParticles.SetActive(false);
-                        });
                     });
                 }
             })
@@ -242,7 +247,7 @@ public class EnemyController : MonoBehaviour
     {
         if (Enemy.Status != Enemy._Status.Fighting)
         {
-            EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, -180f, 0f), 1f);
+            Enemy.transform.DORotate(new Vector3(0f, 180f, 0f), 1f);
             Enemy.Status = Enemy._Status.Moving;
 
             if (Enemy.GetComponent<Animator>() != null)
@@ -250,7 +255,7 @@ public class EnemyController : MonoBehaviour
                 Enemy.GetComponent<Animator>().SetInteger("Motion", 1);
             }
 
-            tween = EnemyWrapper.transform
+            tween = Enemy.transform
                 .DOPath(new[]
                     {
                         Points[1].position,
@@ -352,7 +357,7 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log($"[DEBUG] - Enemy \"{Enemy.name}\" is died.");
         
-        MessageController.ConsolePopup($"You killed \"{Enemy.name}\" and got \"{Enemy.BEXP}\" experience");
+        //MessageController.ConsolePopup($"You killed \"{Enemy.name}\" and got \"{Enemy.BEXP}\" experience");
 
         AnimatorProvider.AnimationEnd();
         virtualTween.Kill();
