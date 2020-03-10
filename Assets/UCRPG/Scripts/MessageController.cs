@@ -10,6 +10,7 @@ public class MessageController : MonoBehaviour
     [Title("Configurations")]
     public GameObject ConsolePopupCanvas;
     public GameObject ExperiencePopupCanvas;
+    public GameObject DamagePopupCanvas;
 
     [Title("Preferences")]
     public float ExperiencePopupLifetime;
@@ -19,6 +20,8 @@ public class MessageController : MonoBehaviour
     [Title("FX")]
     public GameObject ConsolePopupPrefab;
     public GameObject PlayerExperiencePopupPrefab;
+    public GameObject EnemyDamagePopupPrefab;
+    public GameObject PlayerDamagePopupPrefab;
     
     
     [Button("Console Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -51,14 +54,55 @@ public class MessageController : MonoBehaviour
         Experience.transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0f).OnComplete(() =>
         {
             Experience.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), ExperiencePopupLifetime);
-            Experience.transform.DOLocalMoveY(200, ExperiencePopupLifetime, false).OnComplete(() =>
+            Experience.transform.DOLocalMoveY(280, ExperiencePopupLifetime, false).OnComplete(() =>
             {
                 Experience.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime);
                 DOVirtual.DelayedCall(ExperiencePopupFadetime, () =>
                 {
                     Experience.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime/2);
-                    Experience.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), ExperiencePopupFadetime/2).OnComplete(() => { Destroy(gameObject); });
+                    Experience.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), ExperiencePopupFadetime/2).OnComplete(() =>
+                        {
+                            Destroy(Experience.gameObject);
+                        });
                 });
+            });
+        });
+    }
+
+    [Button("Enemy Damage Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void EnemyDamagePopup(int damage)
+    {
+        GameObject Damage = Instantiate(EnemyDamagePopupPrefab, DamagePopupCanvas.transform.position, Quaternion.identity) as GameObject;
+        Damage.transform.SetParent(DamagePopupCanvas.transform);
+        Damage.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"{damage}";
+        Damage.name = $"Damage - {damage}";
+        Damage.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
+        Damage.transform.DOLocalMove(new Vector3(160, 240, 0), 0.3f, false).OnComplete(() =>
+        {
+            Damage.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.5f);
+            Damage.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), 0.3f);
+            Damage.transform.DOLocalMove(new Vector3(340, -1000, 0), 1f, false).OnComplete(() =>
+            {
+                Destroy(Damage.gameObject);
+            });
+        });
+    }
+
+    [Button("Player Damage Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void PlayerDamagePopup(int damage)
+    {
+        GameObject Damage = Instantiate(PlayerDamagePopupPrefab, DamagePopupCanvas.transform.position, Quaternion.identity) as GameObject;
+        Damage.transform.SetParent(DamagePopupCanvas.transform);
+        Damage.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"{damage}";
+        Damage.name = $"Damage - {damage}";
+        Damage.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
+        Damage.transform.DOLocalMove(new Vector3(-160, 240, 0), 0.3f, false).OnComplete(() =>
+        {
+            Damage.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.5f);
+            Damage.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), 0.3f);
+            Damage.transform.DOLocalMove(new Vector3(-340, -1000, 0), 1f, false).OnComplete(() =>
+            {
+                Destroy(Damage.gameObject);
             });
         });
     }

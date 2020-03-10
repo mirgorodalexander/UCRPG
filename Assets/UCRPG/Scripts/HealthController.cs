@@ -60,8 +60,8 @@ public class HealthController : MonoBehaviour
         PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
         PlayerHealth.gameObject.transform.Find("Value").GetComponent<Text>().text =
             $"{Player.HP} / {playerHealthDefault}";
-
-        DamagePopup(damage, PlayerDamagePopupPrefab);
+        
+        MessageController.PlayerDamagePopup(damage);
 
         CameraPunchEffect.DORestart();
 
@@ -124,7 +124,7 @@ public class HealthController : MonoBehaviour
         EnemyHealth.value = (1f / enemyHealthDefault) * Enemy.HP;
         EnemyHealth.gameObject.transform.Find("Value").GetComponent<Text>().text = $"{Enemy.HP} / {enemyHealthDefault}";
 
-        DamagePopup(damage, EnemyDamagePopupPrefab);
+        MessageController.EnemyDamagePopup(damage);
 
         EnemyAttackedParticles.SetActive(true);
 
@@ -148,22 +148,6 @@ public class HealthController : MonoBehaviour
             });
         });
         DOVirtual.DelayedCall(0.2f, () => { EnemyAttackedParticles.SetActive(false); });
-    }
-
-    [Button("Damage Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
-    public void DamagePopup(int damage, GameObject prefab)
-    {
-        if (prefab == null)
-        {
-            prefab = EnemyDamagePopupPrefab;
-        }
-
-        GameObject Damage =
-            Instantiate(prefab, DamagePopupCanvas.transform.position, Quaternion.identity) as GameObject;
-        Damage.transform.SetParent(DamagePopupCanvas.transform);
-        Damage.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"{damage}";
-        Damage.name = $"Damage - {damage}";
-        DOVirtual.DelayedCall(1f, () => { DestroyImmediate(Damage.gameObject); });
     }
 
     void Start()
