@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         PlayerExperience.value = (1f / ExperienceDatabase.Experience[Player.LVL]) * Player.EXP;
-        PlayerExperience.gameObject.transform.GetChild(0).gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Experience[Player.LVL]}";
+        PlayerExperience.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Experience[Player.LVL]}";
 
     }
     [Button("Level Up", ButtonSizes.Large), GUIColor(1, 1, 1)]
