@@ -58,7 +58,7 @@ public class HealthController : MonoBehaviour
         }
 
         PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
-        PlayerHealth.gameObject.transform.Find("Value").GetComponent<Text>().text =
+        PlayerHealth.gameObject.transform.GetChild(0).gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
             $"{Player.HP} / {playerHealthDefault}";
         
         MessageController.PlayerDamagePopup(damage);
@@ -122,7 +122,7 @@ public class HealthController : MonoBehaviour
         }
 
         EnemyHealth.value = (1f / enemyHealthDefault) * Enemy.HP;
-        EnemyHealth.gameObject.transform.Find("Value").GetComponent<Text>().text = $"{Enemy.HP} / {enemyHealthDefault}";
+        EnemyHealth.gameObject.transform.GetChild(0).gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Enemy.HP} / {enemyHealthDefault}";
 
         MessageController.EnemyDamagePopup(damage);
 
@@ -164,14 +164,14 @@ public class HealthController : MonoBehaviour
         if (Player != null && playerHealthDefault == 0)
         {
             playerHealthDefault = Player.HP;
-            PlayerHealth.gameObject.transform.Find("Value").GetComponent<Text>().text =
+            PlayerHealth.gameObject.transform.GetChild(0).gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
                 $"{Player.HP} / {playerHealthDefault}";
         }
 
         if (Enemy != null && enemyHealthDefault == 0)
         {
             enemyHealthDefault = Enemy.HP;
-            EnemyHealth.gameObject.transform.Find("Value").GetComponent<Text>().text =
+            EnemyHealth.gameObject.transform.GetChild(0).gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
                 $"{Enemy.HP} / {enemyHealthDefault}";
         }
     }

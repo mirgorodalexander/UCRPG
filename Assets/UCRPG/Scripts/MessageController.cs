@@ -37,9 +37,9 @@ public class MessageController : MonoBehaviour
         Message.name = $"Message";
         DOVirtual.DelayedCall(ConsolePopupLifetime, () =>
         {
-            Message.GetComponent<CanvasGroup>().DOFade(0f, ConsolePopupFadetime).SetEase(Ease.Linear).OnComplete(() =>
+            Message.GetComponent<CanvasGroup>().DOFade(0.5f, ConsolePopupFadetime).SetEase(Ease.Linear).OnComplete(() =>
             {
-                Destroy(Message.gameObject);
+                //Destroy(Message.gameObject);
             });
         });
     }
