@@ -7,18 +7,50 @@ using UnityEngine;
 public class LocationController : MonoBehaviour
 {
     [Title("Configurations")]
+    public Player Player;
+
+    public GameObject LocationSpawnParent;
     public float MovementSpeed;
-    
+
     [Title("Controllers")]
     public WeaponController WeaponController;
+
     public PlayerController PlayerController;
     public EnemyController EnemyController;
     public ItemController ItemController;
+
+    [Title("Databases")]
+    public LocationDatabase LocationDatabase;
 
     public GameObject Ground;
 
     private GameObject StackingGroundMiddle;
     private GameObject StackingGroundEnd;
+
+    private GameObject location;
+
+    [Title("Buttons")]
+    [Button("Spawn Location", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void Spawn(int locationID)
+    {
+        if (location != null)
+        {
+            Destroy(location.gameObject);
+        }
+        Debug.Log($"[DEBUG] - Spawning location with id \"{locationID}\".");
+
+        if (locationID <= LocationDatabase.Locations.Count-1)
+        {
+            location = Instantiate(
+                LocationDatabase.Locations[locationID].Prefab,
+                LocationDatabase.Locations[locationID].Prefab.transform.position,
+                LocationDatabase.Locations[locationID].Prefab.transform.rotation
+            ) as GameObject;
+
+            location.name = LocationDatabase.Locations[locationID].Name;
+            location.transform.parent = LocationSpawnParent.transform;
+        }
+    }
 
     [Title("Buttons")]
     [Button("Move", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -51,11 +83,10 @@ public class LocationController : MonoBehaviour
             {
                 Ground.SetActive(true);
                 this.Remove();
-                
+
                 Debug.Log($"[DEBUG] - Player move end.");
                 EnemyController.PlayerReady();
             });
-
     }
 
     [Button("Remove", ButtonSizes.Large), GUIColor(1, 1, 1)]

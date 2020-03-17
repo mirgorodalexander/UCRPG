@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public int ATK;
     public float ATKD;
     public int DEF;
+    public int LID;
 
     [Title("Inventory")]
     public List<int> Inventory;

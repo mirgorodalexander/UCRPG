@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UI.ProceduralImage;
 
 public class MenuController : MonoBehaviour
@@ -15,6 +16,10 @@ public class MenuController : MonoBehaviour
     public GameObject Locations;
     public MenuElement LocationsMenuElemets;
 
+    [Title("Controllers")]
+    public LocationController LocationController;
+    public ItemController ItemController;
+
     [Title("Menu element Prefab")]
     public GameObject Prefab;
     public GameObject Breakline;
@@ -25,6 +30,7 @@ public class MenuController : MonoBehaviour
         {
             var element = Instantiate(Prefab, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
             Element Element = element.GetComponent<Element>();
+            Element.gameObject.name = $"Weapon ({index})";
             Element.Icon.sprite = child.Icon;
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
@@ -63,6 +69,7 @@ public class MenuController : MonoBehaviour
         {
             var element = Instantiate(Prefab, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
             Element Element = element.GetComponent<Element>();
+            Element.gameObject.name = $"Item ({index})";
             Element.Icon.sprite = child.Icon;
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
@@ -106,12 +113,20 @@ public class MenuController : MonoBehaviour
         {
             var element = Instantiate(Prefab, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
             Element Element = element.GetComponent<Element>();
+            Element.gameObject.name = $"Location ({index})";
             Element.Icon.sprite = child.Icon;
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
             Element.Locked.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text = child.LockedText.Replace("{Level}", child.Level.ToString());
             Element.Opened.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text = child.OpenedText.Replace("{Price}", child.Price.ToString());
             Element.Owned.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text = child.OwnedText;
+            
+            Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
+            Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
+            Button ButtonOwned = Element.Owned.transform.Find("Button").GetComponent<Button>();
+
+            var localIndex = index;
+            ButtonOwned.onClick.AddListener(() => LocationController.Spawn(localIndex));
             
             Element.Locked.SetActive(false);
             Element.Opened.SetActive(false);
