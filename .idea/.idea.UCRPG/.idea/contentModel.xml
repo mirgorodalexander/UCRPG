@@ -3119,6 +3119,7 @@
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
           </e>
+          <e p="Glyph Report.txt" t="Include" />
           <e p="Resources" t="Include">
             <e p="LineBreaking Following Characters.txt" t="Include" />
             <e p="LineBreaking Leading Characters.txt" t="Include" />
@@ -3147,8 +3148,13 @@
           <e p="FSMs" t="Include">
             <e p="TestTask.cs" t="Include" />
           </e>
+          <e p="Scriptables" t="Include">
+            <e p="MenuElement.cs" t="Include" />
+            <e p="MenuElementDescriptions.cs" t="Include" />
+          </e>
           <e p="Scripts" t="Include">
             <e p="ControllerProvider.cs" t="Include" />
+            <e p="Element.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
             <e p="EnemyController.cs" t="Include" />
             <e p="EnemyDatabase.cs" t="Include" />
@@ -3160,13 +3166,18 @@
             <e p="ItemDatabase.cs" t="Include" />
             <e p="LetterSpacing.cs" t="Include" />
             <e p="LocationController.cs" t="Include" />
+            <e p="LocationDatabase.cs" t="Include" />
+            <e p="MenuController.cs" t="Include" />
+            <e p="MenuDatabase.cs" t="Include" />
             <e p="MessageController.cs" t="Include" />
+            <e p="MonoBehaviourEditor.cs" t="Include" />
             <e p="ParticleExporter.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerController1.cs" t="Include" />
             <e p="RenderController.cs" t="Include" />
             <e p="SaveController.cs" t="Include" />
+            <e p="ScriptableObjectDrawer.cs" t="Include" />
             <e p="TextBlinkingEffect.cs" t="Include" />
             <e p="TextFadeInOutEffect.cs" t="Include" />
             <e p="TextOutline.cs" t="Include" />
