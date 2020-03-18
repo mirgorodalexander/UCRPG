@@ -1425,6 +1425,25 @@
               </e>
             </e>
           </e>
+          <e p="IngameDebugConsole" t="Include">
+            <e p="Editor" t="Include">
+              <e p="DebugLogManagerEditor.cs" t="Include" />
+            </e>
+            <e p="Readme.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="CircularBuffer.cs" t="Include" />
+              <e p="ConsoleMethodAttribute.cs" t="Include" />
+              <e p="DebugLogConsole.cs" t="Include" />
+              <e p="DebugLogEntry.cs" t="Include" />
+              <e p="DebugLogIndexList.cs" t="Include" />
+              <e p="DebugLogItem.cs" t="Include" />
+              <e p="DebugLogLogcatListener.cs" t="Include" />
+              <e p="DebugLogManager.cs" t="Include" />
+              <e p="DebugLogPopup.cs" t="Include" />
+              <e p="DebugLogRecycledListView.cs" t="Include" />
+              <e p="DebugsOnScrollListener.cs" t="Include" />
+            </e>
+          </e>
           <e p="Pixel Crushers" t="Include">
             <e p="Common" t="Include">
               <e p="_README.txt" t="Include" />
@@ -3119,7 +3138,6 @@
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
           </e>
-          <e p="Glyph Report.txt" t="Include" />
           <e p="Resources" t="Include">
             <e p="LineBreaking Following Characters.txt" t="Include" />
             <e p="LineBreaking Leading Characters.txt" t="Include" />
@@ -3144,6 +3162,7 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="ToogleSelected.cs" t="Include" />
         <e p="UCRPG" t="Include">
           <e p="FSMs" t="Include">
             <e p="TestTask.cs" t="Include" />
@@ -3171,14 +3190,12 @@
             <e p="MenuController.cs" t="Include" />
             <e p="MenuDatabase.cs" t="Include" />
             <e p="MessageController.cs" t="Include" />
-            <e p="MonoBehaviourEditor.cs" t="Include" />
             <e p="ParticleExporter.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerController1.cs" t="Include" />
             <e p="RenderController.cs" t="Include" />
             <e p="SaveController.cs" t="Include" />
-            <e p="ScriptableObjectDrawer.cs" t="Include" />
             <e p="TextBlinkingEffect.cs" t="Include" />
             <e p="TextFadeInOutEffect.cs" t="Include" />
             <e p="TextOutline.cs" t="Include" />

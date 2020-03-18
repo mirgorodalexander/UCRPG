@@ -106,6 +106,7 @@ MonoBehaviour:
   LocationController: {fileID: 3874880924033241922}
   WeaponController: {fileID: 1102095133}
   HealthController: {fileID: 287899903}
+  PlayerController: {fileID: 395909322}
   AnimatorProvider: {fileID: 0}
   ItemController: {fileID: 2945537047249253597}
   EnemySpawnParticles: {fileID: 0}
@@ -113,6 +114,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Enemy: {fileID: 0}
+  LocationEnemies: 
   EnableOnAttackBegin:
   - {fileID: 0}
   EnableOnAttackEnd: []
@@ -337,7 +339,7 @@ MonoBehaviour:
       type: 3}
     Name: Sand
     Status: 0
-    EnemyID: 0000000001000000
+    EnemyID: 0200000003000000
   - ID: 2
     Prefab: {fileID: 1873462340910561986, guid: c753c9c77ebc6f546b2404ba65dda2d0,
       type: 3}
@@ -617,7 +619,6 @@ MonoBehaviour:
   Locations:
   - ID: 0
     Icon: {fileID: 21300000, guid: 7ab87581d82661b4e9c2ef5684adeb02, type: 3}
-    LDID: 0
     Title: Prontera
     Description: Prontera description
     LockedText: Open on {Level} lvl.
@@ -626,6 +627,7 @@ MonoBehaviour:
     Level: 0
     Price: 100
     "\u0421urrency": 0
+    REFID: 0
   Weapons:
   - ID: 0
     Prefab: {fileID: 0}
@@ -681,12 +683,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e23ffbd79c351b4aa91d5ce06866421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 1
+  LocationSpawnParent: {fileID: 0}
+  MovementSpeed: 0.6
   WeaponController: {fileID: 1102095133}
   PlayerController: {fileID: 395909322}
   EnemyController: {fileID: 506032668}
   ItemController: {fileID: 2945537047249253597}
-  Ground: {fileID: 0}
+  LocationDatabase: {fileID: 7970171350604305903}
+  location: {fileID: 0}
 --- !u!1 &5696983542445056815
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,10 +856,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d059bf12affb9f4498cf9a9e64b31ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  Coins: {fileID: 11400000, guid: 59f9955815a7a974a8263a78da3e0006, type: 2}
   Weapons: {fileID: 0}
+  WeaponsMenuElemets: {fileID: 11400000, guid: 24b0d3ab20e5ffa4e8a399ace42d7963, type: 2}
   Items: {fileID: 0}
+  ItemsMenuElemets: {fileID: 11400000, guid: 5d5883e4bd25c7b4288e1b4e7d41c2d5, type: 2}
   Locations: {fileID: 0}
-  Prefab: {fileID: 0}
+  LocationsMenuElemets: {fileID: 11400000, guid: a05025cec7370f940add19c4208d9f57,
+    type: 2}
+  Menu: {fileID: 0}
+  TapToPlayButton: {fileID: 0}
+  ShowMenuButton: {fileID: 0}
+  CoinsValue: {fileID: 0}
+  LocationController: {fileID: 3874880924033241922}
+  ItemController: {fileID: 2945537047249253597}
+  Prefab: {fileID: 7660853259473834906, guid: 237584245675821478bb8635064d348a, type: 3}
+  Breakline: {fileID: 5926715838122730593, guid: 2c8abc80abc86d949a6fab3cc209d8d9,
+    type: 3}
 --- !u!1 &6563963710425666372
 GameObject:
   m_ObjectHideFlags: 0

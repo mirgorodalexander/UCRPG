@@ -150,7 +150,7 @@ public class EnemyController : MonoBehaviour
         
         //MessageController.ConsolePopup($"Enemy \"{Enemy.gameObject.name}\" is coming on you");
         
-        virtualTween = DOVirtual.DelayedCall(0.5f, () => { this.WalkIn(); });
+        virtualTween = DOVirtual.DelayedCall(0.1f, () => { this.WalkIn(); });
     }
 
     [Button("Walk In", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -440,7 +440,7 @@ public class EnemyController : MonoBehaviour
 
         if (_Moving)
         {
-            LocationController.Move();
+            DOVirtual.DelayedCall(0.1f, () => LocationController.Move());
         }
     }
 

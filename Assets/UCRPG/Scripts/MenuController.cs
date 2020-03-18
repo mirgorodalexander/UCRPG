@@ -26,6 +26,8 @@ public class MenuController : MonoBehaviour
     public CanvasGroup TapToPlayButton;
     public CanvasGroup ShowMenuButton;
     public TextMeshProUGUI CoinsValue;
+    public TextMeshProUGUI CurrentLevel;
+    public TextMeshProUGUI NextLevel;
 
     [Title("Controllers")]
     public LocationController LocationController;
@@ -43,6 +45,8 @@ public class MenuController : MonoBehaviour
     {
         ShowMenuButton.interactable = Player.Status != Player._Status.Fighting;
         CoinsValue.text = Coins.Value.ToString();
+        CurrentLevel.text = Player.LVL.ToString();
+        NextLevel.text = (Player.LVL+1).ToString();
     }
 
     [Title("Buttons")]
