@@ -134,7 +134,9 @@ public class HealthController : MonoBehaviour
                 Enemy.HP = 0;
                 EnemyController.StopAttack();
                 EnemyDyingAnimation();
-                DOVirtual.DelayedCall(0.3f, () => { WeaponController.TakeOff(); });
+                DOVirtual.DelayedCall(0.3f, () => { 
+                    WeaponController.TakeOff();
+                });
             }
         }
 

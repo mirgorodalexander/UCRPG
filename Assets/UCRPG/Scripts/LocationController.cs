@@ -21,12 +21,11 @@ public class LocationController : MonoBehaviour
     [Title("Databases")]
     public LocationDatabase LocationDatabase;
 
-    public GameObject Ground;
+    public GameObject location;
 
-    private GameObject StackingGroundMiddle;
-    private GameObject StackingGroundEnd;
+    private GameObject StackinglocationMiddle;
+    private GameObject StackinglocationEnd;
 
-    private GameObject location;
     private bool locationInitialize;
 
     [Title("Buttons")]
@@ -38,6 +37,7 @@ public class LocationController : MonoBehaviour
             PlayerController.Player.LID = 1;
             locationInitialize = true;
         }
+
         if (PlayerController.Player.LID != locationID)
         {
             if (EnemyController.Enemy != null)
@@ -49,20 +49,20 @@ public class LocationController : MonoBehaviour
             if (location != null)
             {
                 Destroy(location.gameObject);
+                //Destroy(location.gameObject);
             }
 
             Debug.Log($"[DEBUG] - Spawning location with id \"{locationID}\".");
 
             if (locationID <= LocationDatabase.Locations.Count - 1)
             {
-                location = Instantiate(
-                    LocationDatabase.Locations[locationID].Prefab,
-                    LocationDatabase.Locations[locationID].Prefab.transform.position,
-                    LocationDatabase.Locations[locationID].Prefab.transform.rotation
-                ) as GameObject;
+
+                location = Instantiate(LocationDatabase.Locations[locationID].Prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 
                 location.name = LocationDatabase.Locations[locationID].Name;
                 location.transform.parent = LocationSpawnParent.transform;
+                location.transform.localPosition = new Vector3(0, 0, 0);
+                location.SetActive(true);
 
                 PlayerController.Player.LID = locationID;
                 EnemyController.LocationEnemies = LocationDatabase.Locations[locationID].EnemyID;
@@ -74,32 +74,33 @@ public class LocationController : MonoBehaviour
     [Button("Move", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Move()
     {
+        //WeaponController.Run();
         Debug.Log($"[DEBUG] - Player move begin.");
-        StackingGroundMiddle = Instantiate(Ground, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        StackingGroundMiddle.name = "Stacking Ground Middle";
+        StackinglocationMiddle = Instantiate(location, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        StackinglocationMiddle.name = "Stacking location Middle";
 
-        StackingGroundEnd = Instantiate(Ground, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        StackingGroundEnd.name = "Stacking Ground End";
+        StackinglocationEnd = Instantiate(location, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        StackinglocationEnd.name = "Stacking location End";
 
-        StackingGroundMiddle.transform.SetParent(Ground.transform.parent.transform);
-        StackingGroundEnd.transform.SetParent(Ground.transform.parent.transform);
+        StackinglocationMiddle.transform.SetParent(location.transform.parent.transform);
+        StackinglocationEnd.transform.SetParent(location.transform.parent.transform);
 
         float move = Random.Range(2f, 2f);
 
-        StackingGroundMiddle.transform.localPosition = new Vector3(0f, 0f, 0f);
-        StackingGroundEnd.transform.localPosition = new Vector3(0f, 0f, move);
+        StackinglocationMiddle.transform.localPosition = new Vector3(0f, 0f, 0f);
+        StackinglocationEnd.transform.localPosition = new Vector3(0f, 0f, move);
 
-        Ground.SetActive(false);
-        StackingGroundMiddle.transform
+        location.SetActive(false);
+        StackinglocationMiddle.transform
             .DOLocalMove(new Vector3(0, 0, move * -1f), MovementSpeed, false)
             .SetEase(Ease.InOutQuad);
 
-        StackingGroundEnd.transform
-            .DOMove(Ground.transform.position, MovementSpeed, false)
+        StackinglocationEnd.transform
+            .DOMove(location.transform.position, MovementSpeed, false)
             .SetEase(Ease.InOutQuad)
             .OnComplete(() =>
             {
-                Ground.SetActive(true);
+                location.SetActive(true);
                 this.Remove();
 
                 Debug.Log($"[DEBUG] - Player move end.");
@@ -110,8 +111,8 @@ public class LocationController : MonoBehaviour
     [Button("Remove", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Remove()
     {
-        DestroyImmediate(StackingGroundMiddle.gameObject);
-        DestroyImmediate(StackingGroundEnd.gameObject);
+        DestroyImmediate(StackinglocationMiddle.gameObject);
+        DestroyImmediate(StackinglocationEnd.gameObject);
     }
 
     void Start()

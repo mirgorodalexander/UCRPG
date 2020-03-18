@@ -160,6 +160,26 @@ public class WeaponController : MonoBehaviour
             Weapon.SetActive(false);
         });
     }
+    [Button("Run", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void Run()
+    {
+        Weapon.SetActive(true);
+        Debug.Log($"[DEBUG] - Player is runnig with weapon.");
+        WeaponAnimator.SetInteger("Motion", 4);
+        DOVirtual.DelayedCall(0.6f, () =>
+        {
+            AttackLock = false;
+            WeaponAnimator.SetInteger("Motion", 0);
+            //Weapon.SetActive(false);
+        });
+    }
+    [Button("Idle", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void Idle()
+    {
+        Weapon.SetActive(true);
+        Debug.Log($"[DEBUG] - Player is idle with weapon.");
+        WeaponAnimator.SetInteger("Motion", 0);
+    }
 
 //    [Button("Damage Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
 //    public void DamagePopup(int damage)
