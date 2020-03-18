@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
     public LocationController LocationController;
     public WeaponController WeaponController;
     public HealthController HealthController;
+    public PlayerController PlayerController;
     public AnimatorProvider AnimatorProvider;
     public ItemController ItemController;
     
@@ -46,12 +47,14 @@ public class EnemyController : MonoBehaviour
 
     [Title("Current Enemy")]
     public Enemy Enemy;
+    [Title("Current Location Enemies")]
+    public List<int> LocationEnemies;
 
     [Title("Buttons")]
     [Button("Spawn Enemy", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Spawn()
     {
-        int rnd = Random.Range(0, EnemyDatabase.Enemies.Count);
+        int rnd = Random.Range(LocationEnemies[0], LocationEnemies[LocationEnemies.Count-1]+1);
 
         if (EnemyDatabase.Enemies[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Walking ||
             EnemyDatabase.Enemies[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Flying)
@@ -130,6 +133,7 @@ public class EnemyController : MonoBehaviour
     [Button("Remove Enemy", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Remove()
     {
+        this.StopAttack();
         Debug.Log($"[DEBUG] - Removing enemy \"{enemy.name}\".");
         DestroyImmediate(enemy.gameObject);
     }
@@ -214,7 +218,7 @@ public class EnemyController : MonoBehaviour
                 Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk in end.");
                 Enemy.Status = Enemy._Status.Waiting;
 
-                if (Enemy.MOD == global::Enemy._MOD.Aggresive)
+                if (Enemy.MOD == Enemy._MOD.Aggresive && PlayerController.Player.Status != Player._Status.Menu)
                 {
                     Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" is aggresive");
 
@@ -226,7 +230,7 @@ public class EnemyController : MonoBehaviour
                     });
                 }
 
-                if (Enemy.MOD == global::Enemy._MOD.Neutral)
+                if (Enemy.MOD == Enemy._MOD.Neutral && PlayerController.Player.Status != Player._Status.Menu)
                 {
                     int rnd = Random.Range(5, 10);
 

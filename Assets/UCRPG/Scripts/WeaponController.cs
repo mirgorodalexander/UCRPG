@@ -42,8 +42,9 @@ public class WeaponController : MonoBehaviour
     {
         if (EnemyController.Enemy != null)
         {
-            if (EnemyController.Enemy.Status == Enemy._Status.Waiting ||
-                EnemyController.Enemy.Status == Enemy._Status.Fighting)
+            if ((EnemyController.Enemy.Status == Enemy._Status.Waiting ||
+                EnemyController.Enemy.Status == Enemy._Status.Fighting) &&
+                PlayerController.Player.Status != Player._Status.Menu)
             {
                 if (!AttackLock)
                 {

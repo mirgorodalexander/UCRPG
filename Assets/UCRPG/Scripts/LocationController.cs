@@ -7,9 +7,8 @@ using UnityEngine;
 public class LocationController : MonoBehaviour
 {
     [Title("Configurations")]
-    public Player Player;
-
     public GameObject LocationSpawnParent;
+
     public float MovementSpeed;
 
     [Title("Controllers")]
@@ -28,27 +27,46 @@ public class LocationController : MonoBehaviour
     private GameObject StackingGroundEnd;
 
     private GameObject location;
+    private bool locationInitialize;
 
     [Title("Buttons")]
     [Button("Spawn Location", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Spawn(int locationID)
     {
-        if (location != null)
+        if (!locationInitialize)
         {
-            Destroy(location.gameObject);
+            PlayerController.Player.LID = 1;
+            locationInitialize = true;
         }
-        Debug.Log($"[DEBUG] - Spawning location with id \"{locationID}\".");
-
-        if (locationID <= LocationDatabase.Locations.Count-1)
+        if (PlayerController.Player.LID != locationID)
         {
-            location = Instantiate(
-                LocationDatabase.Locations[locationID].Prefab,
-                LocationDatabase.Locations[locationID].Prefab.transform.position,
-                LocationDatabase.Locations[locationID].Prefab.transform.rotation
-            ) as GameObject;
+            if (EnemyController.Enemy != null)
+            {
+                EnemyController.Remove();
+                DOVirtual.DelayedCall(0.01f, () => { EnemyController.Spawn(); });
+            }
 
-            location.name = LocationDatabase.Locations[locationID].Name;
-            location.transform.parent = LocationSpawnParent.transform;
+            if (location != null)
+            {
+                Destroy(location.gameObject);
+            }
+
+            Debug.Log($"[DEBUG] - Spawning location with id \"{locationID}\".");
+
+            if (locationID <= LocationDatabase.Locations.Count - 1)
+            {
+                location = Instantiate(
+                    LocationDatabase.Locations[locationID].Prefab,
+                    LocationDatabase.Locations[locationID].Prefab.transform.position,
+                    LocationDatabase.Locations[locationID].Prefab.transform.rotation
+                ) as GameObject;
+
+                location.name = LocationDatabase.Locations[locationID].Name;
+                location.transform.parent = LocationSpawnParent.transform;
+
+                PlayerController.Player.LID = locationID;
+                EnemyController.LocationEnemies = LocationDatabase.Locations[locationID].EnemyID;
+            }
         }
     }
 
@@ -98,6 +116,7 @@ public class LocationController : MonoBehaviour
 
     void Start()
     {
+        this.Spawn(PlayerController.Player.LID);
     }
 
     void Update()

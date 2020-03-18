@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     [Title("Status")]
     public _Status Status;
-    public enum _Status { Waiting, Moving, Fighting, Dying };
+    public enum _Status { Waiting, Moving, Fighting, Dying, Menu };
     [Title("Settings")]
     public int LVL;
     public int EXP;

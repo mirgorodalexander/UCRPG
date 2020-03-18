@@ -96,9 +96,14 @@ public class HealthController : MonoBehaviour
                     PlayerController.Player.Status = Player._Status.Waiting;
                     
                     ItemController.Drop();
-                    
+                    enemyHealthDefault = 0;
                     EnemyController.Die();
-                    DOVirtual.DelayedCall(2f, () => { EnemyDeathParticles.SetActive(false); });
+                    
+                    DOVirtual.DelayedCall(2f, () => { 
+                        EnemyDeathParticles.SetActive(false); 
+                        EnemyHealth.value = 1f;
+                        
+                    });
                 }
             });
         });
@@ -107,6 +112,19 @@ public class HealthController : MonoBehaviour
     [Button("Enemy Damage", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void EnemyDamage(int damage)
     {
+        if (Player != null && playerHealthDefault == 0)
+        {
+            playerHealthDefault = Player.HP;
+            PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+                $"{Player.HP} / {playerHealthDefault}";
+        }
+
+        if (Enemy != null && enemyHealthDefault == 0)
+        {
+            enemyHealthDefault = Enemy.HP;
+            EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+                $"{Enemy.HP} / {enemyHealthDefault}";
+        }
         Debug.Log($"[DEBUG] - Enemy has damage \"{damage}\"");
         if (Enemy.HP > 0)
         {
@@ -114,7 +132,6 @@ public class HealthController : MonoBehaviour
             if (Enemy.HP <= 0)
             {
                 Enemy.HP = 0;
-                enemyHealthDefault = 0;
                 EnemyController.StopAttack();
                 EnemyDyingAnimation();
                 DOVirtual.DelayedCall(0.3f, () => { WeaponController.TakeOff(); });
@@ -161,18 +178,5 @@ public class HealthController : MonoBehaviour
 
     void Update()
     {
-        if (Player != null && playerHealthDefault == 0)
-        {
-            playerHealthDefault = Player.HP;
-            PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-                $"{Player.HP} / {playerHealthDefault}";
-        }
-
-        if (Enemy != null && enemyHealthDefault == 0)
-        {
-            enemyHealthDefault = Enemy.HP;
-            EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-                $"{Enemy.HP} / {enemyHealthDefault}";
-        }
     }
 }
