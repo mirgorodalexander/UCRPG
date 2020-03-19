@@ -108,11 +108,11 @@ public class MenuController : MonoBehaviour
             Element.Icon.sprite = child.Icon;
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
-            Element.Locked.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.LockedText.Replace("{Level}", child.Level.ToString());
-            Element.Opened.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.OpenedText.Replace("{Price}", child.Price.ToString());
-            Element.Owned.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.OwnedText;
             
             Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
@@ -174,11 +174,11 @@ public class MenuController : MonoBehaviour
             Element.Icon.sprite = child.Icon;
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
-            Element.Locked.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.LockedText.Replace("{Level}", child.Level.ToString());
-            Element.Opened.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.OpenedText.Replace("{Price}", child.Price.ToString());
-            Element.Owned.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.OwnedText;
             
             Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
@@ -247,11 +247,11 @@ public class MenuController : MonoBehaviour
             Element.Icon.sprite = child.Icon;
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
-            Element.Locked.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.LockedText.Replace("{Level}", child.Level.ToString());
-            Element.Opened.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.OpenedText.Replace("{Price}", child.Price.ToString());
-            Element.Owned.transform.GetChild(0).transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+            Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.OwnedText;
 
             Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
