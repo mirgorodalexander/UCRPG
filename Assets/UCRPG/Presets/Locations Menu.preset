@@ -1,0 +1,281 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Locations Menu
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: e9c20b2e894c03945b2d702020b63ae1,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 7ab87581d82661b4e9c2ef5684adeb02, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].Title
+    value: Prontera
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].Description
+    value: Prontera description
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].Status
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].LockedText
+    value: 'Need
+
+      {Level} vl'
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].OpenedText
+    value: ${Price}
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].OwnedText
+    value: GO
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].Level
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].Price
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[0].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[0].REFID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].ID
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: a7249972b5f2f9b43ad31b95aa9bb23d, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].Title
+    value: Morroc
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].Description
+    value: Morroc description
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].Status
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].LockedText
+    value: 'Need
+
+      {Level} vl'
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].OpenedText
+    value: ${Price}
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].OwnedText
+    value: GO
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].Level
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].Price
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[1].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[1].REFID
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: dd04b2931b2d1114aab1360bfee69ea4, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Title
+    value: Shmorroc
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Description
+    value: Shmorroc description
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].LockedText
+    value: 'Need
+
+      {Level} vl'
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].OpenedText
+    value: ${Price}
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].OwnedText
+    value: GO
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Level
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Price
+    value: 200
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[2].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].REFID
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: eae9010da23b6034e9f7b9d1fa5beae8, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Title
+    value: Trorroc
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Description
+    value: Trorroc description
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].LockedText
+    value: 'Need
+
+      {Level} vl'
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].OpenedText
+    value: ${Price}
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].OwnedText
+    value: GO
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Level
+    value: 15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Price
+    value: 300
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[3].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].REFID
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 9bbfcad9b65ee094f9e5d231489d8981, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Title
+    value: Polloc
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Description
+    value: Polloc description
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].LockedText
+    value: 'Need
+
+      {Level} vl'
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].OpenedText
+    value: ${Price}
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].OwnedText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Level
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Price
+    value: 400
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[4].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].REFID
+    value: 4
+    objectReference: {fileID: 0}

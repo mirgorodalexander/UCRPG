@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41fa72f58a7b074c984b1ab969891a2, type: 3}
+  m_Name: Weapon Database
+  m_EditorClassIdentifier: 
+  Items:
+  - ID: 0
+    Prefab: {fileID: 4697043183133261459, guid: 994cb44d2bef01646ad4c063c021d600,
+      type: 3}
+    Name: Dagger
+    Chance: 0
+    ATK: 10
+    SPD: 10
+    Price: 100
+  - ID: 1
+    Prefab: {fileID: 8056709683143225550, guid: bf299e407a2492547974375189c495b5,
+      type: 3}
+    Name: Sword
+    Chance: 0
+    ATK: 43
+    SPD: 20
+    Price: 300

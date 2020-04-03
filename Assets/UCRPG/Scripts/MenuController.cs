@@ -4,11 +4,15 @@ using System.Security.Cryptography;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.UI.ProceduralImage;
 
 public class MenuController : MonoBehaviour
 {
+    [Title("Events")]
+    public GlobalEvent UpdateUiEvent;
+    
     [Title("Configurations")]
     public Player Player;
 
@@ -30,12 +34,15 @@ public class MenuController : MonoBehaviour
     public TextMeshProUGUI NextLevel;
 
     [Title("Controllers")]
+    public WeaponController WeaponController;
     public LocationController LocationController;
 
     public ItemController ItemController;
 
-    [Title("Menu element Prefab")]
-    public GameObject Prefab;
+    [FormerlySerializedAs("ItemUIPrefab")] [FormerlySerializedAs("ItemPrefab")] [FormerlySerializedAs("Prefab")] [Title("Menu element Prefab")]
+    public GameObject ItemElementPrefab;
+    [FormerlySerializedAs("WeaponUIPrefab")] public GameObject WeaponElementPrefab;
+    [FormerlySerializedAs("LocationUIPrefab")] public GameObject LocationElementPrefab;
 
     public GameObject Breakline;
 
@@ -47,6 +54,7 @@ public class MenuController : MonoBehaviour
         CoinsValue.text = Coins.Value.ToString();
         CurrentLevel.text = Player.LVL.ToString();
         NextLevel.text = (Player.LVL+1).ToString();
+        this.Draw();
     }
 
     [Title("Buttons")]
@@ -102,12 +110,18 @@ public class MenuController : MonoBehaviour
         int index = 0;
         foreach (var child in WeaponsMenuElemets.Elements)
         {
-            var element = Instantiate(Prefab, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
+            var element = Instantiate(WeaponElementPrefab, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
             Element Element = element.GetComponent<Element>();
             Element.gameObject.name = $"Weapon ({index})";
-            Element.Icon.sprite = child.Icon;
-            Element.Title.text = child.Title;
-            Element.Description.text = child.Description;
+            if(Element.Icon != null){
+                Element.Icon.sprite = child.Icon;
+            }
+            if(Element.Title != null){
+                Element.Title.text = child.Title;
+            }
+            if(Element.Description != null){
+                Element.Description.text = child.Description;
+            }
             Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 child.LockedText.Replace("{Level}", child.Level.ToString());
             Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
@@ -124,10 +138,10 @@ public class MenuController : MonoBehaviour
                 if(Coins.Value >= child.Price){
                     Coins.Value -= child.Price;
                     child.Status = MenuElement.ElementSetupClass._Status.Owned;
-                    this.Draw();
+                    UpdateUiEvent.Publish();
                 }
             });
-            //ButtonOwned.onClick.AddListener(() => LocationController.Spawn(child.REFID));
+            ButtonOwned.onClick.AddListener(() => WeaponController.Equip(child.REFID));
 
             Element.Locked.SetActive(false);
             Element.Opened.SetActive(false);
@@ -154,7 +168,7 @@ public class MenuController : MonoBehaviour
             if (index != WeaponsMenuElemets.Elements.Count - 1)
             {
                 var breakline =
-                    Instantiate(Breakline, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
+                    Instantiate(Breakline, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
                 breakline.transform.SetParent(Weapons.transform);
                 breakline.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
                 elements.Add(breakline);
@@ -168,7 +182,7 @@ public class MenuController : MonoBehaviour
         index = 0;
         foreach (var child in ItemsMenuElemets.Elements)
         {
-            var element = Instantiate(Prefab, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
+            var element = Instantiate(ItemElementPrefab, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
             Element Element = element.GetComponent<Element>();
             Element.gameObject.name = $"Item ({index})";
             Element.Icon.sprite = child.Icon;
@@ -191,7 +205,7 @@ public class MenuController : MonoBehaviour
                     Coins.Value -= child.Price;
                     if(child.Status == MenuElement.ElementSetupClass._Status.Rechargeable){
                         child.Status = MenuElement.ElementSetupClass._Status.Rechargeable;
-                        this.Draw();
+                        UpdateUiEvent.Publish();
                     }
                 }
             });
@@ -227,7 +241,7 @@ public class MenuController : MonoBehaviour
             if (index != ItemsMenuElemets.Elements.Count - 1)
             {
                 var breakline =
-                    Instantiate(Breakline, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
+                    Instantiate(Breakline, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
                 breakline.transform.SetParent(Items.transform);
                 breakline.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
                 elements.Add(breakline);
@@ -241,7 +255,7 @@ public class MenuController : MonoBehaviour
         index = 0;
         foreach (var child in LocationsMenuElemets.Elements)
         {
-            var element = Instantiate(Prefab, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
+            var element = Instantiate(LocationElementPrefab, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
             Element Element = element.GetComponent<Element>();
             Element.gameObject.name = $"Location ({index})";
             Element.Icon.sprite = child.Icon;
@@ -265,7 +279,7 @@ public class MenuController : MonoBehaviour
                 if(Coins.Value >= child.Price){
                     Coins.Value -= child.Price;
                     child.Status = MenuElement.ElementSetupClass._Status.Owned;
-                    this.Draw();
+                    UpdateUiEvent.Publish();
                 }
             });
             ButtonOwned.onClick.AddListener(() => LocationController.Spawn(child.REFID));
@@ -295,7 +309,7 @@ public class MenuController : MonoBehaviour
             if (index != LocationsMenuElemets.Elements.Count - 1)
             {
                 var breakline =
-                    Instantiate(Breakline, Prefab.transform.position, Prefab.transform.rotation) as GameObject;
+                    Instantiate(Breakline, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
                 breakline.transform.SetParent(Locations.transform);
                 breakline.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
                 elements.Add(breakline);
@@ -310,10 +324,14 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         this.Show();
+        UpdateUiEvent.Publish();
     }
 
     void Update()
     {
-        this.UpdateUI();
+        if(UpdateUiEvent.isPublished()){
+            Debug.Log("UI was updated.");
+            this.UpdateUI();
+        }
     }
 }

@@ -27,7 +27,7 @@ public class AnimatorProvider : MonoBehaviour
     
     public void AnimationAttackEnemy()
     {
-        HealthController.EnemyDamage(PlayerController.Player.ATK);
+        HealthController.EnemyDamage(PlayerController.Player.ATK+WeaponController.Weapon.ATK);
     }
     public void AnimationAttackEnemyEnd()
     {
