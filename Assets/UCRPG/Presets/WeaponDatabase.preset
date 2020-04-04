@@ -26,6 +26,18 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: LockedText
+    value: Need {Level} lvl
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OpenedText
+    value: ${Price}
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OwnedText
+    value: EQUIP
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Items.Array.size
     value: 2
     objectReference: {fileID: 0}
@@ -43,20 +55,36 @@ Preset:
     value: Dagger
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].Chance
+    propertyPath: Items.Array.data[0].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].Status
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].Power
+    propertyPath: Items.Array.data[0].ATK
     value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].Level
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].Price
     value: 100
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].ID
+    propertyPath: "Items.Array.data[0].\u0421urrency"
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].ID
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Prefab
@@ -68,14 +96,30 @@ Preset:
     value: Sword
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].Chance
+    propertyPath: Items.Array.data[1].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].Status
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].Power
+    propertyPath: Items.Array.data[1].ATK
+    value: 43
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].SPD
     value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].Level
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Price
     value: 300
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[1].\u0421urrency"
+    value: 0
     objectReference: {fileID: 0}

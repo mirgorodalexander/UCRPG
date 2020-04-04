@@ -7,6 +7,7 @@ using UnityEngine.UI.ProceduralImage;
 public class Element : MonoBehaviour
 {
     public ProceduralImage Icon;
+    public GameObject Prefab;
     public TextMeshProUGUI Title;
     public TextMeshProUGUI Description;
     public TextMeshProUGUI PowerValue;

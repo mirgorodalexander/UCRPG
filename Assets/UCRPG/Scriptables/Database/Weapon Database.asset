@@ -12,20 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41fa72f58a7b074c984b1ab969891a2, type: 3}
   m_Name: Weapon Database
   m_EditorClassIdentifier: 
+  LockedText: Need {Level} lvl
+  OpenedText: ${Price}
+  OwnedText: EQUIP
   Items:
   - ID: 0
     Prefab: {fileID: 4697043183133261459, guid: 994cb44d2bef01646ad4c063c021d600,
       type: 3}
     Name: Dagger
-    Chance: 0
+    Description: 
+    Status: 2
     ATK: 10
     SPD: 10
+    Level: 0
     Price: 100
+    "\u0421urrency": 0
   - ID: 1
     Prefab: {fileID: 8056709683143225550, guid: bf299e407a2492547974375189c495b5,
       type: 3}
     Name: Sword
-    Chance: 0
+    Description: 
+    Status: 2
     ATK: 43
     SPD: 20
+    Level: 0
     Price: 300
+    "\u0421urrency": 0
