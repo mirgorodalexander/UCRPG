@@ -111,101 +111,30 @@ public class MenuController : MonoBehaviour
         elements = new List<GameObject> { };
 
         int index = 0;
-        foreach (var child in WeaponDatabase.Items)
-        {
-            var element = Instantiate(WeaponElementPrefab, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
-            Element Element = element.GetComponent<Element>();
-            Element.gameObject.name = $"Weapon ({index})";
-            if(Element.Prefab != null){
-                var prefabIcon = Instantiate(child.Prefab, child.Prefab.transform.position, Quaternion.Euler(0, 90, 0)) as GameObject;
-                prefabIcon.transform.SetParent(Element.Prefab.transform);
-                prefabIcon.transform.localScale = new Vector3(200,200,200);
-                prefabIcon.transform.position = new Vector3(0, 0, 0);
-                prefabIcon.transform.localPosition = new Vector3(0, 0, 0);
-            }
-            if(Element.Title != null){
-                Element.Title.text = child.Name;
-            }
-            if(Element.Description != null){
-                Element.Description.text = child.Description;
-            }
-            Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                WeaponDatabase.LockedText.Replace("{Level}", child.Level.ToString());
-            Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                WeaponDatabase.OpenedText.Replace("{Price}", child.Price.ToString());
-            Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                WeaponDatabase.OwnedText;
-            
-            Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
-            Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
-            Button ButtonOwned = Element.Owned.transform.Find("Button").GetComponent<Button>();
-        
-            ButtonOpened.onClick.AddListener(() =>
-            {
-                if(Coins.Value >= child.Price){
-                    Coins.Value -= child.Price;
-                    child.Status = WeaponDatabase.ItemSetupClass._Status.Owned;
-                    UpdateUiEvent.Publish();
-                }
-            });
-            ButtonOwned.onClick.AddListener(() => WeaponController.Equip(child.ID));
-        
-            Element.Locked.SetActive(false);
-            Element.Opened.SetActive(false);
-            Element.Owned.SetActive(false);
-        
-            if (child.Status == WeaponDatabase.ItemSetupClass._Status.Locked)
-            {
-                Element.Locked.SetActive(true);
-            }
-        
-            if (child.Status == WeaponDatabase.ItemSetupClass._Status.Opened)
-            {
-                Element.Opened.SetActive(true);
-            }
-        
-            if (child.Status == WeaponDatabase.ItemSetupClass._Status.Owned)
-            {
-                Element.Owned.SetActive(true);
-            }
-        
-            Element.transform.SetParent(Weapons.transform);
-            Element.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        
-            if (index != WeaponsMenuElemets.Elements.Count - 1)
-            {
-                var breakline =
-                    Instantiate(Breakline, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
-                breakline.transform.SetParent(Weapons.transform);
-                breakline.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-                elements.Add(breakline);
-            }
-        
-            elements.Add(element);
-        
-            index++;
-        }
-        //
-        // // foreach (var child in WeaponsMenuElemets.Elements)
+        // foreach (var child in WeaponDatabase.Items)
         // {
         //     var element = Instantiate(WeaponElementPrefab, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
         //     Element Element = element.GetComponent<Element>();
         //     Element.gameObject.name = $"Weapon ({index})";
-        //     if(Element.Icon != null){
-        //         Element.Icon.sprite = child.Icon;
+        //     if(Element.Prefab != null){
+        //         var prefabIcon = Instantiate(child.Prefab, child.Prefab.transform.position, Quaternion.Euler(0, 90, 0)) as GameObject;
+        //         prefabIcon.transform.SetParent(Element.Prefab.transform);
+        //         prefabIcon.transform.localScale = new Vector3(200,200,200);
+        //         prefabIcon.transform.position = new Vector3(0, 0, 0);
+        //         prefabIcon.transform.localPosition = new Vector3(0, 0, 0);
         //     }
         //     if(Element.Title != null){
-        //         Element.Title.text = child.Title;
+        //         Element.Title.text = child.Name;
         //     }
         //     if(Element.Description != null){
         //         Element.Description.text = child.Description;
         //     }
         //     Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-        //         child.LockedText.Replace("{Level}", child.Level.ToString());
+        //         WeaponDatabase.LockedText.Replace("{Level}", child.Level.ToString());
         //     Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-        //         child.OpenedText.Replace("{Price}", child.Price.ToString());
+        //         WeaponDatabase.OpenedText.Replace("{Price}", child.Price.ToString());
         //     Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-        //         child.OwnedText;
+        //         WeaponDatabase.OwnedText;
         //     
         //     Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
         //     Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
@@ -215,27 +144,27 @@ public class MenuController : MonoBehaviour
         //     {
         //         if(Coins.Value >= child.Price){
         //             Coins.Value -= child.Price;
-        //             child.Status = MenuElement.ElementSetupClass._Status.Owned;
+        //             child.Status = WeaponDatabase.ItemSetupClass._Status.Owned;
         //             UpdateUiEvent.Publish();
         //         }
         //     });
-        //     ButtonOwned.onClick.AddListener(() => WeaponController.Equip(child.REFID));
+        //     ButtonOwned.onClick.AddListener(() => WeaponController.Equip(child.ID));
         //
         //     Element.Locked.SetActive(false);
         //     Element.Opened.SetActive(false);
         //     Element.Owned.SetActive(false);
         //
-        //     if (child.Status == MenuElement.ElementSetupClass._Status.Locked)
+        //     if (child.Status == WeaponDatabase.ItemSetupClass._Status.Locked)
         //     {
         //         Element.Locked.SetActive(true);
         //     }
         //
-        //     if (child.Status == MenuElement.ElementSetupClass._Status.Opened)
+        //     if (child.Status == WeaponDatabase.ItemSetupClass._Status.Opened)
         //     {
         //         Element.Opened.SetActive(true);
         //     }
         //
-        //     if (child.Status == MenuElement.ElementSetupClass._Status.Owned)
+        //     if (child.Status == WeaponDatabase.ItemSetupClass._Status.Owned)
         //     {
         //         Element.Owned.SetActive(true);
         //     }
@@ -256,6 +185,79 @@ public class MenuController : MonoBehaviour
         //
         //     index++;
         // }
+        
+        
+        //
+        foreach (var child in WeaponsMenuElemets.Elements)
+        {
+            var element = Instantiate(WeaponElementPrefab, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
+            Element Element = element.GetComponent<Element>();
+            Element.gameObject.name = $"Weapon ({index})";
+            if(Element.Icon != null){
+                Element.Icon.sprite = child.Icon;
+            }
+            if(Element.Title != null){
+                Element.Title.text = child.Title;
+            }
+            if(Element.Description != null){
+                Element.Description.text = child.Description;
+            }
+            Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+                WeaponsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
+            Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+                WeaponsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
+            Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
+                WeaponsMenuElemets.OwnedText;
+            
+            Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
+            Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
+            Button ButtonOwned = Element.Owned.transform.Find("Button").GetComponent<Button>();
+        
+            ButtonOpened.onClick.AddListener(() =>
+            {
+                if(Coins.Value >= child.Price){
+                    Coins.Value -= child.Price;
+                    child.Status = MenuElement.ElementSetupClass._Status.Owned;
+                    UpdateUiEvent.Publish();
+                }
+            });
+            ButtonOwned.onClick.AddListener(() => WeaponController.Equip(child.REFID));
+        
+            Element.Locked.SetActive(false);
+            Element.Opened.SetActive(false);
+            Element.Owned.SetActive(false);
+        
+            if (child.Status == MenuElement.ElementSetupClass._Status.Locked)
+            {
+                Element.Locked.SetActive(true);
+            }
+        
+            if (child.Status == MenuElement.ElementSetupClass._Status.Opened)
+            {
+                Element.Opened.SetActive(true);
+            }
+        
+            if (child.Status == MenuElement.ElementSetupClass._Status.Owned)
+            {
+                Element.Owned.SetActive(true);
+            }
+        
+            Element.transform.SetParent(Weapons.transform);
+            Element.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        
+            if (index != WeaponsMenuElemets.Elements.Count - 1)
+            {
+                var breakline =
+                    Instantiate(Breakline, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
+                breakline.transform.SetParent(Weapons.transform);
+                breakline.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                elements.Add(breakline);
+            }
+        
+            elements.Add(element);
+        
+            index++;
+        }
 
         index = 0;
         foreach (var child in ItemsMenuElemets.Elements)
@@ -267,11 +269,11 @@ public class MenuController : MonoBehaviour
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
             Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                child.LockedText.Replace("{Level}", child.Level.ToString());
+                ItemsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
             Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                child.OpenedText.Replace("{Price}", child.Price.ToString());
+                ItemsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
             Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                child.OwnedText;
+                ItemsMenuElemets.OwnedText;
             
             Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
             Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
@@ -340,11 +342,11 @@ public class MenuController : MonoBehaviour
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
             Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                child.LockedText.Replace("{Level}", child.Level.ToString());
+                LocationsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
             Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                child.OpenedText.Replace("{Price}", child.Price.ToString());
+                LocationsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
             Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                child.OwnedText;
+                LocationsMenuElemets.OwnedText;
 
             Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
             Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();

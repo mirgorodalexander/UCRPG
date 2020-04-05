@@ -56,40 +56,40 @@ public class EnemyController : MonoBehaviour
     {
         int rnd = Random.Range(LocationEnemies[0], LocationEnemies[LocationEnemies.Count-1]+1);
 
-        if (EnemyDatabase.Enemies[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Walking ||
-            EnemyDatabase.Enemies[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Flying)
+        if (EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Walking ||
+            EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Flying)
         {
             EnemySpawnPoint = Points[0];
         }
 
-        if (EnemyDatabase.Enemies[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Static)
+        if (EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Static)
         {
             EnemySpawnPoint = Points[1];
         }
 
         enemy = Instantiate(
-            EnemyDatabase.Enemies[rnd].Prefab,
+            EnemyDatabase.Items[rnd].Prefab,
             EnemySpawnPoint.transform.position,
-            EnemyDatabase.Enemies[rnd].Prefab.transform.rotation
+            EnemyDatabase.Items[rnd].Prefab.transform.rotation
         ) as GameObject;
 
         Enemy Enemy = enemy.AddComponent<Enemy>();
 
-        Enemy.ID = EnemyDatabase.Enemies[rnd].ID;
-        Enemy.LVL = EnemyDatabase.Enemies[rnd].LVL;
-        Enemy.BEXP = EnemyDatabase.Enemies[rnd].BEXP;
-        Enemy.JEXP = EnemyDatabase.Enemies[rnd].JEXP;
-        Enemy.HP = EnemyDatabase.Enemies[rnd].HP;
-        Enemy.MP = EnemyDatabase.Enemies[rnd].MP;
-        Enemy.ATK = EnemyDatabase.Enemies[rnd].ATK;
-        Enemy.ATKD = EnemyDatabase.Enemies[rnd].ATKD;
-        Enemy.DEF = EnemyDatabase.Enemies[rnd].DEF;
-        Enemy.MOD = (Enemy._MOD) EnemyDatabase.Enemies[rnd].MOD;
-        Enemy.MOVE = (Enemy._MOVE) EnemyDatabase.Enemies[rnd].MOVE;
-        Enemy.ItemID = EnemyDatabase.Enemies[rnd].ItemID;
+        Enemy.ID = EnemyDatabase.Items[rnd].ID;
+        Enemy.LVL = EnemyDatabase.Items[rnd].LVL;
+        Enemy.BEXP = EnemyDatabase.Items[rnd].BEXP;
+        Enemy.JEXP = EnemyDatabase.Items[rnd].JEXP;
+        Enemy.HP = EnemyDatabase.Items[rnd].HP;
+        Enemy.MP = EnemyDatabase.Items[rnd].MP;
+        Enemy.ATK = EnemyDatabase.Items[rnd].ATK;
+        Enemy.ATKD = EnemyDatabase.Items[rnd].ATKD;
+        Enemy.DEF = EnemyDatabase.Items[rnd].DEF;
+        Enemy.MOD = (Enemy._MOD) EnemyDatabase.Items[rnd].MOD;
+        Enemy.MOVE = (Enemy._MOVE) EnemyDatabase.Items[rnd].MOVE;
+        Enemy.ItemID = EnemyDatabase.Items[rnd].ItemID;
 
 
-        enemy.name = EnemyDatabase.Enemies[rnd].Name;
+        enemy.name = EnemyDatabase.Items[rnd].Name;
         enemy.transform.parent = EnemySpawnParent.transform;
 
         this.Enemy = Enemy;
