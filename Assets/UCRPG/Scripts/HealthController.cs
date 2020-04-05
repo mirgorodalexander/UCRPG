@@ -40,6 +40,7 @@ public class HealthController : MonoBehaviour
 
     [Title("Debug")]
     public int playerHealthDefault;
+    public int playerHealthDefault1;
 
     public int enemyHealthDefault;
 
