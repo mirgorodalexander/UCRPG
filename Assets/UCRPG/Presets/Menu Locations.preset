@@ -6,7 +6,7 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MenuLocations
+  m_Name: Menu Locations
   m_TargetType:
     m_NativeTypeID: 114
     m_ManagedTypePPtr: {fileID: 11500000, guid: e9c20b2e894c03945b2d702020b63ae1,
@@ -23,6 +23,18 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: LockedText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OpenedText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OwnedText
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -48,20 +60,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Status
     value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[0].LockedText
-    value: 'Need
-
-      {Level} vl'
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[0].OpenedText
-    value: ${Price}
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[0].OwnedText
-    value: GO
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Level
@@ -100,20 +98,6 @@ Preset:
     value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Elements.Array.data[1].LockedText
-    value: 'Need
-
-      {Level} vl'
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[1].OpenedText
-    value: ${Price}
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[1].OwnedText
-    value: GO
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Level
     value: 5
     objectReference: {fileID: 0}
@@ -148,20 +132,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[2].Status
     value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[2].LockedText
-    value: 'Need
-
-      {Level} vl'
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[2].OpenedText
-    value: ${Price}
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[2].OwnedText
-    value: GO
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[2].Level
@@ -200,20 +170,6 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Elements.Array.data[3].LockedText
-    value: 'Need
-
-      {Level} vl'
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[3].OpenedText
-    value: ${Price}
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[3].OwnedText
-    value: GO
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Elements.Array.data[3].Level
     value: 15
     objectReference: {fileID: 0}
@@ -248,20 +204,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[4].Status
     value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[4].LockedText
-    value: 'Need
-
-      {Level} vl'
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[4].OpenedText
-    value: ${Price}
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[4].OwnedText
-    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[4].Level

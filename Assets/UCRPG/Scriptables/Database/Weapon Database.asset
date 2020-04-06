@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41fa72f58a7b074c984b1ab969891a2, type: 3}
   m_Name: Weapon Database
   m_EditorClassIdentifier: 
-  LockedText: Need {Level} lvl
-  OpenedText: ${Price}
-  OwnedText: EQUIP
   Items:
   - ID: 0
     Prefab: {fileID: 4697043183133261459, guid: 994cb44d2bef01646ad4c063c021d600,
@@ -32,7 +29,7 @@ MonoBehaviour:
       type: 3}
     Name: Sword
     Description: 
-    Status: 2
+    Status: 0
     ATK: 43
     SPD: 20
     Level: 0
