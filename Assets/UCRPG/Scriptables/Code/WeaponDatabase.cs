@@ -7,9 +7,6 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "Data", menuName = "UCRPG/Database/Weapon", order = 1)]
 public class WeaponDatabase : ScriptableObject
 {
-    public string LockedText;
-    public string OpenedText;
-    public string OwnedText;
     [Header("Item Setup")]
     [TableList] public List<ItemSetupClass> Items;
 

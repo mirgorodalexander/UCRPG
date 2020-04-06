@@ -54,18 +54,18 @@ public class LocationController : MonoBehaviour
 
             Debug.Log($"[DEBUG] - Spawning location with id \"{locationID}\".");
 
-            if (locationID <= LocationDatabase.Locations.Count - 1)
+            if (locationID <= LocationDatabase.Items.Count - 1)
             {
 
-                location = Instantiate(LocationDatabase.Locations[locationID].Prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                location = Instantiate(LocationDatabase.Items[locationID].Prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 
-                location.name = LocationDatabase.Locations[locationID].Name;
+                location.name = LocationDatabase.Items[locationID].Name;
                 location.transform.parent = LocationSpawnParent.transform;
                 location.transform.localPosition = new Vector3(0, 0, 0);
                 location.SetActive(true);
 
                 PlayerController.Player.LID = locationID;
-                EnemyController.LocationEnemies = LocationDatabase.Locations[locationID].EnemyID;
+                EnemyController.LocationEnemies = LocationDatabase.Items[locationID].EnemyID;
             }
         }
     }

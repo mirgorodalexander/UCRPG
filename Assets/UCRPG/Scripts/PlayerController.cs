@@ -26,21 +26,21 @@ public class PlayerController : MonoBehaviour
     [Button("Gain EXP", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void GainEXP(int exp)
     {    
-        if (Player.EXP < ExperienceDatabase.Experience[Player.LVL])
+        if (Player.EXP < ExperienceDatabase.Items[Player.LVL])
         {
             //ExperiencePopup(exp, PlayerExperiencePopupPrefab);
             MessageController.ExperiencePopup(exp);
             //MessageController.ConsolePopup($"You got \"{exp}\" experience");
             Player.EXP += exp;
-            if (Player.EXP >= ExperienceDatabase.Experience[Player.LVL])
+            if (Player.EXP >= ExperienceDatabase.Items[Player.LVL])
             {
-                int addToNextLvlEXP = Player.EXP - ExperienceDatabase.Experience[Player.LVL];
+                int addToNextLvlEXP = Player.EXP - ExperienceDatabase.Items[Player.LVL];
                 Player.EXP = 0;
                 Player.EXP += addToNextLvlEXP;
                 this.LevelUp();
             }
         }
-        PlayerExperience.value = (1f / ExperienceDatabase.Experience[Player.LVL]) * Player.EXP;
+        PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
         //PlayerExperience.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Experience[Player.LVL]}";
 
     }
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 //    }
     void Start()
     {
-        PlayerExperience.value = (1f / ExperienceDatabase.Experience[Player.LVL]) * Player.EXP;
+        PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
         //PlayerExperience.gameObject.transform.GetChild(0).transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Experience[Player.LVL]}";
     }
 
