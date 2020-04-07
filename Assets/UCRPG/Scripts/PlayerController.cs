@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
     [Title("Buttons")]
     [Button("Gain EXP", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void GainEXP(int exp)
-    {    
+    {   
+        exp = exp+(Random.Range(-4, 4));
         if (Player.EXP < ExperienceDatabase.Items[Player.LVL])
         {
             //ExperiencePopup(exp, PlayerExperiencePopupPrefab);
