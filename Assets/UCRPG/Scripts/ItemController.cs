@@ -96,7 +96,7 @@ public class ItemController : MonoBehaviour
 
                             item.transform.DOScale(0f, 0f);
                             ItemsDroppedParticles.SetActive(true);
-                            item.transform.DOScale(0.1f, JumpDuration / 2);
+                            item.transform.DOScale(0.5f, JumpDuration / 2);
                             item.transform.DOJump(SelectedSpawnPoint.transform.position, JumpPower, 1, JumpDuration,
                                     false)
                                 .SetEase(Ease.Linear).OnComplete(() => { ItemsDroppedParticles.SetActive(false); });

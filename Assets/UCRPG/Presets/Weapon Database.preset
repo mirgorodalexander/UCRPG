@@ -47,28 +47,12 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].Status
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[0].ATK
     value: 10
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].SPD
     value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].Level
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].Price
-    value: 100
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[0].\u0421urrency"
-    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ID
@@ -88,32 +72,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ATK
     value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].Level
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].Price
-    value: 300
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[1].\u0421urrency"
-    value: 0
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ID
-    value: 0
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].Prefab
@@ -129,32 +97,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[2].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ATK
     value: 35
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[2].Level
-    value: 4
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[2].Price
-    value: 750
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[2].\u0421urrency"
-    value: 0
+    value: 15
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ID
-    value: 0
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].Prefab
@@ -170,32 +122,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[3].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ATK
     value: 45
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[3].Level
-    value: 6
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[3].Price
-    value: 1150
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[3].\u0421urrency"
-    value: 0
+    value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ID
-    value: 0
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].Prefab
@@ -211,32 +147,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[4].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ATK
     value: 60
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[4].Level
-    value: 8
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[4].Price
-    value: 1700
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[4].\u0421urrency"
-    value: 0
+    value: 30
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[5].ID
-    value: 0
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[5].Prefab
@@ -252,32 +172,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[5].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[5].ATK
     value: 70
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[5].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[5].Level
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[5].Price
-    value: 2700
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[5].\u0421urrency"
-    value: 0
+    value: 35
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[6].ID
-    value: 0
+    value: 6
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[6].Prefab
@@ -293,32 +197,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[6].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[6].ATK
     value: 85
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[6].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[6].Level
-    value: 12
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[6].Price
-    value: 3500
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[6].\u0421urrency"
-    value: 0
+    value: 30
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[7].ID
-    value: 0
+    value: 7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[7].Prefab
@@ -334,32 +222,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[7].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[7].ATK
     value: 112
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[7].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[7].Level
-    value: 14
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[7].Price
-    value: 8000
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[7].\u0421urrency"
-    value: 0
+    value: 50
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[8].ID
-    value: 0
+    value: 8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[8].Prefab
@@ -375,32 +247,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[8].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[8].ATK
     value: 150
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[8].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[8].Level
-    value: 16
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[8].Price
-    value: 16000
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[8].\u0421urrency"
-    value: 0
+    value: 40
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[9].ID
-    value: 0
+    value: 9
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[9].Prefab
@@ -416,32 +272,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[9].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[9].ATK
     value: 250
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[9].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[9].Level
-    value: 18
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[9].Price
-    value: 32000
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[9].\u0421urrency"
-    value: 0
+    value: 30
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].ID
-    value: 0
+    value: 10
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].Prefab
@@ -457,26 +297,10 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[10].Status
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[10].ATK
     value: 400
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].SPD
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[10].Level
-    value: 20
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[10].Price
-    value: 64000
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: "Items.Array.data[10].\u0421urrency"
-    value: 0
+    value: 25
     objectReference: {fileID: 0}

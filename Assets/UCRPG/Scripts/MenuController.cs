@@ -42,10 +42,11 @@ public class MenuController : MonoBehaviour
 
     public ItemController ItemController;
 
-    [FormerlySerializedAs("ItemUIPrefab")] [FormerlySerializedAs("ItemPrefab")] [FormerlySerializedAs("Prefab")] [Title("Menu element Prefab")]
+    [Title("Menu element Prefab")]
     public GameObject ItemElementPrefab;
-    [FormerlySerializedAs("WeaponUIPrefab")] public GameObject WeaponElementPrefab;
-    [FormerlySerializedAs("LocationUIPrefab")] public GameObject LocationElementPrefab;
+    public GameObject WeaponElementPrefab;
+    public GameObject LocationElementPrefab;
+    public GameObject PowerIcon;
 
     public GameObject Breakline;
 
@@ -202,6 +203,16 @@ public class MenuController : MonoBehaviour
             if(Element.Description != null){
                 Element.Description.text = child.Description;
             }
+
+            if (Element.Description.text.Contains("{P}"))
+            {
+                Element.Description.text = Element.Description.text.Replace("{P}", "\U0000f6b2");
+            }
+            if (Element.Description.text.Contains("{S}"))
+            {
+                Element.Description.text = Element.Description.text.Replace("{S}", "\U0000f0e7");
+            }
+            
             Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 WeaponsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
             Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
@@ -268,6 +279,18 @@ public class MenuController : MonoBehaviour
             Element.Icon.sprite = child.Icon;
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
+
+            if (Element.Description.text.Contains("{P}"))
+            {
+                Element.Description.text = Element.Description.text.Replace("{P}", "");
+                if (Element.Description.text[0] == ' ')
+                {
+                    Element.Description.text = Element.Description.text.Substring(1);
+                }
+                var powerIcon = Instantiate(PowerIcon, PowerIcon.transform.position, PowerIcon.transform.rotation) as GameObject;
+                powerIcon.transform.SetParent(Element.Description.gameObject.transform);
+            }
+            
             Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
                 ItemsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
             Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
