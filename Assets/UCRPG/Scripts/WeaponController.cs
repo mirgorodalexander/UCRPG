@@ -52,6 +52,7 @@ public class WeaponController : MonoBehaviour
         
         weapon.transform.position = new Vector3(0, 0, 0);
         weapon.transform.localPosition = new Vector3(0, 0, 0);
+        weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 345, 0));
     }
     
     [Title("Buttons")]
