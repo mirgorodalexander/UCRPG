@@ -69,6 +69,7 @@ public class WeaponController : MonoBehaviour
                 {
                     AttackLock = true;
                     WeaponAnimator.SetInteger("Motion", 1);
+                    WeaponAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
 
                     PlayerController.Player.Status = Player._Status.Fighting;
 
@@ -151,7 +152,7 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             this.Attack();
         }

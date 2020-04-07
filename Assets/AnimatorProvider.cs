@@ -17,7 +17,8 @@ public class AnimatorProvider : MonoBehaviour
 
     public void AnimationAttackBegin()
     {
-        this.GetComponent<Animator>().SetInteger("Motion", 2);
+        //this.GetComponent<Animator>().SetFloat("speed", 5.0f);
+        // this.GetComponent<Animator>().SetInteger("Motion", 2);
     }
 
     public void AnimationAttackPlayer()
@@ -31,8 +32,11 @@ public class AnimatorProvider : MonoBehaviour
     }
     public void AnimationAttackEnemyEnd()
     {
-        WeaponController.AttackLock = false;
         this.GetComponent<Animator>().SetInteger("Motion", 0);
+        DOVirtual.DelayedCall(0.4f-WeaponController.Weapon.SPD*0.01f, () =>
+        {
+            WeaponController.AttackLock = false;
+        });
     }
 
     public void AnimationEnd()

@@ -48,6 +48,7 @@ public class HealthController : MonoBehaviour
     [Button("Player Damage", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void PlayerDamage(int damage)
     {
+        damage = damage+(Random.Range(-4, 4));
         Debug.Log($"[DEBUG] - Player has damage \"{damage}\"");
         if (Player.HP > 0)
         {
@@ -113,6 +114,7 @@ public class HealthController : MonoBehaviour
     [Button("Enemy Damage", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void EnemyDamage(int damage)
     {
+        damage = damage+(Random.Range(-4, 4));
         if (Player != null && playerHealthDefault == 0)
         {
             playerHealthDefault = Player.HP;
