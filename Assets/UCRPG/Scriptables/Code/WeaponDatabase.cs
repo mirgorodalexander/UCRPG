@@ -24,27 +24,9 @@ public class WeaponDatabase : ScriptableObject
         public string Name;
         [VerticalGroup("Settings")]
         public string Description;
-        [VerticalGroup("Settings")]
-        public _Status Status;
-        public enum _Status { Locked, Opened, Owned, Rechargeable };
 
         [FormerlySerializedAs("Power")] [VerticalGroup("Preferences")]
         public int ATK, SPD;
         
-        [VerticalGroup("Conditions")] [LabelWidth(40)]
-        public int Level;
-        [VerticalGroup("Conditions")] [LabelWidth(40)]
-        public int Price;
-        [VerticalGroup("Conditions")]
-        public _Сurrency Сurrency;
-        public enum _Сurrency { Coin, Diamond };
-    }
-
-    [Serializable]
-    public class DroppedClass
-    {
-        [PreviewField(50, ObjectFieldAlignment.Left)]
-        public GameObject Prefab;
-        public float Chance;
     }
 }

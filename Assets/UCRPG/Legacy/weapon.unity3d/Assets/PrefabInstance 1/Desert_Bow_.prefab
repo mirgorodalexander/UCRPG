@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1756371449686690}
+  m_IsPrefabParent: 1
+--- !u!1 &1756371449686690
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4400319230386212}
+  - component: {fileID: 33032073895162276}
+  - component: {fileID: 23503195083293037}
+  m_Layer: 0
+  m_Name: Desert_Bow_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4400319230386212
+Transform:
+  m_GameObject: {fileID: 1756371449686690}
+  m_LocalRotation: {x: 2.185569E-08, y: 1.862647E-09, z: 8.940697E-08, w: 1}
+  m_LocalPosition: {x: 8.315071E-10, y: -8.315071E-10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.504478E-06, y: -2.134434E-07, z: -1.024528E-05}
+--- !u!33 &33032073895162276
+MeshFilter:
+  m_GameObject: {fileID: 1756371449686690}
+  m_Mesh: {fileID: 4300000, guid: 748cb6f26568c6148993c951091592e5, type: 2}
+--- !u!23 &23503195083293037
+MeshRenderer:
+  m_GameObject: {fileID: 1756371449686690}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: fd9c6d1ff60720d418e8e43e9b0a5996, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

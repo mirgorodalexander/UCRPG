@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1244618136441863}
+  m_IsPrefabParent: 1
+--- !u!1 &1244618136441863
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4772813459167102}
+  - component: {fileID: 95281575786129579}
+  m_Layer: 0
+  m_Name: Orc_HeroShield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4772813459167102
+Transform:
+  m_GameObject: {fileID: 1244618136441863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4470270834164459}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95281575786129579
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1244618136441863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 66cd2ba9f530b944ebcc7f1260a514b6, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 0
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1675114852117500
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4470270834164459}
+  - component: {fileID: 137561259720271358}
+  m_Layer: 0
+  m_Name: Orc_HeroShield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4470270834164459
+Transform:
+  m_GameObject: {fileID: 1675114852117500}
+  m_LocalRotation: {x: 1.080334E-07, y: 2.607703E-07, z: 1.15484E-07, w: -1}
+  m_LocalPosition: {x: 2.102399E-07, y: -6.338792E-07, z: 3.601681E-07}
+  m_LocalScale: {x: 1.000001, y: 1.000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4772813459167102}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.237972E-05, y: 2.988208E-05, z: 1.323349E-05}
+--- !u!137 &137561259720271358
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1675114852117500}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 3729f8e31c5e6a541a3181fe55ec6e06, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 146aa839b12786b41813efc625fcd949, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: -0.1205388, y: 0.001315802, z: -0.1555253}
+    m_Extent: {x: 0.3389478, y: 0.4302302, z: 0.6142049}
+  m_DirtyAABB: 0

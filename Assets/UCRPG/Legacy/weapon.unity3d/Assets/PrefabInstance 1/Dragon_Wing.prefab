@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1508150255791622}
+  m_IsPrefabParent: 1
+--- !u!1 &1508150255791622
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4419334624722318}
+  - component: {fileID: 95723142976094732}
+  m_Layer: 0
+  m_Name: Dragon_Wing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4419334624722318
+Transform:
+  m_GameObject: {fileID: 1508150255791622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4187986891910058}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95723142976094732
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1508150255791622}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: c27796de84187924b9dd6c24100077fd, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 0
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1031176218956703
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4187986891910058}
+  - component: {fileID: 137134511811393709}
+  m_Layer: 0
+  m_Name: Dragon_Wing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4187986891910058
+Transform:
+  m_GameObject: {fileID: 1031176218956703}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5000001, w: -0.4999999}
+  m_LocalPosition: {x: 1.490116E-07, y: 5.960464E-08, z: -9.62267E-09}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4419334624722318}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00002, y: 89.99998, z: 0}
+--- !u!137 &137134511811393709
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1031176218956703}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: abfd9c6c3078e894b9609a39e521c5f9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 66bfd4901306b4f45b4d9765c6ea22e8, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: -0.07857712, y: -2.68966E-06, z: 1.752377E-05}
+    m_Extent: {x: 0.2877006, y: 0.07377195, z: 0.6032273}
+  m_DirtyAABB: 0

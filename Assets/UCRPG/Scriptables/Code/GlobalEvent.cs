@@ -1,8 +1,4 @@
-﻿
-
-using System.Collections;
-using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "UCRPG/Global/Event", order = 1)]
 public class GlobalEvent : ScriptableObject
@@ -19,10 +15,6 @@ public class GlobalEvent : ScriptableObject
     {
         if (published)
         {
-            // DOVirtual.DelayedCall(Time.deltaTime,  () =>
-            // {
-            // });
-            
             published = false;
             return true;
         }
@@ -31,7 +23,7 @@ public class GlobalEvent : ScriptableObject
             return false;
         }
     }
-//System.Action<bool> callback
+    
     [ContextMenu("Reload")]
     public bool Reload()
     {

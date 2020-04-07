@@ -18,20 +18,66 @@ MonoBehaviour:
       type: 3}
     Name: Dagger
     Description: 
-    Status: 2
     ATK: 10
     SPD: 10
-    Level: 0
-    Price: 100
-    "\u0421urrency": 0
   - ID: 1
-    Prefab: {fileID: 8056709683143225550, guid: bf299e407a2492547974375189c495b5,
-      type: 3}
+    Prefab: {fileID: 1516468049630083, guid: 6e1c6870a59f9f2499253cc34cefb480, type: 3}
+    Name: Mace
+    Description: 
+    ATK: 20
+    SPD: 10
+  - ID: 2
+    Prefab: {fileID: 1598072720469834, guid: c9f5051053ddbc34b9ea1dd6e31683e0, type: 3}
     Name: Sword
     Description: 
-    Status: 0
-    ATK: 43
-    SPD: 20
-    Level: 0
-    Price: 300
-    "\u0421urrency": 0
+    ATK: 35
+    SPD: 10
+  - ID: 3
+    Prefab: {fileID: 1776073102689458, guid: 47300fcde69610743ad69b9aa42cb222, type: 3}
+    Name: Axe
+    Description: 
+    ATK: 45
+    SPD: 10
+  - ID: 4
+    Prefab: {fileID: 1881496287940003, guid: 29d50c966e45d0f4c86acb1700b3a8da, type: 3}
+    Name: Dagger
+    Description: 
+    ATK: 60
+    SPD: 10
+  - ID: 5
+    Prefab: {fileID: 1247021288870523, guid: 38c2a7f6bd2d5374d83e626298b5b14a, type: 3}
+    Name: Kinght Sword
+    Description: 
+    ATK: 70
+    SPD: 10
+  - ID: 6
+    Prefab: {fileID: 1725410994315796, guid: 9e25d4f81be567848ba4d62a8d85043c, type: 3}
+    Name: Bastard Axe
+    Description: 
+    ATK: 85
+    SPD: 10
+  - ID: 7
+    Prefab: {fileID: 1668266033588326, guid: b7ea6e63e82004649827f1b7104b3a65, type: 3}
+    Name: Samurai Sword
+    Description: 
+    ATK: 112
+    SPD: 10
+  - ID: 8
+    Prefab: {fileID: 8056709683143225550, guid: bf299e407a2492547974375189c495b5,
+      type: 3}
+    Name: Holy Sword
+    Description: 
+    ATK: 150
+    SPD: 10
+  - ID: 9
+    Prefab: {fileID: 1818222158505444, guid: 7fb5df21a10289e44906d1470eab5345, type: 3}
+    Name: Star Axe
+    Description: 
+    ATK: 250
+    SPD: 10
+  - ID: 10
+    Prefab: {fileID: 1025059605638900, guid: e733ef7692e84084681c2042d774ae7b, type: 3}
+    Name: Necro Axe
+    Description: 
+    ATK: 400
+    SPD: 10

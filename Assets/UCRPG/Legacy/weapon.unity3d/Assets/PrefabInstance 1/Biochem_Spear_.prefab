@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1903847307169335}
+  m_IsPrefabParent: 1
+--- !u!1 &1903847307169335
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4511944698949724}
+  - component: {fileID: 95809451568903427}
+  m_Layer: 0
+  m_Name: Biochem_Spear_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4511944698949724
+Transform:
+  m_GameObject: {fileID: 1903847307169335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4130549966436937}
+  - {fileID: 4360170904056901}
+  - {fileID: 4561699051623544}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95809451568903427
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1903847307169335}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9382b9bd8de75f4459aa760be3f9b76e, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1733419250779435
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4130549966436937}
+  - component: {fileID: 137214221394927603}
+  m_Layer: 0
+  m_Name: Biochem_Spear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4130549966436937
+Transform:
+  m_GameObject: {fileID: 1733419250779435}
+  m_LocalRotation: {x: 2.185569E-08, y: 1.862647E-09, z: 8.940697E-08, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4511944698949724}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.504478E-06, y: -2.134434E-07, z: -1.024528E-05}
+--- !u!137 &137214221394927603
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1733419250779435}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 54fffec0bf224474da88f60a2495df47, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 04e0dbf5d7845ea4099eed590da49664, type: 2}
+  m_Bones:
+  - {fileID: 4538496375692514}
+  - {fileID: 4561699051623544}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4561699051623544}
+  m_AABB:
+    m_Center: {x: -1.192093E-07, y: 0.6877714, z: -0.03751877}
+    m_Extent: {x: 0.0731894, y: 1.110246, z: 0.1566415}
+  m_DirtyAABB: 0
+--- !u!1 &1727837413405762
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4360170904056901}
+  - component: {fileID: 137825429275265643}
+  m_Layer: 0
+  m_Name: Biochem_Spear_A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4360170904056901
+Transform:
+  m_GameObject: {fileID: 1727837413405762}
+  m_LocalRotation: {x: 8.146034E-08, y: 7.283122E-15, z: 8.940697E-08, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4511944698949724}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 9.334668E-06, y: 0, z: -1.024528E-05}
+--- !u!137 &137825429275265643
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1727837413405762}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 238b90b350806dd4eb37ad1eb1849e31, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: cb50b2aa495b1464387525ad0eeebb4c, type: 2}
+  m_Bones:
+  - {fileID: 4561699051623544}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4561699051623544}
+  m_AABB:
+    m_Center: {x: 2.533197E-07, y: 0.3534659, z: -2.943724E-05}
+    m_Extent: {x: 0.1033621, y: 0.7838495, z: 0.1005079}
+  m_DirtyAABB: 0
+--- !u!1 &1274950815846782
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4561699051623544}
+  m_Layer: 0
+  m_Name: Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4561699051623544
+Transform:
+  m_GameObject: {fileID: 1274950815846782}
+  m_LocalRotation: {x: 5.962433E-09, y: -4.371139E-08, z: 1.629207E-07, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4538496375692514}
+  m_Father: {fileID: 4511944698949724}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 6.832437E-07, y: 5.008956E-06, z: -1.866934E-05}
+--- !u!1 &1681886340445692
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4538496375692514}
+  m_Layer: 0
+  m_Name: Bone002
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4538496375692514
+Transform:
+  m_GameObject: {fileID: 1681886340445692}
+  m_LocalRotation: {x: 2.304046E-07, y: -2.304047E-07, z: -0.7071069, w: 0.7071066}
+  m_LocalPosition: {x: 4.333566E-08, y: 0.9914053, z: -2.384186E-07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4561699051623544}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 3.733867E-05, y: -5.374104E-13, z: 90.00002}

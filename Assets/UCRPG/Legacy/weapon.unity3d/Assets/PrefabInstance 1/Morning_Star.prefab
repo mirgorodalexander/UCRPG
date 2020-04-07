@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1459981976965218}
+  m_IsPrefabParent: 1
+--- !u!1 &1459981976965218
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4528580741947447}
+  - component: {fileID: 95686513397207483}
+  m_Layer: 0
+  m_Name: Morning_Star
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4528580741947447
+Transform:
+  m_GameObject: {fileID: 1459981976965218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4450921461068607}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95686513397207483
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1459981976965218}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0113b45343d74e045ac2493bc78ea056, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 0
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1309130340536969
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4450921461068607}
+  - component: {fileID: 137563399039775796}
+  m_Layer: 0
+  m_Name: Morning_Star
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4450921461068607
+Transform:
+  m_GameObject: {fileID: 1309130340536969}
+  m_LocalRotation: {x: 2.08065E-06, y: -2.08065E-06, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -3.24133E-10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4528580741947447}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.0003371838, y: 0, z: 90}
+--- !u!137 &137563399039775796
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1309130340536969}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 2860d1e121df24e4791f52698fed8922, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 7add6d96ec5352c48be9ffd724cbd336, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: -0.34081, y: 0, z: 2.980232E-08}
+    m_Extent: {x: 0.4910643, y: 0.2713745, z: 0.2713745}
+  m_DirtyAABB: 0

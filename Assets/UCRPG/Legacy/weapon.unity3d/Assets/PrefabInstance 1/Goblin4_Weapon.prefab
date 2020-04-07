@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1125218451139046}
+  m_IsPrefabParent: 1
+--- !u!1 &1125218451139046
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4094229163950032}
+  - component: {fileID: 95294668398214214}
+  m_Layer: 0
+  m_Name: Goblin4_Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4094229163950032
+Transform:
+  m_GameObject: {fileID: 1125218451139046}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4743094120028540}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95294668398214214
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1125218451139046}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 2281be03cae57ca4bb09a7f96b5bcdb9, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 0
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1190033772279463
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4743094120028540}
+  - component: {fileID: 137460306786293952}
+  m_Layer: 0
+  m_Name: Goblin4_Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4743094120028540
+Transform:
+  m_GameObject: {fileID: 1190033772279463}
+  m_LocalRotation: {x: -0.4999998, y: 0.5000002, z: -0.5000003, w: 0.4999998}
+  m_LocalPosition: {x: -4.47035E-08, y: -1.192093E-07, z: 1.490116E-08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094229163950032}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 1.707545E-06, z: 90.00005}
+--- !u!137 &137460306786293952
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1190033772279463}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 2a7196abf5e56f0419fa1b8e1564ad15, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 195743bc21a67d7418f37304f9f7f192, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: -0.1971362, y: 0.03355167, z: 0.03153263}
+    m_Extent: {x: 0.4747788, y: 0.07481202, z: 0.07686084}
+  m_DirtyAABB: 0

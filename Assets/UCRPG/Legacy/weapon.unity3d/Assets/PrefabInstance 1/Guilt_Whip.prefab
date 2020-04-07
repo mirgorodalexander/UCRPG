@@ -1,0 +1,284 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1669171534839767}
+  m_IsPrefabParent: 1
+--- !u!1 &1669171534839767
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4823871082740293}
+  - component: {fileID: 95245805408800617}
+  m_Layer: 0
+  m_Name: Guilt_Whip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4823871082740293
+Transform:
+  m_GameObject: {fileID: 1669171534839767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4768541857170730}
+  - {fileID: 4668054933677577}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95245805408800617
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1669171534839767}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 4d43223199aeaa64683d3f159ac9ee2b, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1284028841745035
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4768541857170730}
+  - component: {fileID: 137157590117950019}
+  m_Layer: 0
+  m_Name: Guilt_Whip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4768541857170730
+Transform:
+  m_GameObject: {fileID: 1284028841745035}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -3.72529E-09, y: 0, z: -1.356941E-09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4823871082740293}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!137 &137157590117950019
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1284028841745035}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 0000000deadbeef15deadf00d0000000, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: ac96cd1150a0cc141842b7911b557305, type: 2}
+  m_Bones:
+  - {fileID: 4668054933677577}
+  - {fileID: 4765624714076169}
+  - {fileID: 4077901519572076}
+  - {fileID: 4054380166006998}
+  - {fileID: 4400029173760151}
+  - {fileID: 4250090157926373}
+  - {fileID: 4228134466155879}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4668054933677577}
+  m_AABB:
+    m_Center: {x: 1.490116E-08, y: 0.7762903, z: 3.352761E-08}
+    m_Extent: {x: 0.1117982, y: 1.079596, z: 0.02765574}
+  m_DirtyAABB: 0
+--- !u!1 &1277919797399668
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4668054933677577}
+  m_Layer: 0
+  m_Name: Weapon_Whip00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4668054933677577
+Transform:
+  m_GameObject: {fileID: 1277919797399668}
+  m_LocalRotation: {x: 1.410954E-07, y: 5.960464E-08, z: 4.796309E-08, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.9999999}
+  m_Children:
+  - {fileID: 4765624714076169}
+  m_Father: {fileID: 4823871082740293}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 1.616834E-05, y: -6.830187E-06, z: -5.496167E-06}
+--- !u!1 &1630394551452958
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4765624714076169}
+  m_Layer: 0
+  m_Name: Weapon_Whip01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4765624714076169
+Transform:
+  m_GameObject: {fileID: 1630394551452958}
+  m_LocalRotation: {x: -7.07107E-07, y: 7.071067E-07, z: -0.7071066, w: 0.7071069}
+  m_LocalPosition: {x: 8.881784E-16, y: 0.171382, z: 3.552714E-15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4077901519572076}
+  m_Father: {fileID: 4668054933677577}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0001145916, y: 3.710981E-12, z: 89.99998}
+--- !u!1 &1221543468216580
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4077901519572076}
+  m_Layer: 0
+  m_Name: Weapon_Whip02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4077901519572076
+Transform:
+  m_GameObject: {fileID: 1221543468216580}
+  m_LocalRotation: {x: 9.841929E-14, y: -1.421087E-14, z: -1.509958E-07, w: 1}
+  m_LocalPosition: {x: -0.366227, y: 1.421085E-14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4054380166006998}
+  m_Father: {fileID: 4765624714076169}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 1.127802E-11, y: 1.628444E-12, z: 1.730285E-05}
+--- !u!1 &1864195278840199
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4054380166006998}
+  m_Layer: 0
+  m_Name: Weapon_Whip03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4054380166006998
+Transform:
+  m_GameObject: {fileID: 1864195278840199}
+  m_LocalRotation: {x: -3.670177E-14, y: 1.195895E-20, z: -3.258414E-07, w: 1}
+  m_LocalPosition: {x: -0.324193, y: -1.421085E-14, z: -1.421085E-14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4250090157926373}
+  m_Father: {fileID: 4077901519572076}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.205713E-12, y: -4.50809E-26, z: 3.733867E-05}
+--- !u!1 &1496980523119822
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4250090157926373}
+  m_Layer: 0
+  m_Name: Weapon_Whip04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4250090157926373
+Transform:
+  m_GameObject: {fileID: 1496980523119822}
+  m_LocalRotation: {x: -3.670177E-14, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.331822, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4400029173760151}
+  m_Father: {fileID: 4054380166006998}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.205713E-12, y: 0, z: 0}
+--- !u!1 &1248171283710572
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4400029173760151}
+  m_Layer: 0
+  m_Name: Weapon_Whip05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4400029173760151
+Transform:
+  m_GameObject: {fileID: 1248171283710572}
+  m_LocalRotation: {x: -3.670177E-14, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.352865, y: -5.684342E-14, z: 2.842171E-14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4228134466155879}
+  m_Father: {fileID: 4250090157926373}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.205713E-12, y: 0, z: 0}
+--- !u!1 &1911797098188865
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4228134466155879}
+  m_Layer: 0
+  m_Name: Weapon_Whip06
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4228134466155879
+Transform:
+  m_GameObject: {fileID: 1911797098188865}
+  m_LocalRotation: {x: -3.670177E-14, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.283931, y: 0, z: -8.526513E-14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4400029173760151}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.205713E-12, y: 0, z: 0}

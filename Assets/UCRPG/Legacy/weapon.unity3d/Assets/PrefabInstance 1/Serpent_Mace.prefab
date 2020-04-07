@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1731183124860080}
+  m_IsPrefabParent: 1
+--- !u!1 &1731183124860080
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4221476370175264}
+  m_Layer: 0
+  m_Name: Serpent_Mace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4221476370175264
+Transform:
+  m_GameObject: {fileID: 1731183124860080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4140147210652982}
+  - {fileID: 4155998339775561}
+  - {fileID: 4086957034907339}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1722906168271583
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4140147210652982}
+  m_Layer: 0
+  m_Name: ECP_26
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4140147210652982
+Transform:
+  m_GameObject: {fileID: 1722906168271583}
+  m_LocalRotation: {x: -3.621977E-15, y: 1, z: -2.185569E-08, w: -1.629207E-07}
+  m_LocalPosition: {x: 0.08697019, y: 0.4510004, z: -0.0003654442}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4221476370175264}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -180, y: 1.866934E-05, z: 180}
+--- !u!1 &1160203115934495
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4155998339775561}
+  m_Layer: 0
+  m_Name: ECP_27
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4155998339775561
+Transform:
+  m_GameObject: {fileID: 1160203115934495}
+  m_LocalRotation: {x: 2.185569E-08, y: 5.960464E-08, z: -1.302701E-15, w: 1}
+  m_LocalPosition: {x: -0.0849911, y: 0.4510004, z: -0.0003654741}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4221476370175264}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 2.504478E-06, y: -6.830189E-06, z: 0}
+--- !u!1 &1027529504397777
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4086957034907339}
+  - component: {fileID: 33206929105531762}
+  - component: {fileID: 23341644958605816}
+  m_Layer: 0
+  m_Name: Serpent_Mace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4086957034907339
+Transform:
+  m_GameObject: {fileID: 1027529504397777}
+  m_LocalRotation: {x: 2.602743E-07, y: 3.115993E-16, z: 4.214685E-08, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4221476370175264}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 2.982523E-05, y: 1.221333E-12, z: -4.829673E-06}
+--- !u!33 &33206929105531762
+MeshFilter:
+  m_GameObject: {fileID: 1027529504397777}
+  m_Mesh: {fileID: 4300000, guid: 7718431c679e47744ac690eb6cc97c86, type: 2}
+--- !u!23 &23341644958605816
+MeshRenderer:
+  m_GameObject: {fileID: 1027529504397777}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: c5a1f56be14cbd647a3bfd6d00b27e4a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

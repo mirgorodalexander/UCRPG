@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1679107598699460}
+  m_IsPrefabParent: 1
+--- !u!1 &1679107598699460
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4042132140047085}
+  - component: {fileID: 33053588901308561}
+  - component: {fileID: 23305245568813905}
+  m_Layer: 0
+  m_Name: Sectr_Bow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4042132140047085
+Transform:
+  m_GameObject: {fileID: 1679107598699460}
+  m_LocalRotation: {x: -0.008940079, y: -1.862571E-09, z: -1.66522E-11, w: 0.9999601}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.024471, y: 2.134434E-07, z: 0}
+--- !u!33 &33053588901308561
+MeshFilter:
+  m_GameObject: {fileID: 1679107598699460}
+  m_Mesh: {fileID: 4300000, guid: 201598ff80d3d9e4e9bb83b99fe2aadf, type: 2}
+--- !u!23 &23305245568813905
+MeshRenderer:
+  m_GameObject: {fileID: 1679107598699460}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 932bf070e4a5bdc4180c4d90c3dd5497, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1352662698875215}
+  m_IsPrefabParent: 1
+--- !u!1 &1352662698875215
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4437414801514467}
+  - component: {fileID: 95952478068131886}
+  m_Layer: 0
+  m_Name: Katar_Of_Thornbush
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4437414801514467
+Transform:
+  m_GameObject: {fileID: 1352662698875215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4805639203953206}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95952478068131886
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1352662698875215}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 3e17360db58a76c49bc0718c2f98362c, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 0
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1902454834459687
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4805639203953206}
+  - component: {fileID: 137320485437154807}
+  m_Layer: 0
+  m_Name: Katar_Of_Thornbush
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4805639203953206
+Transform:
+  m_GameObject: {fileID: 1902454834459687}
+  m_LocalRotation: {x: -0.7071068, y: -3.161015E-08, z: 3.161015E-08, w: 0.7071068}
+  m_LocalPosition: {x: -4.998197E-08, y: -1.788139E-07, z: -1.14087E-08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4437414801514467}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -5.122643E-06}
+--- !u!137 &137320485437154807
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1902454834459687}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 88990b770717d5a459c2f3eb7dee551b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 1f5f7548cdbffe34abb8c625e1d8b2df, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 3.72529E-08, y: -0.1207991, z: 1.788139E-07}
+    m_Extent: {x: 0.03941095, y: 0.3639386, z: 0.1446923}
+  m_DirtyAABB: 0

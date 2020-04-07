@@ -26,20 +26,8 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: LockedText
-    value: Need {Level} lvl
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: OpenedText
-    value: ${Price}
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: OwnedText
-    value: EQUIP
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.size
-    value: 2
+    value: 11
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].ID
@@ -89,11 +77,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Prefab
     value: 
-    objectReference: {fileID: 8056709683143225550, guid: bf299e407a2492547974375189c495b5,
+    objectReference: {fileID: 1516468049630083, guid: 6e1c6870a59f9f2499253cc34cefb480,
       type: 3}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Name
-    value: Sword
+    value: Mace
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Description
@@ -101,19 +89,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Status
-    value: 2
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ATK
-    value: 43
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].SPD
     value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Level
-    value: 0
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Price
@@ -121,5 +109,374 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: "Items.Array.data[1].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Prefab
+    value: 
+    objectReference: {fileID: 1598072720469834, guid: c9f5051053ddbc34b9ea1dd6e31683e0,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Name
+    value: Sword
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].ATK
+    value: 35
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Level
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Price
+    value: 750
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[2].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Prefab
+    value: 
+    objectReference: {fileID: 1776073102689458, guid: 47300fcde69610743ad69b9aa42cb222,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Name
+    value: Axe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].ATK
+    value: 45
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Level
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Price
+    value: 1150
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[3].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Prefab
+    value: 
+    objectReference: {fileID: 1881496287940003, guid: 29d50c966e45d0f4c86acb1700b3a8da,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Name
+    value: Dagger
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].ATK
+    value: 60
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Level
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Price
+    value: 1700
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[4].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Prefab
+    value: 
+    objectReference: {fileID: 1247021288870523, guid: 38c2a7f6bd2d5374d83e626298b5b14a,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Name
+    value: Kinght Sword
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].ATK
+    value: 70
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Level
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Price
+    value: 2700
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[5].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Prefab
+    value: 
+    objectReference: {fileID: 1725410994315796, guid: 9e25d4f81be567848ba4d62a8d85043c,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Name
+    value: Bastard Axe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].ATK
+    value: 85
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Level
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Price
+    value: 3500
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[6].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].Prefab
+    value: 
+    objectReference: {fileID: 1668266033588326, guid: b7ea6e63e82004649827f1b7104b3a65,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].Name
+    value: Samurai Sword
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].ATK
+    value: 112
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].Level
+    value: 14
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].Price
+    value: 8000
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[7].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].Prefab
+    value: 
+    objectReference: {fileID: 8056709683143225550, guid: bf299e407a2492547974375189c495b5,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].Name
+    value: Holy Sword
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].ATK
+    value: 150
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].Level
+    value: 16
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].Price
+    value: 16000
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[8].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].Prefab
+    value: 
+    objectReference: {fileID: 1818222158505444, guid: 7fb5df21a10289e44906d1470eab5345,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].Name
+    value: Star Axe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].ATK
+    value: 250
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].Level
+    value: 18
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].Price
+    value: 32000
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[9].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ID
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].Prefab
+    value: 
+    objectReference: {fileID: 1025059605638900, guid: e733ef7692e84084681c2042d774ae7b,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].Name
+    value: Necro Axe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ATK
+    value: 400
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].SPD
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].Level
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].Price
+    value: 64000
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Items.Array.data[10].\u0421urrency"
     value: 0
     objectReference: {fileID: 0}

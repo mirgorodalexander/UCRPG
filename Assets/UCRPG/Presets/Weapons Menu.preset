@@ -26,8 +26,20 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: LockedText
+    value: Need {Level} lvl
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OpenedText
+    value: ${Price}
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OwnedText
+    value: EQUIP
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Elements.Array.size
-    value: 2
+    value: 11
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].ID
@@ -36,32 +48,18 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Icon
     value: 
-    objectReference: {fileID: 21300000, guid: a6615874a6d4abc46b5e0389cf3c86d5, type: 3}
+    objectReference: {fileID: 21300000, guid: f149b633817d0bd45bc2425d4200500a, type: 3}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Title
-    value: Novice Dagger
+    value: Dagger
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Description
-    value: A simple novice weapon
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Status
     value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[0].LockedText
-    value: 'Need
-
-      {Level} vl'
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[0].OpenedText
-    value: ${Price}
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[0].OwnedText
-    value: EQUIP
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Level
@@ -69,7 +67,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Price
-    value: 30
+    value: 100
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: "Elements.Array.data[0].\u0421urrency"
@@ -86,32 +84,18 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Icon
     value: 
-    objectReference: {fileID: 21300000, guid: a6615874a6d4abc46b5e0389cf3c86d5, type: 3}
+    objectReference: {fileID: 21300000, guid: 1490cf1b326ccc347b0084792926d45d, type: 3}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Title
-    value: Sword
+    value: Mace
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Description
-    value: A simple guardian sword
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Status
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[1].LockedText
-    value: 'Need
-
-      {Level} lvl'
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[1].OpenedText
-    value: ${Price}
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Elements.Array.data[1].OwnedText
-    value: EQUIP
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Level
@@ -119,7 +103,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Price
-    value: 100
+    value: 300
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: "Elements.Array.data[1].\u0421urrency"
@@ -128,4 +112,328 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].REFID
     value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].ID
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 03c63af7bfe6bbf4089122c231c7b398, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Title
+    value: Sword
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Level
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].Price
+    value: 750
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[2].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[2].REFID
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].ID
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 5baccec7bb9260d4291e5e51d93ac135, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Title
+    value: Axe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Level
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].Price
+    value: 1150
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[3].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[3].REFID
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].ID
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 298f2316a7ad46443b20cab2a5fbb178, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Title
+    value: Dagger
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Level
+    value: 15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].Price
+    value: 1700
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[4].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[4].REFID
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[5].ID
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[5].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: aebf17f23714223439c34090e66b0765, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[5].Title
+    value: Kinght Sword
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[5].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[5].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[5].Level
+    value: 17
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[5].Price
+    value: 2700
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[5].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[5].REFID
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[6].ID
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[6].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 5b54a440e6d162c41819b24f24bd8b63, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[6].Title
+    value: Bastard Axe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[6].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[6].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[6].Level
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[6].Price
+    value: 3500
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[6].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[6].REFID
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[7].ID
+    value: 7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[7].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 5a0ea34606343a849b9c121aca44b9c9, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[7].Title
+    value: Samurai Sword
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[7].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[7].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[7].Level
+    value: 25
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[7].Price
+    value: 8000
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[7].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[7].REFID
+    value: 7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[8].ID
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[8].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: bc7f8d4d1ecdcfb4ba34c4bea9d4ccc4, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[8].Title
+    value: Holy Sword
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[8].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[8].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[8].Level
+    value: 30
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[8].Price
+    value: 16000
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[8].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[8].REFID
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[9].ID
+    value: 9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[9].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: afc84283586832445b4e18f54810a7f9, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[9].Title
+    value: Star Axe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[9].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[9].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[9].Level
+    value: 35
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[9].Price
+    value: 32000
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[9].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[9].REFID
+    value: 9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[10].ID
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[10].Icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 981f23bb081445c4394265fba925ea0f, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[10].Title
+    value: Necro Axe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[10].Description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[10].Status
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[10].Level
+    value: 40
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[10].Price
+    value: 64000
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: "Elements.Array.data[10].\u0421urrency"
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Elements.Array.data[10].REFID
+    value: 10
     objectReference: {fileID: 0}

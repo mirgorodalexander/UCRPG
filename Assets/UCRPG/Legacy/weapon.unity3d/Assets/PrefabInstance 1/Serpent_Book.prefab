@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1521840683888393}
+  m_IsPrefabParent: 1
+--- !u!1 &1521840683888393
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4195265950268645}
+  - component: {fileID: 95741817351190413}
+  m_Layer: 0
+  m_Name: Serpent_Book
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4195265950268645
+Transform:
+  m_GameObject: {fileID: 1521840683888393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4104810028233892}
+  - {fileID: 4694601916499030}
+  - {fileID: 4473990296798110}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95741817351190413
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1521840683888393}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 8b8d9df7b301f614b94a6221487b790d, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 0
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1322674154395741
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4104810028233892}
+  m_Layer: 0
+  m_Name: ECP_28
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4104810028233892
+Transform:
+  m_GameObject: {fileID: 1322674154395741}
+  m_LocalRotation: {x: 3.874302E-07, y: 5.960464E-08, z: 7.450581E-08, w: -1}
+  m_LocalPosition: {x: -0.007912982, y: 8.38242E-08, z: 0.111}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4195265950268645}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.439623E-05, y: 6.830192E-06, z: 8.537734E-06}
+--- !u!1 &1902163446606954
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4694601916499030}
+  m_Layer: 0
+  m_Name: ECP_29
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4694601916499030
+Transform:
+  m_GameObject: {fileID: 1902163446606954}
+  m_LocalRotation: {x: -2.086163E-07, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.007912986, y: -7.543196E-08, z: -0.1107448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4195265950268645}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -2.390566E-05, y: 0, z: 0}
+--- !u!1 &1831652194213842
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4473990296798110}
+  - component: {fileID: 137870765931855899}
+  m_Layer: 0
+  m_Name: Serpent_Book
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4473990296798110
+Transform:
+  m_GameObject: {fileID: 1831652194213842}
+  m_LocalRotation: {x: -3.07954E-07, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4195265950268645}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -3.528893E-05, y: 0, z: 0}
+--- !u!137 &137870765931855899
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1831652194213842}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 8defd046cb962b540aaed3ad8946baff, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: d3d4f87dea0e04c4dbe8c95c0445f31d, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.008945994, y: -0.001814306, z: 0}
+    m_Extent: {x: 0.04505483, y: 0.118154, z: 0.2023832}
+  m_DirtyAABB: 0

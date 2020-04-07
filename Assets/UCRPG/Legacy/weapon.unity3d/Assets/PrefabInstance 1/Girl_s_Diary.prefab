@@ -1,0 +1,537 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1946599131698398}
+  m_IsPrefabParent: 1
+--- !u!1 &1946599131698398
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4480700256646949}
+  - component: {fileID: 95597513080593032}
+  m_Layer: 0
+  m_Name: Girl_s_Diary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4480700256646949
+Transform:
+  m_GameObject: {fileID: 1946599131698398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4685952620114925}
+  - {fileID: 4545619616465183}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95597513080593032
+Animator:
+  serializedVersion: 3
+  m_GameObject: {fileID: 1946599131698398}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 77a924207b2583647bb1df537626f227, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1314033251088471
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4685952620114925}
+  m_Layer: 0
+  m_Name: book
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4685952620114925
+Transform:
+  m_GameObject: {fileID: 1314033251088471}
+  m_LocalRotation: {x: -3.07954E-07, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4309078514773012}
+  - {fileID: 4450394788045221}
+  - {fileID: 4043633129625616}
+  - {fileID: 4689881601590065}
+  - {fileID: 4326374048728541}
+  - {fileID: 4317559454935727}
+  - {fileID: 4859866683099298}
+  m_Father: {fileID: 4480700256646949}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -3.528893E-05, y: 0, z: 0}
+--- !u!1 &1069898783474686
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4309078514773012}
+  m_Layer: 0
+  m_Name: Book_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4309078514773012
+Transform:
+  m_GameObject: {fileID: 1069898783474686}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: -8.731147E-11, z: 0.0001501627}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_Children:
+  - {fileID: 4955774667105162}
+  m_Father: {fileID: 4685952620114925}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
+--- !u!1 &1772814569353057
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4955774667105162}
+  m_Layer: 0
+  m_Name: Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4955774667105162
+Transform:
+  m_GameObject: {fileID: 1772814569353057}
+  m_LocalRotation: {x: 1.053671E-08, y: 0.7071068, z: -1.053671E-08, w: 0.7071068}
+  m_LocalPosition: {x: -0.1005318, y: 1.654361E-23, z: 6.385928E-09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4309078514773012}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 1.707547E-06, y: -90, z: 0}
+--- !u!1 &1607135509954791
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4450394788045221}
+  m_Layer: 0
+  m_Name: Book_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4450394788045221
+Transform:
+  m_GameObject: {fileID: 1607135509954791}
+  m_LocalRotation: {x: 0.2216544, y: 0.6714679, z: 0.6714683, w: -0.2216546}
+  m_LocalPosition: {x: 0.02418453, y: 1.63709E-11, z: -2.58591E-05}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children:
+  - {fileID: 4372586537059345}
+  m_Father: {fileID: 4685952620114925}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 89.99995, y: 36.53656, z: 180}
+--- !u!1 &1276519337238306
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4372586537059345}
+  m_Layer: 0
+  m_Name: Book_03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4372586537059345
+Transform:
+  m_GameObject: {fileID: 1276519337238306}
+  m_LocalRotation: {x: 3.097694E-15, y: 3.955736E-15, z: 0.1207587, w: 0.9926819}
+  m_LocalPosition: {x: -0.07308115, y: -1.862645E-09, z: -1.332268E-15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4267750818496231}
+  m_Father: {fileID: 4450394788045221}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 4.07111E-13, y: -4.07111E-13, z: -13.87178}
+--- !u!1 &1899433012181139
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4267750818496231}
+  m_Layer: 0
+  m_Name: Book_04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4267750818496231
+Transform:
+  m_GameObject: {fileID: 1899433012181139}
+  m_LocalRotation: {x: -3.552714E-15, y: -3.552714E-15, z: -1.490116E-08, w: 1}
+  m_LocalPosition: {x: -0.07718807, y: 7.450581E-09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4372586537059345}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -4.07111E-13, y: 4.07111E-13, z: 1.707548E-06}
+--- !u!1 &1020921078584691
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4043633129625616}
+  m_Layer: 0
+  m_Name: Book_05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4043633129625616
+Transform:
+  m_GameObject: {fileID: 1020921078584691}
+  m_LocalRotation: {x: 0.009767476, y: 0.7070391, z: 0.7070395, w: -0.009767533}
+  m_LocalPosition: {x: 0.02346015, y: 2.037268E-10, z: -0.0003313093}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children:
+  - {fileID: 4961502860436299}
+  m_Father: {fileID: 4685952620114925}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 89.99997, y: 1.582942, z: 180}
+--- !u!1 &1900550048570706
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4961502860436299}
+  m_Layer: 0
+  m_Name: Book_06
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4961502860436299
+Transform:
+  m_GameObject: {fileID: 1900550048570706}
+  m_LocalRotation: {x: 1.006066E-15, y: -7.033839E-15, z: 0.1415912, w: 0.9899252}
+  m_LocalPosition: {x: -0.07422415, y: 7.334165E-09, z: -6.661338E-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4431163645446694}
+  m_Father: {fileID: 4043633129625616}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -6.812741E-21, y: 8.142217E-13, z: -16.27987}
+--- !u!1 &1109217344812887
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4431163645446694}
+  m_Layer: 0
+  m_Name: Book_07
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4431163645446694
+Transform:
+  m_GameObject: {fileID: 1109217344812887}
+  m_LocalRotation: {x: 0, y: 0, z: -2.034724E-15, w: 1}
+  m_LocalPosition: {x: -0.07127717, y: -2.421439E-08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4961502860436299}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.331622E-13}
+--- !u!1 &1024798146870779
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4689881601590065}
+  m_Layer: 0
+  m_Name: Book_08
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4689881601590065
+Transform:
+  m_GameObject: {fileID: 1024798146870779}
+  m_LocalRotation: {x: -0.3460503, y: 0.6166432, z: 0.6166435, w: 0.3460506}
+  m_LocalPosition: {x: 0.02402415, y: -5.093171E-11, z: 7.718449E-05}
+  m_LocalScale: {x: 1, y: 0.9999998, z: 0.9999999}
+  m_Children:
+  - {fileID: 4656889853588042}
+  m_Father: {fileID: 4685952620114925}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 89.99994, y: -58.60089, z: -179.9999}
+--- !u!1 &1788971360571754
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4656889853588042}
+  m_Layer: 0
+  m_Name: Book_09
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4656889853588042
+Transform:
+  m_GameObject: {fileID: 1788971360571754}
+  m_LocalRotation: {x: -7.411986E-15, y: 2.858555E-15, z: 0.09541311, w: 0.9954378}
+  m_LocalPosition: {x: -0.0812078, y: -1.862645E-09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4870179956087961}
+  m_Father: {fileID: 4689881601590065}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -8.14222E-13, y: -4.07111E-13, z: -10.95019}
+--- !u!1 &1776426317337473
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4870179956087961}
+  m_Layer: 0
+  m_Name: Book_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4870179956087961
+Transform:
+  m_GameObject: {fileID: 1776426317337473}
+  m_LocalRotation: {x: -1.490116E-07, y: -5.479981E-22, z: 3.677553E-15, w: 1}
+  m_LocalPosition: {x: -0.06952319, y: -3.72529E-09, z: 8.881784E-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4656889853588042}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.707547E-05, y: 0, z: -4.214165E-13}
+--- !u!1 &1885942609232332
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4326374048728541}
+  m_Layer: 0
+  m_Name: Book_11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4326374048728541
+Transform:
+  m_GameObject: {fileID: 1885942609232332}
+  m_LocalRotation: {x: 0.36867, y: 0.6033922, z: 0.6033926, w: -0.3686702}
+  m_LocalPosition: {x: 0.02415396, y: 1.81899E-11, z: -2.834805E-05}
+  m_LocalScale: {x: 0.9999999, y: 0.9999998, z: 0.9999998}
+  m_Children:
+  - {fileID: 4398454922792808}
+  m_Father: {fileID: 4685952620114925}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 89.99993, y: 62.84949, z: 179.9999}
+--- !u!1 &1004342677131323
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4398454922792808}
+  m_Layer: 0
+  m_Name: Book_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4398454922792808
+Transform:
+  m_GameObject: {fileID: 1004342677131323}
+  m_LocalRotation: {x: 3.303197E-16, y: 1.800985E-15, z: 0.06354133, w: 0.9979792}
+  m_LocalPosition: {x: -0.07243269, y: 9.313226E-09, z: 6.106227E-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4416375140285678}
+  m_Father: {fileID: 4326374048728541}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 5.088887E-14, y: -2.035554E-13, z: -7.286208}
+--- !u!1 &1766155524914345
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4416375140285678}
+  m_Layer: 0
+  m_Name: Book_13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4416375140285678
+Transform:
+  m_GameObject: {fileID: 1766155524914345}
+  m_LocalRotation: {x: -1.490116E-07, y: 3.552713E-15, z: -1.969516E-16, w: 1}
+  m_LocalPosition: {x: -0.07493744, y: 7.450581E-09, z: -2.220446E-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4398454922792808}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.707547E-05, y: -4.071109E-13, z: 2.256905E-14}
+--- !u!1 &1975776867788813
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4317559454935727}
+  m_Layer: 0
+  m_Name: Book_14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4317559454935727
+Transform:
+  m_GameObject: {fileID: 1975776867788813}
+  m_LocalRotation: {x: 0.5000001, y: 0.5, z: -0.5000001, w: 0.5}
+  m_LocalPosition: {x: 0, y: -8.731147E-11, z: 0.0001501627}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_Children:
+  - {fileID: 4231624442119836}
+  m_Father: {fileID: 4685952620114925}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 90.00002, y: -90, z: 0}
+--- !u!1 &1191787302899578
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4231624442119836}
+  m_Layer: 0
+  m_Name: Bone002
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4231624442119836
+Transform:
+  m_GameObject: {fileID: 1191787302899578}
+  m_LocalRotation: {x: 0.7071068, y: 1.053671E-08, z: 0.7071068, w: -1.053671E-08}
+  m_LocalPosition: {x: -0.09984984, y: 3.540333E-22, z: -1.745314E-08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4317559454935727}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -180, y: 90, z: 0}
+--- !u!1 &1815189741037699
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4859866683099298}
+  m_Layer: 0
+  m_Name: Book_15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4859866683099298
+Transform:
+  m_GameObject: {fileID: 1815189741037699}
+  m_LocalRotation: {x: -1.812739E-09, y: 3.371699E-07, z: -0.7032951, w: 0.7108981}
+  m_LocalPosition: {x: -0.002645641, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 4685952620114925}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: -2.732076E-05, y: -2.732075E-05, z: 89.38393}
+--- !u!1 &1408828883526840
+GameObject:
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4545619616465183}
+  - component: {fileID: 137585860249768148}
+  m_Layer: 0
+  m_Name: Girl's_Diary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4545619616465183
+Transform:
+  m_GameObject: {fileID: 1408828883526840}
+  m_LocalRotation: {x: 6.701338E-07, y: 0.7071066, z: -6.701334E-07, w: 0.7071071}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480700256646949}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.0001085998, y: -89.99996, z: 0}
+--- !u!137 &137585860249768148
+SkinnedMeshRenderer:
+  m_GameObject: {fileID: 1408828883526840}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: bcfdafdc0da25e44d8ac6da958197798, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_skinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 4e4e0e88293db8c4d85670e02a4d0280, type: 2}
+  m_Bones:
+  - {fileID: 4685952620114925}
+  - {fileID: 4231624442119836}
+  - {fileID: 4955774667105162}
+  - {fileID: 4859866683099298}
+  - {fileID: 4317559454935727}
+  - {fileID: 4309078514773012}
+  - {fileID: 4416375140285678}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4685952620114925}
+  m_AABB:
+    m_Center: {x: 0.02882703, y: -0.003279835, z: -0.05241188}
+    m_Extent: {x: 0.0384161, y: 0.1411207, z: 0.2921247}
+  m_DirtyAABB: 0
