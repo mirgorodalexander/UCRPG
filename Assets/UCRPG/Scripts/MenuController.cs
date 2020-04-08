@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour
     
     [Title("Database")]
     public WeaponDatabase WeaponDatabase;
+    public ExperienceDatabase ExperienceDatabase;
     
     [Title("Configurations")]
     public Player Player;
@@ -36,6 +37,10 @@ public class MenuController : MonoBehaviour
     public TextMeshProUGUI CurrentLevel;
     public TextMeshProUGUI CurrentLevelInGame;
     public TextMeshProUGUI NextLevel;
+    
+    [Title("Sliders")]
+    public Slider PlayerExperience;
+    public Slider PlayerHealth;
 
     [Title("Controllers")]
     public WeaponController WeaponController;
@@ -55,6 +60,7 @@ public class MenuController : MonoBehaviour
 
     private void UpdateUI()
     {
+        PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
         ShowMenuButton.interactable = Player.Status != Player._Status.Fighting;
         CoinsValue.text = Coins.Value.ToString();
         CurrentLevel.text = Player.LVL.ToString();

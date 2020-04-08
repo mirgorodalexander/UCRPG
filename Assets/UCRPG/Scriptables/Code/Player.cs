@@ -19,6 +19,7 @@ public class Player : ScriptableObject
     public int ATK;
     public float ATKD;
     public int DEF;
+    public int WID;
     public int LID;
 
     [Title("Inventory")]

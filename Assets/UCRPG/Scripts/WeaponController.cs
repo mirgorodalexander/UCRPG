@@ -58,6 +58,8 @@ public class WeaponController : MonoBehaviour
         weapon.transform.position = new Vector3(0, 0, 0);
         weapon.transform.localPosition = new Vector3(0, 0, 0);
         weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 345, 0));
+
+        PlayerController.Player.WID = WeaponID;
     }
     
     [Title("Buttons")]
@@ -164,6 +166,8 @@ public class WeaponController : MonoBehaviour
         pointerUp.eventID = EventTriggerType.PointerUp;
         pointerUp.callback.AddListener((e) => attacking = false);
         trigger.triggers.Add(pointerUp);
+        
+        Equip(PlayerController.Player.WID);
     }
 
     void Update()

@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [Title("Events")]
+    public GlobalEvent UpdateUI;
+    
     [Title("Configurations")]
     public Player Player;
     public ExperienceDatabase ExperienceDatabase;
@@ -51,22 +54,30 @@ public class PlayerController : MonoBehaviour
         Player.LVL += 1;
         MessageController.ConsolePopup($"You got new level!");
     }
-//    public void ExperiencePopup(int experience, GameObject prefab)
-//    {
-//        if(prefab == null)
-//        {
-//            prefab = PlayerExperiencePopupPrefab;
-//        }
-//        
-//        GameObject Damage =
-//            Instantiate(prefab, ExperiencePopupCanvas.transform.position, Quaternion.identity) as GameObject;
-//        Damage.transform.SetParent(ExperiencePopupCanvas.transform);
-//        Damage.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"+ {experience}";
-//        Damage.name = $"Experience + {experience}";
-//        DOVirtual.DelayedCall(1f, () => { DestroyImmediate(Damage.gameObject); });
-//    }
+    [Button("Die", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void Die()
+    {
+        int playerexp = Player.EXP;
+        int loseexp = Random.Range(200, 400);
+        int restexp = Player.EXP - loseexp;
+        if (restexp <= 0)
+        {
+            Player.EXP = 0;
+            Debug.Log($"[DEBUG] - Player is died and lose \"{playerexp}\" expirience.");
+            MessageController.ConsolePopup($"You die and lose \"{playerexp}\" experience.");
+        }
+        else
+        {
+            Player.EXP -= loseexp;
+            Debug.Log($"[DEBUG] - Player is died and lose {loseexp} expirience.");
+            MessageController.ConsolePopup($"You die and lose \"{loseexp}\" experience.");
+        }
+
+        UpdateUI.Publish();
+    }
     void Start()
     {
+        Player.Status = Player._Status.Menu;
         PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
         //PlayerExperience.gameObject.transform.GetChild(0).transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Experience[Player.LVL]}";
     }

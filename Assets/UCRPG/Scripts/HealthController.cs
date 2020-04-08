@@ -24,7 +24,6 @@ public class HealthController : MonoBehaviour
 
     [Title("Sliders")]
     public Slider PlayerHealth;
-
     public Slider EnemyHealth;
 
     [Title("FX")]
@@ -179,6 +178,10 @@ public class HealthController : MonoBehaviour
         PlayerAttackedParticles.SetActive(false);
         EnemyDeathParticles.SetActive(false);
         FlashNumsCount = 0;
+        playerHealthDefault = Player.HP;
+        PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
+        PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+            $"{Player.HP} / {playerHealthDefault}";
     }
 
     void Update()
