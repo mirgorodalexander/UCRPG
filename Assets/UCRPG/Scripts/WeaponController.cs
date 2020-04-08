@@ -4,10 +4,15 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class WeaponController : MonoBehaviour
 {
+    [Title("Preferences")]
+    public Button AttackButton;
+    
     [Title("Database")]
     public WeaponDatabase WeaponDatabase;
     
@@ -141,6 +146,7 @@ public class WeaponController : MonoBehaviour
         WeaponAnimator.SetInteger("Motion", 0);
     }
 
+    public bool attacking = false;
 
     void Start()
     {
@@ -148,11 +154,21 @@ public class WeaponController : MonoBehaviour
         AttackLock = false;
         Taked = false;
         WeaponParent.SetActive(false);
+        
+        EventTrigger trigger = AttackButton.gameObject.AddComponent<EventTrigger>();
+        var pointerDown = new EventTrigger.Entry();
+        pointerDown.eventID = EventTriggerType.PointerDown;
+        pointerDown.callback.AddListener((e) => attacking = true);
+        trigger.triggers.Add(pointerDown);
+        var pointerUp = new EventTrigger.Entry();
+        pointerUp.eventID = EventTriggerType.PointerUp;
+        pointerUp.callback.AddListener((e) => attacking = false);
+        trigger.triggers.Add(pointerUp);
     }
 
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (attacking)
         {
             this.Attack();
         }

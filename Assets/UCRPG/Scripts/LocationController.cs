@@ -34,7 +34,7 @@ public class LocationController : MonoBehaviour
     {
         if (!locationInitialize)
         {
-            PlayerController.Player.LID = 1;
+            PlayerController.Player.LID = -1;
             locationInitialize = true;
         }
 
