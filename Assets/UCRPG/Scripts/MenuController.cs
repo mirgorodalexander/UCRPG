@@ -37,7 +37,7 @@ public class MenuController : MonoBehaviour
     public CanvasGroup TapToPlayButton;
     public CanvasGroup ShowMenuButton;
     public CanvasGroup LevelUpWindow;
-    public CanvasGroup DieWindow;
+    [FormerlySerializedAs("DieWindow")] public CanvasGroup DefeatedWindow;
     
     [Title("Elements Value")]
     public TextMeshProUGUI CoinsValue;
@@ -52,6 +52,7 @@ public class MenuController : MonoBehaviour
     [Title("Controllers")]
     public WeaponController WeaponController;
     public LocationController LocationController;
+    public HealthController HealthController;
 
     public ItemController ItemController;
 
@@ -68,14 +69,30 @@ public class MenuController : MonoBehaviour
     private void UpdateUI()
     {
         PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
+        PlayerHealth.value = (1f / HealthController.playerHealthDefault) * Player.HP;
+        HealthController.PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+            $"{Player.HP} / {HealthController.playerHealthDefault}";
+        
         ShowMenuButton.interactable = Player.Status != Player._Status.Fighting;
+        
         CoinsValue.text = Coins.Value.ToString();
         CurrentLevel.text = Player.LVL.ToString();
         CurrentLevelInGame.text = Player.LVL.ToString();
         NextLevel.text = (Player.LVL+1).ToString();
+        
         this.Draw();
     }
 
+    [Title("Buttons")]
+    [Button("ShowDefeated", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void ShowDefeated(int explost)
+    {
+        WeaponController.WeaponParent.SetActive(false);
+        DefeatedWindow.gameObject.SetActive(true);
+        ModalProvider modalProvider = DefeatedWindow.GetComponent<ModalProvider>();
+        String description = modalProvider.Description.text.Replace("{EXPLOST}", $"<incr f=6>{explost.ToString()}</incr>");
+        modalProvider.Description.gameObject.GetComponent<TextAnimatorPlayer>().ShowText(description);
+    }
     [Title("Buttons")]
     [Button("ShowLevelUp", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void ShowLevelUp()
@@ -84,9 +101,6 @@ public class MenuController : MonoBehaviour
         ModalProvider modalProvider = LevelUpWindow.GetComponent<ModalProvider>();
         String description = modalProvider.Description.text.Replace("{LEVEL}", $"<incr f=6>{Player.LVL.ToString()}");
         modalProvider.Description.gameObject.GetComponent<TextAnimatorPlayer>().ShowText(description);
-        DOVirtual.DelayedCall(0.1f, () =>
-        {
-        });
     }
     [Button("Hide", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Hide()
@@ -136,85 +150,8 @@ public class MenuController : MonoBehaviour
         }
 
         elements = new List<GameObject> { };
-
+        
         int index = 0;
-        // foreach (var child in WeaponDatabase.Items)
-        // {
-        //     var element = Instantiate(WeaponElementPrefab, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
-        //     Element Element = element.GetComponent<Element>();
-        //     Element.gameObject.name = $"Weapon ({index})";
-        //     if(Element.Prefab != null){
-        //         var prefabIcon = Instantiate(child.Prefab, child.Prefab.transform.position, Quaternion.Euler(0, 90, 0)) as GameObject;
-        //         prefabIcon.transform.SetParent(Element.Prefab.transform);
-        //         prefabIcon.transform.localScale = new Vector3(200,200,200);
-        //         prefabIcon.transform.position = new Vector3(0, 0, 0);
-        //         prefabIcon.transform.localPosition = new Vector3(0, 0, 0);
-        //     }
-        //     if(Element.Title != null){
-        //         Element.Title.text = child.Name;
-        //     }
-        //     if(Element.Description != null){
-        //         Element.Description.text = child.Description;
-        //     }
-        //     Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-        //         WeaponDatabase.LockedText.Replace("{Level}", child.Level.ToString());
-        //     Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-        //         WeaponDatabase.OpenedText.Replace("{Price}", child.Price.ToString());
-        //     Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-        //         WeaponDatabase.OwnedText;
-        //     
-        //     Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
-        //     Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
-        //     Button ButtonOwned = Element.Owned.transform.Find("Button").GetComponent<Button>();
-        //
-        //     ButtonOpened.onClick.AddListener(() =>
-        //     {
-        //         if(Coins.Value >= child.Price){
-        //             Coins.Value -= child.Price;
-        //             child.Status = WeaponDatabase.ItemSetupClass._Status.Owned;
-        //             UpdateUiEvent.Publish();
-        //         }
-        //     });
-        //     ButtonOwned.onClick.AddListener(() => WeaponController.Equip(child.ID));
-        //
-        //     Element.Locked.SetActive(false);
-        //     Element.Opened.SetActive(false);
-        //     Element.Owned.SetActive(false);
-        //
-        //     if (child.Status == WeaponDatabase.ItemSetupClass._Status.Locked)
-        //     {
-        //         Element.Locked.SetActive(true);
-        //     }
-        //
-        //     if (child.Status == WeaponDatabase.ItemSetupClass._Status.Opened)
-        //     {
-        //         Element.Opened.SetActive(true);
-        //     }
-        //
-        //     if (child.Status == WeaponDatabase.ItemSetupClass._Status.Owned)
-        //     {
-        //         Element.Owned.SetActive(true);
-        //     }
-        //
-        //     Element.transform.SetParent(Weapons.transform);
-        //     Element.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        //
-        //     if (index != WeaponsMenuElemets.Elements.Count - 1)
-        //     {
-        //         var breakline =
-        //             Instantiate(Breakline, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
-        //         breakline.transform.SetParent(Weapons.transform);
-        //         breakline.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        //         elements.Add(breakline);
-        //     }
-        //
-        //     elements.Add(element);
-        //
-        //     index++;
-        // }
-        
-        
-        //
         foreach (var child in WeaponsMenuElemets.Elements)
         {
             var element = Instantiate(WeaponElementPrefab, ItemElementPrefab.transform.position, ItemElementPrefab.transform.rotation) as GameObject;
@@ -252,6 +189,7 @@ public class MenuController : MonoBehaviour
                 if(Coins.Value >= child.Price){
                     Coins.Value -= child.Price;
                     child.Status = MenuElement.ElementSetupClass._Status.Owned;
+                    WeaponController.Equip(child.REFID);
                     UpdateUiEvent.Publish();
                 }
             });
@@ -264,11 +202,22 @@ public class MenuController : MonoBehaviour
             if (child.Status == MenuElement.ElementSetupClass._Status.Locked)
             {
                 Element.Locked.SetActive(true);
+                if (Player.LVL >= child.Level)
+                {
+                    child.Status = MenuElement.ElementSetupClass._Status.Opened;
+                    Element.Locked.SetActive(false);
+                }
             }
         
             if (child.Status == MenuElement.ElementSetupClass._Status.Opened)
             {
                 Element.Opened.SetActive(true);
+                if (Player.LVL < child.Level)
+                {
+                    child.Status = MenuElement.ElementSetupClass._Status.Locked;
+                    Element.Opened.SetActive(false);
+                    Element.Locked.SetActive(true);
+                }
             }
         
             if (child.Status == MenuElement.ElementSetupClass._Status.Owned)
@@ -341,11 +290,22 @@ public class MenuController : MonoBehaviour
             if (child.Status == MenuElement.ElementSetupClass._Status.Locked)
             {
                 Element.Locked.SetActive(true);
+                if (Player.LVL >= child.Level)
+                {
+                    child.Status = MenuElement.ElementSetupClass._Status.Opened;
+                    Element.Locked.SetActive(false);
+                }
             }
-
+        
             if (child.Status == MenuElement.ElementSetupClass._Status.Opened)
             {
                 Element.Opened.SetActive(true);
+                if (Player.LVL < child.Level)
+                {
+                    child.Status = MenuElement.ElementSetupClass._Status.Locked;
+                    Element.Opened.SetActive(false);
+                    Element.Locked.SetActive(true);
+                }
             }
 
             if (child.Status == MenuElement.ElementSetupClass._Status.Owned)
@@ -412,11 +372,22 @@ public class MenuController : MonoBehaviour
             if (child.Status == MenuElement.ElementSetupClass._Status.Locked)
             {
                 Element.Locked.SetActive(true);
+                if (Player.LVL >= child.Level)
+                {
+                    child.Status = MenuElement.ElementSetupClass._Status.Opened;
+                    Element.Locked.SetActive(false);
+                }
             }
-
+        
             if (child.Status == MenuElement.ElementSetupClass._Status.Opened)
             {
                 Element.Opened.SetActive(true);
+                if (Player.LVL < child.Level)
+                {
+                    child.Status = MenuElement.ElementSetupClass._Status.Locked;
+                    Element.Opened.SetActive(false);
+                    Element.Locked.SetActive(true);
+                }
             }
 
             if (child.Status == MenuElement.ElementSetupClass._Status.Owned)
@@ -445,6 +416,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         LevelUpWindow.gameObject.SetActive(false);
+        DefeatedWindow.gameObject.SetActive(false);
         this.Show();
         UpdateUiEvent.Publish();
     }

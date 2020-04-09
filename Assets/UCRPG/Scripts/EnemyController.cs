@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -96,6 +97,10 @@ public class EnemyController : MonoBehaviour
         HealthController.Enemy = Enemy;
         ItemController.Enemy = Enemy;
         AnimatorProvider = Enemy.GetComponent<AnimatorProvider>();
+
+        HealthController.enemyHealthDefault = Enemy.HP;
+        HealthController.EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+            $"{Enemy.HP} / {HealthController.enemyHealthDefault}";
 
         Enemy.Status = Enemy._Status.Init;
         enemy.transform.localPosition = EnemySpawnPoint.transform.localPosition;

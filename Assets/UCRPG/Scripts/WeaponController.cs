@@ -115,7 +115,7 @@ public class WeaponController : MonoBehaviour
     public void TakeOff()
     {
         Taked = false;
-        WeaponParent.SetActive(true);
+        //WeaponParent.SetActive(true);
         Debug.Log($"[DEBUG] - Player taking off weapon.");
         WeaponAnimator.SetInteger("Motion", 3);
         DOVirtual.DelayedCall(0.28f, () =>

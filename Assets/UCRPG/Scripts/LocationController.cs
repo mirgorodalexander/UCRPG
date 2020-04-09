@@ -29,7 +29,7 @@ public class LocationController : MonoBehaviour
     private bool locationInitialize;
 
     [Title("Buttons")]
-    [Button("Spawn Location", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    [Button("Spawn", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Spawn(int locationID)
     {
         if (!locationInitialize)

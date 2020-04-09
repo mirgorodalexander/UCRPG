@@ -52,9 +52,10 @@ public class HealthController : MonoBehaviour
         if (Player.HP > 0)
         {
             Player.HP -= damage;
-            if (Player.HP < 0)
+            if (Player.HP <= 0)
             {
                 Player.HP = 0;
+                PlayerController.Die();
             }
         }
 
@@ -178,10 +179,16 @@ public class HealthController : MonoBehaviour
         PlayerAttackedParticles.SetActive(false);
         EnemyDeathParticles.SetActive(false);
         FlashNumsCount = 0;
-        playerHealthDefault = Player.HP;
+
+        playerHealthDefault = PlayerController.HealthDatabase.Items[Player.LVL];
+        
         PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
         PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
             $"{Player.HP} / {playerHealthDefault}";
+        
+        enemyHealthDefault = Enemy.HP;
+        EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+            $"{Enemy.HP} / {enemyHealthDefault}";
     }
 
     void Update()

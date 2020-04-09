@@ -2,11 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using Febucci.UI;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ModalProvider : MonoBehaviour
 {
+    [Title("Controllers")]
+    public PlayerController PlayerController;
+    
     public TextMeshProUGUI Title;
     public TextMeshProUGUI Description;
     public String TitleDefault;
@@ -17,6 +22,15 @@ public class ModalProvider : MonoBehaviour
         Title.text = TitleDefault;
         Description.text = DescriptionDefault;
         this.gameObject.SetActive(false);
+    }
+    
+    public void ReloadScene()
+    {
+        Title.text = TitleDefault;
+        Description.text = DescriptionDefault;
+        this.gameObject.SetActive(false);
+        PlayerController.Respawn();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnEnable()
