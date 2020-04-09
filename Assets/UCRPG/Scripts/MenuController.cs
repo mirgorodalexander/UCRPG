@@ -33,6 +33,10 @@ public class MenuController : MonoBehaviour
     public CanvasGroup Menu;
     public CanvasGroup TapToPlayButton;
     public CanvasGroup ShowMenuButton;
+    public CanvasGroup LevelUpWindow;
+    public CanvasGroup DieWindow;
+    
+    [Title("Elements Value")]
     public TextMeshProUGUI CoinsValue;
     public TextMeshProUGUI CurrentLevel;
     public TextMeshProUGUI CurrentLevelInGame;
@@ -70,6 +74,12 @@ public class MenuController : MonoBehaviour
     }
 
     [Title("Buttons")]
+    [Button("ShowLevelUp", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void ShowLevelUp()
+    {
+        LevelUpWindow.GetComponent<ModalProvider>().Description.text = LevelUpWindow.GetComponent<ModalProvider>().Description.text.Replace("{LEVEL}", Player.LVL.ToString());
+        LevelUpWindow.gameObject.SetActive(true);
+    }
     [Button("Hide", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Hide()
     {
@@ -434,6 +444,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
+        LevelUpWindow.gameObject.SetActive(false);
         this.Show();
         UpdateUiEvent.Publish();
     }

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     
     [Title("Controllers")]
     public MessageController MessageController;
+    public MenuController MenuController;
     
     [Title("Sliders")]
     public Slider PlayerExperience;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     public void LevelUp()
     {
         Player.LVL += 1;
+        MenuController.ShowLevelUp();
         MessageController.ConsolePopup($"You got new level!");
     }
     [Button("Die", ButtonSizes.Large), GUIColor(1, 1, 1)]
