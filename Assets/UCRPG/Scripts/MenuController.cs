@@ -227,12 +227,12 @@ public class MenuController : MonoBehaviour
             if (child.Status == MenuElement.ElementSetupClass._Status.Opened)
             {
                 Element.Opened.SetActive(true);
-                if (Player.LVL < child.Level)
-                {
-                    child.Status = MenuElement.ElementSetupClass._Status.Locked;
-                    Element.Opened.SetActive(false);
-                    Element.Locked.SetActive(true);
-                }
+                // if (Player.LVL < child.Level)
+                // {
+                //     child.Status = MenuElement.ElementSetupClass._Status.Locked;
+                //     Element.Opened.SetActive(false);
+                //     Element.Locked.SetActive(true);
+                // }
             }
         
             if (child.Status == MenuElement.ElementSetupClass._Status.Owned)
@@ -398,12 +398,12 @@ public class MenuController : MonoBehaviour
             if (child.Status == MenuElement.ElementSetupClass._Status.Opened)
             {
                 Element.Opened.SetActive(true);
-                if (Player.LVL < child.Level)
-                {
-                    child.Status = MenuElement.ElementSetupClass._Status.Locked;
-                    Element.Opened.SetActive(false);
-                    Element.Locked.SetActive(true);
-                }
+                // if (Player.LVL < child.Level)
+                // {
+                //     child.Status = MenuElement.ElementSetupClass._Status.Locked;
+                //     Element.Opened.SetActive(false);
+                //     Element.Locked.SetActive(true);
+                // }
             }
 
             if (child.Status == MenuElement.ElementSetupClass._Status.Owned)
