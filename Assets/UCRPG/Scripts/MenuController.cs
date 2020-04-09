@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using DG.Tweening;
+using Febucci.UI;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -77,8 +80,13 @@ public class MenuController : MonoBehaviour
     [Button("ShowLevelUp", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void ShowLevelUp()
     {
-        LevelUpWindow.GetComponent<ModalProvider>().Description.text = LevelUpWindow.GetComponent<ModalProvider>().Description.text.Replace("{LEVEL}", Player.LVL.ToString());
         LevelUpWindow.gameObject.SetActive(true);
+        ModalProvider modalProvider = LevelUpWindow.GetComponent<ModalProvider>();
+        String description = modalProvider.Description.text.Replace("{LEVEL}", $"<incr f=6>{Player.LVL.ToString()}");
+        modalProvider.Description.gameObject.GetComponent<TextAnimatorPlayer>().ShowText(description);
+        DOVirtual.DelayedCall(0.1f, () =>
+        {
+        });
     }
     [Button("Hide", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Hide()
@@ -231,12 +239,9 @@ public class MenuController : MonoBehaviour
                 Element.Description.text = Element.Description.text.Replace("{S}", "\U0000f0e7");
             }
             
-            Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                WeaponsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
-            Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                WeaponsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
-            Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                WeaponsMenuElemets.OwnedText;
+            Element.LockedText.text =  WeaponsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
+            Element.OpenedText.text = WeaponsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
+            Element.OwnedText.text = WeaponsMenuElemets.OwnedText;
             
             Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
             Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
@@ -309,12 +314,9 @@ public class MenuController : MonoBehaviour
                 powerIcon.transform.SetParent(Element.Description.gameObject.transform);
             }
             
-            Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                ItemsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
-            Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                ItemsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
-            Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                ItemsMenuElemets.OwnedText;
+            Element.LockedText.text =  ItemsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
+            Element.OpenedText.text = ItemsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
+            Element.OwnedText.text = ItemsMenuElemets.OwnedText;
             
             Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
             Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
@@ -382,12 +384,10 @@ public class MenuController : MonoBehaviour
             Element.Icon.sprite = child.Icon;
             Element.Title.text = child.Title;
             Element.Description.text = child.Description;
-            Element.Locked.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                LocationsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
-            Element.Opened.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                LocationsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
-            Element.Owned.transform.GetChild(0).transform.Find("Content").transform.Find("Text").GetComponent<TextMeshProUGUI>().text =
-                LocationsMenuElemets.OwnedText;
+            
+            Element.LockedText.text =  LocationsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
+            Element.OpenedText.text = LocationsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
+            Element.OwnedText.text = LocationsMenuElemets.OwnedText;
 
             Button ButtonLocked = Element.Locked.transform.Find("Button").GetComponent<Button>();
             Button ButtonOpened = Element.Opened.transform.Find("Button").GetComponent<Button>();
