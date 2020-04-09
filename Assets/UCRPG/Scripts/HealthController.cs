@@ -185,10 +185,6 @@ public class HealthController : MonoBehaviour
         PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
         PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
             $"{Player.HP} / {playerHealthDefault}";
-        
-        enemyHealthDefault = Enemy.HP;
-        EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-            $"{Enemy.HP} / {enemyHealthDefault}";
     }
 
     void Update()

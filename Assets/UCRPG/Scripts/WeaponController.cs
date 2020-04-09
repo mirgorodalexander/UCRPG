@@ -87,6 +87,7 @@ public class WeaponController : MonoBehaviour
                         {
                             EnemyController.Enemy.Status = Enemy._Status.Fighting;
                             EnemyController.Attack();
+                            PlayerController.MenuController.ShowMenuButton.interactable = PlayerController.Player.Status != Player._Status.Fighting;
                         }
                     });
 

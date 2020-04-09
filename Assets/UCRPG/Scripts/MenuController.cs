@@ -66,7 +66,7 @@ public class MenuController : MonoBehaviour
 
     private List<GameObject> elements;
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
         PlayerHealth.value = (1f / HealthController.playerHealthDefault) * Player.HP;
@@ -81,6 +81,21 @@ public class MenuController : MonoBehaviour
         NextLevel.text = (Player.LVL+1).ToString();
         
         this.Draw();
+    }
+
+    public void UpdateInGameUI()
+    {
+        PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
+        PlayerHealth.value = (1f / HealthController.playerHealthDefault) * Player.HP;
+        HealthController.PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+            $"{Player.HP} / {HealthController.playerHealthDefault}";
+        
+        ShowMenuButton.interactable = Player.Status != Player._Status.Fighting;
+        
+        CoinsValue.text = Coins.Value.ToString();
+        CurrentLevel.text = Player.LVL.ToString();
+        CurrentLevelInGame.text = Player.LVL.ToString();
+        NextLevel.text = (Player.LVL+1).ToString();
     }
 
     [Title("Buttons")]
@@ -190,7 +205,7 @@ public class MenuController : MonoBehaviour
                     Coins.Value -= child.Price;
                     child.Status = MenuElement.ElementSetupClass._Status.Owned;
                     WeaponController.Equip(child.REFID);
-                    UpdateUiEvent.Publish();
+                    UpdateUI();
                 }
             });
             ButtonOwned.onClick.AddListener(() => WeaponController.Equip(child.REFID));
@@ -277,7 +292,7 @@ public class MenuController : MonoBehaviour
                     Coins.Value -= child.Price;
                     if(child.Status == MenuElement.ElementSetupClass._Status.Rechargeable){
                         child.Status = MenuElement.ElementSetupClass._Status.Rechargeable;
-                        UpdateUiEvent.Publish();
+                        UpdateUI();
                     }
                 }
             });
@@ -360,7 +375,8 @@ public class MenuController : MonoBehaviour
                 if(Coins.Value >= child.Price){
                     Coins.Value -= child.Price;
                     child.Status = MenuElement.ElementSetupClass._Status.Owned;
-                    UpdateUiEvent.Publish();
+                    UpdateUI();
+                    LocationController.Spawn(child.REFID);
                 }
             });
             ButtonOwned.onClick.AddListener(() => LocationController.Spawn(child.REFID));
@@ -418,7 +434,7 @@ public class MenuController : MonoBehaviour
         LevelUpWindow.gameObject.SetActive(false);
         DefeatedWindow.gameObject.SetActive(false);
         this.Show();
-        UpdateUiEvent.Publish();
+        UpdateInGameUI();
     }
 
     void Update()

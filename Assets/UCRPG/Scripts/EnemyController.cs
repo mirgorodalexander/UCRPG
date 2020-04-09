@@ -230,7 +230,7 @@ public class EnemyController : MonoBehaviour
                     virtualTween = DOVirtual.DelayedCall(1, () =>
                     {
                         Enemy.Status = Enemy._Status.Fighting;
-
+                        PlayerController.MenuController.ShowMenuButton.interactable = PlayerController.Player.Status != Player._Status.Fighting;
                         this.Attack();
                     });
                 }
@@ -364,6 +364,7 @@ public class EnemyController : MonoBehaviour
     [Button("Die", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Die()
     {
+        PlayerController.MenuController.ShowMenuButton.interactable = PlayerController.Player.Status != Player._Status.Fighting;
         Debug.Log($"[DEBUG] - Enemy \"{Enemy.name}\" is died.");
         
         //MessageController.ConsolePopup($"You killed \"{Enemy.name}\" and got \"{Enemy.BEXP}\" experience");

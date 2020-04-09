@@ -59,10 +59,17 @@ public class PlayerController : MonoBehaviour
     public void LevelUp()
     {
         Player.LVL += 1;
-        MenuController.ShowLevelUp();
-        
         Player.HP = HealthDatabase.Items[Player.LVL];
         HealthController.playerHealthDefault = HealthDatabase.Items[Player.LVL];
+        
+        HealthController.PlayerHealth.value = (1f / HealthController.playerHealthDefault) * Player.HP;
+        HealthController.PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+            $"{Player.HP} / {HealthController.playerHealthDefault}";
+        
+        
+        MenuController.UpdateInGameUI();
+        
+        MenuController.ShowLevelUp();
         
         MessageController.ConsolePopup($"You got new level!");
     }
@@ -89,7 +96,7 @@ public class PlayerController : MonoBehaviour
             MenuController.ShowDefeated(loseexp);
         }
         
-        UpdateUI.Publish();
+        MenuController.UpdateInGameUI();
     }
     [Button("Respawn", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Respawn()
@@ -100,7 +107,7 @@ public class PlayerController : MonoBehaviour
         Player.HP = HealthDatabase.Items[Player.LVL];
         HealthController.playerHealthDefault = HealthDatabase.Items[Player.LVL];
         
-        UpdateUI.Publish();
+        MenuController.UpdateInGameUI();
         
         int tempLID = Player.LID;
         Player.LID = -1;
