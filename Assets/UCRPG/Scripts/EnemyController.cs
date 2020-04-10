@@ -77,11 +77,9 @@ public class EnemyController : MonoBehaviour
         Enemy Enemy = enemy.AddComponent<Enemy>();
 
         Enemy.ID = EnemyDatabase.Items[rnd].ID;
-        Enemy.LVL = EnemyDatabase.Items[rnd].LVL;
-        Enemy.BEXP = EnemyDatabase.Items[rnd].BEXP;
-        Enemy.JEXP = EnemyDatabase.Items[rnd].JEXP;
+        Enemy.BEXP = EnemyDatabase.Items[rnd].EXP;
+        Enemy.JEXP = EnemyDatabase.Items[rnd].EXP;
         Enemy.HP = EnemyDatabase.Items[rnd].HP;
-        Enemy.MP = EnemyDatabase.Items[rnd].MP;
         Enemy.ATK = EnemyDatabase.Items[rnd].ATK;
         Enemy.ATKD = EnemyDatabase.Items[rnd].ATKD;
         Enemy.DEF = EnemyDatabase.Items[rnd].DEF;

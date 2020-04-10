@@ -18,9 +18,6 @@ public class EnemyDatabase : ScriptableObject
         [TableColumnWidth(50, Resizable = false)] [PreviewField(50, ObjectFieldAlignment.Center)]
         public GameObject Prefab;
 
-        [VerticalGroup("Preferences")] public int LVL, BEXP, JEXP, HP, MP, ATK;
-        [VerticalGroup("Preferences")] public float ATKD;
-        [VerticalGroup("Preferences")] public int DEF;
 
         [VerticalGroup("Settings")] public string Name;
 
@@ -33,6 +30,11 @@ public class EnemyDatabase : ScriptableObject
         };
 
         [VerticalGroup("Settings")] public _MOVE MOVE;
+        
+        [FormerlySerializedAs("BEXP")] [VerticalGroup("Preferences")] public int EXP;
+        [VerticalGroup("Preferences")] public int HP, ATK;
+        [VerticalGroup("Preferences")] public float ATKD;
+        [VerticalGroup("Preferences")] public int DEF;
 
         public enum _MOVE
         {
@@ -40,8 +42,6 @@ public class EnemyDatabase : ScriptableObject
             Flying,
             Static
         };
-
-        [VerticalGroup("Settings")] public int SLID;
 
         [VerticalGroup("Loot List")] [ListDrawerSettings(DraggableItems = false, Expanded = true)]
         //public List<DroppedClass> Dropped;
