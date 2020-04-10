@@ -23,6 +23,7 @@ public class ItemController : MonoBehaviour
 
     [Title("Controllers")]
     public MessageController MessageController;
+    public PlayerController PlayerController;
     public MenuController MenuController;
     
     [Title("Preferences")]
@@ -114,7 +115,9 @@ public class ItemController : MonoBehaviour
                 }
             }
 
-            virtualTween = DOVirtual.DelayedCall(JumpDuration+0.5f, () => { this.AddToInventory(); });
+            if(PlayerController.Player.Status != Player._Status.Die){
+                virtualTween = DOVirtual.DelayedCall(JumpDuration+0.5f, () => { this.AddToInventory(); });
+            }
         }
     }
 

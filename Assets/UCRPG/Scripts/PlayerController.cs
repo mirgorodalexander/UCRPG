@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public WeaponController WeaponController;
     public EnemyController EnemyController;
     public MenuController MenuController;
+    public ItemController ItemController;
     
     [Title("Sliders")]
     public Slider PlayerExperience;
@@ -119,6 +120,7 @@ public class PlayerController : MonoBehaviour
         WeaponController.WeaponParent.SetActive(false);
         WeaponController.TakeOff();
         MenuController.Show();
+        ItemController.Remove();
         LocationController.Spawn(tempLID);
         EnemyController.Spawn();
     }

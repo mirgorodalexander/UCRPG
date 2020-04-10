@@ -390,8 +390,9 @@ public class EnemyController : MonoBehaviour
 
         EnemyWrapper.transform.localPosition = enemyWrapperDefaultPosition;
         EnemyWrapper.transform.localRotation = Quaternion.Euler(enemyWrapperDefaultRotation);
-
-        virtualTween = DOVirtual.DelayedCall(1f, () => { LocationController.Move(); });
+        if(PlayerController.Player.Status != Player._Status.Die){
+            virtualTween = DOVirtual.DelayedCall(1f, () => { LocationController.Move(); });
+        }
     }
 
     [Button("Wait Time", ButtonSizes.Large), GUIColor(1, 1, 1)]

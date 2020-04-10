@@ -94,8 +94,9 @@ public class HealthController : MonoBehaviour
                     PlayerController.GainEXP(Enemy.BEXP);
                     EnemyAttackedLight.SetActive(false);
                     EnemyDeathParticles.SetActive(true);
-                    
-                    PlayerController.Player.Status = Player._Status.Waiting;
+                    if(PlayerController.Player.Status != Player._Status.Die){
+                        PlayerController.Player.Status = Player._Status.Waiting;
+                    }
                     
                     ItemController.Drop();
                     enemyHealthDefault = 0;
@@ -104,7 +105,6 @@ public class HealthController : MonoBehaviour
                     DOVirtual.DelayedCall(2f, () => { 
                         EnemyDeathParticles.SetActive(false); 
                         EnemyHealth.value = 1f;
-                        
                     });
                 }
             });

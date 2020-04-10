@@ -229,7 +229,10 @@ MonoBehaviour:
   ItemDatabase: {fileID: 11400000, guid: 03eb65afb0b0e3645ad055cad1afad71, type: 2}
   ItemSpawnParent: {fileID: 0}
   ItemSpawnPoint: {fileID: 0}
+  Coins: {fileID: 11400000, guid: 59f9955815a7a974a8263a78da3e0006, type: 2}
   MessageController: {fileID: 2398333976520409708}
+  PlayerController: {fileID: 395909322}
+  MenuController: {fileID: 6545922203420678818}
   JumpPower: 0.5
   JumpDuration: 0.4
   SpawnPoints:
@@ -245,7 +248,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ItemsDroppedParticles: {fileID: 0}
-  ItemsDroppedGlowParticles: {fileID: 0}
+  ItemsDroppedGlowParticles: {fileID: 1523192287149781988, guid: e4d329dfbe37b1c409ae8e2aa27c59d1,
+    type: 3}
   Items: []
   Player: {fileID: 11400000, guid: 8d6bacd9bce922a4eadc1d36915bdbec, type: 2}
   Enemy: {fileID: 0}
@@ -570,6 +574,7 @@ MonoBehaviour:
   LevelUpWindow: {fileID: 0}
   DefeatedWindow: {fileID: 0}
   CoinsValue: {fileID: 0}
+  CoinsValueInGame: {fileID: 0}
   CurrentLevel: {fileID: 0}
   CurrentLevelInGame: {fileID: 0}
   NextLevel: {fileID: 0}
