@@ -230,6 +230,7 @@ public class EnemyController : MonoBehaviour
                     virtualTween = DOVirtual.DelayedCall(1, () =>
                     {
                         Enemy.Status = Enemy._Status.Fighting;
+                        PlayerController.Player.Status = Player._Status.Fighting;
                         PlayerController.MenuController.ShowMenuButton.interactable = PlayerController.Player.Status != Player._Status.Fighting;
                         this.Attack();
                     });
