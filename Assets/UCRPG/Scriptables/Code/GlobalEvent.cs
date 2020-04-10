@@ -5,10 +5,9 @@ public class GlobalEvent : ScriptableObject
 {
     public bool published;
     [ContextMenu("Publish")]
-    public bool Publish()
+    public void Publish()
     {
         published = true;
-        return true;
     }
     
     public bool isPublished()

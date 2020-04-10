@@ -175,7 +175,10 @@ public class WeaponController : MonoBehaviour
     {
         if (attacking)
         {
-            this.Attack();
+            if (PlayerController.Player.Status != Player._Status.Die)
+            {
+                this.Attack();
+            }
         }
     }
 }

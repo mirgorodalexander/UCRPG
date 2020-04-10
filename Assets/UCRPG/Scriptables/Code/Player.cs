@@ -9,7 +9,7 @@ public class Player : ScriptableObject
 {
     [Title("Status")]
     public _Status Status;
-    public enum _Status { Waiting, Moving, Fighting, Dying, Menu };
+    public enum _Status { Waiting, Moving, Fighting, Die, Menu };
     [Title("Settings")]
     public int LVL;
     public int EXP;
@@ -23,5 +23,14 @@ public class Player : ScriptableObject
     public int LID;
 
     [Title("Inventory")]
-    public List<int> Inventory;
+    //public List<int> Inventory;
+    [TableList] public List<InventoryItem> Inventory;
+    
+    [Serializable]
+    public class InventoryItem
+    {
+        public int ID;
+        public string Name;
+        public int Amount;
+    }
 }

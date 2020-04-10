@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793e840bad47c0942b630bda12d699d2, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  Status: 4
-  LVL: 0
-  EXP: 0
+  Status: 0
+  LVL: 6
+  EXP: 6171
   EXPNEED: 0
-  HP: 100
+  HP: 349
   MP: 0
   ATK: 10
   ATKD: 0
   DEF: 0
   WID: 1
   LID: 1
-  Inventory: 
+  Inventory:
+  - ID: 4
+    Name: Jelly
+    Amount: 23

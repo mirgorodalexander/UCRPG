@@ -185,7 +185,7 @@ public class EnemyController : MonoBehaviour
                 if (Enemy.MOVE == Enemy._MOVE.Static)
                 {
                     tween.Complete();
-                    if (!WeaponController.Taked)
+                    if (!WeaponController.Taked && PlayerController.Player.Status != Player._Status.Die)
                     {
                         WeaponController.TakeOn();
                     }
@@ -213,12 +213,13 @@ public class EnemyController : MonoBehaviour
                     Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
                 }
 
-                if (!WeaponController.Taked)
+                if (!WeaponController.Taked && PlayerController.Player.Status != Player._Status.Die)
                 {
                     WeaponController.TakeOn();
                 }
 
                 Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk in end.");
+                
                 Enemy.Status = Enemy._Status.Waiting;
 
                 if (Enemy.MOD == Enemy._MOD.Aggresive && PlayerController.Player.Status != Player._Status.Menu)
@@ -255,7 +256,7 @@ public class EnemyController : MonoBehaviour
     {
         if (Enemy.Status != Enemy._Status.Fighting)
         {
-            Enemy.transform.DORotate(new Vector3(0f, 180f, 0f), 1f);
+            Enemy.transform.DORotate(new Vector3(0f, 270f, 0f), 1f);
             Enemy.Status = Enemy._Status.Moving;
 
             if (Enemy.GetComponent<Animator>() != null)
@@ -310,7 +311,10 @@ public class EnemyController : MonoBehaviour
                         virtualTween = DOVirtual.DelayedCall(0.1f, () =>
                         {
                             Debug.Log($"[DEBUG] - Enemy controller waiting is end.");
-                            this.Spawn();
+                            if(PlayerController.Player.Status != Player._Status.Die)
+                            {
+                                this.Spawn();
+                            }
                         });
                     });
                 });

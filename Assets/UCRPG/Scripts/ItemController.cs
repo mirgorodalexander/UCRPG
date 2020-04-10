@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -6,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ItemController : MonoBehaviour
 {
@@ -15,9 +17,13 @@ public class ItemController : MonoBehaviour
     public ItemDatabase ItemDatabase;
     public GameObject ItemSpawnParent;
     public GameObject ItemSpawnPoint;
+    
+    [Title("Variables")]
+    public GlobalVariableInt Coins;
 
     [Title("Controllers")]
     public MessageController MessageController;
+    public MenuController MenuController;
     
     [Title("Preferences")]
     public float JumpPower;
@@ -96,7 +102,7 @@ public class ItemController : MonoBehaviour
 
                             item.transform.DOScale(0f, 0f);
                             ItemsDroppedParticles.SetActive(true);
-                            item.transform.DOScale(0.5f, JumpDuration / 2);
+                            item.transform.DOScale(1f, JumpDuration / 2);
                             item.transform.DOJump(SelectedSpawnPoint.transform.position, JumpPower, 1, JumpDuration,
                                     false)
                                 .SetEase(Ease.Linear).OnComplete(() => { ItemsDroppedParticles.SetActive(false); });
@@ -146,9 +152,38 @@ public class ItemController : MonoBehaviour
                 })
                 .OnComplete(() =>
                 {
-                    Player.Inventory.Add(Item.ID);
+                    if (Item.Name.Contains("Coin"))
+                    {
+                        int rndcoins = Random.Range(-5, 5);
+                        Coins.Value += (Item.Amount+rndcoins);
+                        MenuController.UpdateInGameUI();
+                        MessageController.ConsolePopup($"You got item \"{Item.Name}\" x {Item.Amount+rndcoins}");
+                    }
+                    else
+                    {
+                        if (Player.Inventory.Count > 0)
+                        {
+                            for(int j = 0; j < Player.Inventory.Count; j++)
+                            {
+                                if (Player.Inventory[j].ID == Item.ID)
+                                {
+                                    Player.Inventory[j].Amount += Item.Amount;
+                                }
+                                else
+                                {
+                                    Player.Inventory.Add(new Player.InventoryItem
+                                        {ID = Item.ID, Name = Item.Name, Amount = Item.Amount});
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Player.Inventory.Add(new Player.InventoryItem {ID = Item.ID, Name = Item.Name, Amount = Item.Amount});
+                        }
+
+                        MessageController.ConsolePopup($"You got item \"{Item.Name}\" x {Item.Amount}");
+                    }
                     
-                    MessageController.ConsolePopup($"You got item \"{Item.Name}\" x {Item.Amount}");
                     
                     Debug.Log($"[DEBUG] - Item \"{Item.Name} - [{Item.ID}]\" added to players inventory.");
                     DestroyImmediate(WorkingItem.gameObject);

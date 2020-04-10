@@ -41,6 +41,7 @@ public class MenuController : MonoBehaviour
     
     [Title("Elements Value")]
     public TextMeshProUGUI CoinsValue;
+    public TextMeshProUGUI CoinsValueInGame;
     public TextMeshProUGUI CurrentLevel;
     public TextMeshProUGUI CurrentLevelInGame;
     public TextMeshProUGUI NextLevel;
@@ -76,8 +77,11 @@ public class MenuController : MonoBehaviour
         ShowMenuButton.interactable = Player.Status != Player._Status.Fighting;
         
         CoinsValue.text = Coins.Value.ToString();
+        CoinsValueInGame.text = Coins.Value.ToString();
+        
         CurrentLevel.text = Player.LVL.ToString();
         CurrentLevelInGame.text = Player.LVL.ToString();
+        
         NextLevel.text = (Player.LVL+1).ToString();
         
         this.Draw();
@@ -93,8 +97,11 @@ public class MenuController : MonoBehaviour
         ShowMenuButton.interactable = Player.Status != Player._Status.Fighting;
         
         CoinsValue.text = Coins.Value.ToString();
+        CoinsValueInGame.text = Coins.Value.ToString();
+        
         CurrentLevel.text = Player.LVL.ToString();
         CurrentLevelInGame.text = Player.LVL.ToString();
+        
         NextLevel.text = (Player.LVL+1).ToString();
     }
 

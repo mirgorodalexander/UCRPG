@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.size
-    value: 11
+    value: 15
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].ID
@@ -38,6 +38,18 @@ Preset:
     value: 
     objectReference: {fileID: 4169343324720926272, guid: 2b06fa9d79f894e4baff5931e55ee69f,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].Name
+    value: Poppy
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].EXP
     value: 50
@@ -59,24 +71,28 @@ Preset:
     value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].Name
-    value: Poppy
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].MOD
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].MOVE
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[0].ItemID.Array.size
-    value: 1
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].ItemID.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].ItemID.Array.data[1]
     value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ID
@@ -87,6 +103,18 @@ Preset:
     value: 
     objectReference: {fileID: 4169343324720926272, guid: eb9cb8f33240be048be7edd073a97198,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].Name
+    value: Droppy
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].EXP
     value: 80
@@ -108,24 +136,28 @@ Preset:
     value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].Name
-    value: Droppy
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].MOD
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].MOVE
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ItemID.Array.size
-    value: 1
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ItemID.Array.data[0]
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ID
@@ -136,6 +168,18 @@ Preset:
     value: 
     objectReference: {fileID: 1429117272214014, guid: 35195304d9093de4494e5042417fb5a6,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Name
+    value: Fluffy
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].EXP
     value: 250
@@ -157,20 +201,8 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[2].Name
-    value: Fluffy
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[2].MOD
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[2].MOVE
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ItemID.Array.size
-    value: 2
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ItemID.Array.data[0]
@@ -181,6 +213,18 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].ItemID.Array.data[4]
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ID
     value: 3
     objectReference: {fileID: 0}
@@ -189,6 +233,18 @@ Preset:
     value: 
     objectReference: {fileID: 1429117272214014, guid: 77c5dd58aa288e8479e81fe879f9c8a7,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Name
+    value: Pink Fluffy
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].EXP
     value: 250
@@ -210,24 +266,28 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[3].Name
-    value: Pink Fluffy
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[3].MOD
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[3].MOVE
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ItemID.Array.size
-    value: 1
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ItemID.Array.data[0]
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ID
@@ -238,6 +298,18 @@ Preset:
     value: 
     objectReference: {fileID: 1246708330645655, guid: 82a585f1486bb814b9f3d4a3e626d03c,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Name
+    value: "\u0421hrysalis"
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].MOVE
+    value: 2
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].EXP
     value: 300
@@ -259,20 +331,8 @@ Preset:
     value: 9
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[4].Name
-    value: "\u0421hrysalis"
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[4].MOD
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[4].MOVE
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ItemID.Array.size
-    value: 2
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ItemID.Array.data[0]
@@ -283,6 +343,10 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Items.Array.data[5].ID
     value: 5
     objectReference: {fileID: 0}
@@ -291,6 +355,18 @@ Preset:
     value: 
     objectReference: {fileID: 1392526212267637, guid: a154a786287fecf4c9b64bc00e04f36c,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Name
+    value: Antie
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[5].EXP
     value: 333
@@ -312,20 +388,8 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[5].Name
-    value: Antie
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[5].MOD
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[5].MOVE
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[5].ItemID.Array.size
-    value: 2
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[5].ItemID.Array.data[0]
@@ -336,6 +400,18 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].ItemID.Array.data[4]
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Items.Array.data[6].ID
     value: 6
     objectReference: {fileID: 0}
@@ -344,6 +420,18 @@ Preset:
     value: 
     objectReference: {fileID: 1392526212267637, guid: 0b8fd6e8217b76b4f83fd0a5a33b47c2,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Name
+    value: Red Antie
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[6].EXP
     value: 1
@@ -365,20 +453,8 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[6].Name
-    value: Red Antie
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[6].MOD
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[6].MOVE
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[6].ItemID.Array.size
-    value: 2
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[6].ItemID.Array.data[0]
@@ -389,6 +465,10 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Items.Array.data[7].ID
     value: 7
     objectReference: {fileID: 0}
@@ -397,6 +477,18 @@ Preset:
     value: 
     objectReference: {fileID: 1392526212267637, guid: 531b593afdb4c9b47a67bcd2d04e1b24,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].Name
+    value: Poison Antie
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[7].EXP
     value: 100
@@ -418,20 +510,8 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[7].Name
-    value: Poison Antie
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[7].MOD
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[7].MOVE
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[7].ItemID.Array.size
-    value: 2
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[7].ItemID.Array.data[0]
@@ -442,6 +522,10 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Items.Array.data[8].ID
     value: 8
     objectReference: {fileID: 0}
@@ -450,6 +534,18 @@ Preset:
     value: 
     objectReference: {fileID: 1391258907886885, guid: bd1fc57c9fb9ce94690584f811207915,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].Name
+    value: Fly
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[8].EXP
     value: 100
@@ -471,24 +567,28 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[8].Name
-    value: Fly
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[8].MOD
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[8].MOVE
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[8].ItemID.Array.size
-    value: 1
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[8].ItemID.Array.data[0]
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[8].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[9].ID
@@ -497,8 +597,20 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[9].Prefab
     value: 
-    objectReference: {fileID: 1300953898072445, guid: 772cd02e56154494bbe3d7399ae83ed3,
+    objectReference: {fileID: 1391258907886885, guid: fa5ef75258acf23469a4ac4cae83f4f2,
       type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].Name
+    value: Dragon Fly
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].MOVE
+    value: 0
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[9].EXP
     value: 100
@@ -517,23 +629,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[9].DEF
-    value: 12
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[9].Name
-    value: Wild Pig
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[9].MOD
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[9].MOVE
+    propertyPath: Items.Array.data[9].ItemID.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].ItemID.Array.data[0]
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[9].ItemID.Array.size
-    value: 0
+    propertyPath: Items.Array.data[9].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[9].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].ID
@@ -542,31 +662,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].Prefab
     value: 
-    objectReference: {fileID: 1537409730831429, guid: 639a915aa89d53645a0452ad22ef1147,
+    objectReference: {fileID: 1391258907886885, guid: 643b511599bbf8d4ab72bbb3983cbf0a,
       type: 3}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[10].EXP
-    value: 100
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[10].HP
-    value: 100
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[10].ATK
-    value: 23
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[10].ATKD
-    value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[10].DEF
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[10].Name
-    value: Fungus
+    value: Hunter Fly
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].MOD
@@ -577,6 +677,294 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].EXP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].HP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ATK
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ATKD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].DEF
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: Items.Array.data[10].ItemID.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ItemID.Array.data[0]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ItemID.Array.data[1]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ID
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].Prefab
+    value: 
+    objectReference: {fileID: 1300953898072445, guid: 772cd02e56154494bbe3d7399ae83ed3,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].Name
+    value: Wild Pig
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].MOD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].MOVE
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].EXP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].HP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ATK
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ATKD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].DEF
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ItemID.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ItemID.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[11].ItemID.Array.data[4]
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ID
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].Prefab
+    value: 
+    objectReference: {fileID: 1537409730831429, guid: 639a915aa89d53645a0452ad22ef1147,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].Name
+    value: Fungus
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].MOVE
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].EXP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].HP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ATK
+    value: 23
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ATKD
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].DEF
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ItemID.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ItemID.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[12].ItemID.Array.data[4]
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ID
+    value: 13
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].Prefab
+    value: 
+    objectReference: {fileID: 1537409730831429, guid: ec5c92243af8f744d9d3dfc98a610b2f,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].Name
+    value: Ice Fungus
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].MOVE
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].EXP
+    value: 122
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].HP
+    value: 122
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ATK
+    value: 22
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ATKD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].DEF
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ItemID.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ItemID.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[13].ItemID.Array.data[4]
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ID
+    value: 14
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].Prefab
+    value: 
+    objectReference: {fileID: 1537409730831429, guid: 6c399e19e9034724cbec083205b779cc,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].Name
+    value: Old Fungus
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].MOVE
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].EXP
+    value: 122
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].HP
+    value: 122
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ATK
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ATKD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].DEF
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ItemID.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ItemID.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[14].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}

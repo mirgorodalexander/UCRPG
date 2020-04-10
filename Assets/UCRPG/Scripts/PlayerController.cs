@@ -77,6 +77,9 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         EnemyController.StopAttack();
+        EnemyController.WalkOut();
+        
+        Player.Status = Player._Status.Die;
         
         int playerexp = Player.EXP;
         int loseexp = Random.Range(200, 400);
@@ -117,6 +120,7 @@ public class PlayerController : MonoBehaviour
         WeaponController.TakeOff();
         MenuController.Show();
         LocationController.Spawn(tempLID);
+        EnemyController.Spawn();
     }
     void Start()
     {
