@@ -52,8 +52,10 @@ public class PlayerController : MonoBehaviour
                 this.LevelUp();
             }
         }
-        PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
-        //PlayerExperience.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Experience[Player.LVL]}";
+
+        PlayerExperience.GetComponent<SliderProvider>().PreFill.DOFillAmount((1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP, 1f).OnComplete(
+            () => { PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP; });
+        PlayerExperience.gameObject.transform.Find("Line").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Items[Player.LVL]}";
 
     }
     [Button("Level Up", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -100,7 +102,12 @@ public class PlayerController : MonoBehaviour
             MenuController.ShowDefeated(loseexp);
         }
         
-        MenuController.UpdateInGameUI();
+        PlayerExperience.gameObject.transform.Find("Line").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Items[Player.LVL]}";
+        PlayerExperience.DOValue((1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP, 1f).OnComplete(
+            () => {
+                PlayerExperience.GetComponent<SliderProvider>().PreFill.fillAmount = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
+                MenuController.UpdateInGameUI();
+            });
     }
     [Button("Respawn", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Respawn()
@@ -127,11 +134,16 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Player.Status = Player._Status.Menu;
+        
         PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
+        PlayerExperience.GetComponent<SliderProvider>().PreFill.fillAmount = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
+        PlayerExperience.gameObject.transform.Find("Line").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Items[Player.LVL]}";
+        
         if (Player.HP == 0)
         {
             Player.HP = HealthDatabase.Items[Player.LVL];
         }
+        
         //PlayerExperience.gameObject.transform.GetChild(0).transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Experience[Player.LVL]}";
     }
 

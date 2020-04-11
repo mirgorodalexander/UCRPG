@@ -12,11 +12,18 @@ public class MessageController : MonoBehaviour
     public GameObject ExperiencePopupCanvas;
     public GameObject DamagePopupCanvas;
 
+    [Title("Camera")]
+    public DOTweenAnimation ExperienceTween;
+    
+    [Title("Slider")]
+    public RectTransform ExpirienceSlider;
+
     [Title("Preferences")]
     public float ExperiencePopupLifetime;
     public float ExperiencePopupFadetime;
     public float ConsolePopupLifetime;
     public float ConsolePopupFadetime;
+    
     [Title("FX")]
     public GameObject ConsolePopupPrefab;
     public GameObject PlayerExperiencePopupPrefab;
@@ -58,14 +65,18 @@ public class MessageController : MonoBehaviour
             Experience.transform.DOLocalMoveY(280, ExperiencePopupLifetime, false).OnComplete(() =>
             {
                 Experience.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime);
-                DOVirtual.DelayedCall(ExperiencePopupFadetime, () =>
-                {
-                    Experience.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime/2);
-                    Experience.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), ExperiencePopupFadetime/2).OnComplete(() =>
-                        {
-                            Destroy(Experience.gameObject);
-                        });
-                });
+
+                Experience.transform.DOMoveY(Screen.height-100f, ExperiencePopupLifetime/2, false).OnComplete(() => { });
+             
+                    DOVirtual.DelayedCall(ExperiencePopupFadetime/5f, () =>
+                    {
+                        ExperienceTween.DORestart();   
+                    });
+                    Experience.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime/4);
+                    Experience.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), ExperiencePopupFadetime/4).OnComplete(() =>
+                    {
+                        Destroy(Experience.gameObject);
+                    });
             });
         });
     }
@@ -77,14 +88,18 @@ public class MessageController : MonoBehaviour
         Damage.transform.SetParent(DamagePopupCanvas.transform);
         Damage.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"<shake>{damage}";
         Damage.name = $"Damage - {damage}";
-        // Damage.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
-        Damage.transform.DOLocalMove(new Vector3(0, 400, 0), 0.3f, false).OnComplete(() =>
+        Damage.transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0f).OnComplete(() =>
         {
-            Damage.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.5f).SetDelay(1f);
-            Damage.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), 0.3f).SetDelay(1f);
-            Damage.transform.DOLocalMove(new Vector3(340, -1000, 0), 1f, false).SetDelay(1f).OnComplete(() =>
+            Damage.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), ExperiencePopupLifetime);
+            // Damage.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
+            Damage.transform.DOLocalMove(new Vector3(0, 400, 0), 0.3f, false).OnComplete(() =>
             {
-                Destroy(Damage.gameObject);
+                Damage.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.5f).SetDelay(1f);
+                Damage.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), 0.3f).SetDelay(1f);
+                Damage.transform.DOLocalMove(new Vector3(340, -1000, 0), 1f, false).SetDelay(1f).OnComplete(() =>
+                {
+                    Destroy(Damage.gameObject);
+                });
             });
         });
     }
