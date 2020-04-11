@@ -23,12 +23,12 @@ public class AnimatorProvider : MonoBehaviour
 
     public void AnimationAttackPlayer()
     {
-        HealthController.PlayerDamage(EnemyController.Enemy.ATK);
+        HealthController.PlayerWasAttacked();
     }
     
     public void AnimationAttackEnemy()
     {
-        HealthController.EnemyDamage(PlayerController.Player.ATK+WeaponController.Weapon.ATK);
+        HealthController.EnemyWasAttacked();
     }
     public void AnimationAttackEnemyEnd()
     {

@@ -13,12 +13,11 @@ public class Player : ScriptableObject
     [Title("Settings")]
     public int LVL;
     public int EXP;
-    public int EXPNEED;
     public int HP;
-    public int MP;
     public int ATK;
-    public float ATKD;
+    public int LUK;
     public int DEF;
+    public float ASPD;
     public int WID;
     public int LID;
 

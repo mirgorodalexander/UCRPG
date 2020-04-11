@@ -22,6 +22,7 @@ public class MessageController : MonoBehaviour
     public GameObject PlayerExperiencePopupPrefab;
     public GameObject EnemyDamagePopupPrefab;
     public GameObject PlayerDamagePopupPrefab;
+    public GameObject CriticalDamagePopupPrefab;
     
     
     [Button("Console Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -65,6 +66,25 @@ public class MessageController : MonoBehaviour
                             Destroy(Experience.gameObject);
                         });
                 });
+            });
+        });
+    }
+
+    [Button("Critical Damage Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void CriticalDamagePopup(int damage)
+    {
+        GameObject Damage = Instantiate(CriticalDamagePopupPrefab, DamagePopupCanvas.transform.position, Quaternion.identity) as GameObject;
+        Damage.transform.SetParent(DamagePopupCanvas.transform);
+        Damage.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"<shake>{damage}";
+        Damage.name = $"Damage - {damage}";
+        // Damage.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
+        Damage.transform.DOLocalMove(new Vector3(0, 400, 0), 0.3f, false).OnComplete(() =>
+        {
+            Damage.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.5f).SetDelay(1f);
+            Damage.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), 0.3f).SetDelay(1f);
+            Damage.transform.DOLocalMove(new Vector3(340, -1000, 0), 1f, false).SetDelay(1f).OnComplete(() =>
+            {
+                Destroy(Damage.gameObject);
             });
         });
     }
