@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8120289212525903024}
   - component: {fileID: 8120289212525903029}
   - component: {fileID: 8120289212525903027}
-  - component: {fileID: 8120289212525903026}
+  - component: {fileID: 7789994463085778578}
   m_Layer: 5
   m_Name: Underground
   m_TagString: Untagged
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {x: 0, y: 0, z: 15, w: 15}
---- !u!114 &8120289212525903026
+--- !u!114 &7789994463085778578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,10 +226,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8120289212525903031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!1 &8120289212792871693
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +606,7 @@ GameObject:
   - component: {fileID: 8120289213446735003}
   - component: {fileID: 8120289213446735007}
   - component: {fileID: 8120289213446735005}
-  - component: {fileID: 8120289213446735004}
+  - component: {fileID: 3761807295129089245}
   m_Layer: 5
   m_Name: Underground
   m_TagString: Untagged
@@ -685,7 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8120289213446735004
+--- !u!114 &3761807295129089245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -694,10 +693,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8120289213446735006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!1 &8120289213481968745
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +903,7 @@ GameObject:
   - component: {fileID: 8120289213816015317}
   - component: {fileID: 8120289213816015315}
   - component: {fileID: 8120289213816015314}
-  - component: {fileID: 8120289213816015316}
+  - component: {fileID: 5646254565635581355}
   m_Layer: 5
   m_Name: Shadow
   m_TagString: Untagged
@@ -984,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {x: 25, y: 25, z: 25, w: 25}
---- !u!114 &8120289213816015316
+--- !u!114 &5646254565635581355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -993,10 +991,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8120289213816015318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!1 &8120289213860607453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,10 +1288,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8120289213989531083}
   - component: {fileID: 8120289213989531086}
-  - component: {fileID: 8120289213989531082}
   - component: {fileID: 8120289213989531085}
   - component: {fileID: 8120289213989531084}
   - component: {fileID: 8120289213989531087}
+  - component: {fileID: 5039176439167539303}
   m_Layer: 0
   m_Name: Viewport
   m_TagString: Untagged
@@ -1353,19 +1350,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8120289213989531082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8120289213989531057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!222 &8120289213989531085
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1417,6 +1401,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {x: 25, y: 25, z: 25, w: 25}
+--- !u!114 &5039176439167539303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120289213989531057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8120289213992654291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,10 +1512,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8120289214175267876}
   - component: {fileID: 8120289214175267877}
-  - component: {fileID: 8120289214175267874}
   - component: {fileID: 8120289214175267879}
   - component: {fileID: 8120289214175267878}
   - component: {fileID: 8120289214175267875}
+  - component: {fileID: 8605102624239711409}
   m_Layer: 0
   m_Name: Inner Shadow
   m_TagString: Untagged
@@ -1576,19 +1572,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8120289214175267874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8120289214175267881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!222 &8120289214175267879
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1640,6 +1623,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {x: 50, y: 50, z: 50, w: 50}
+--- !u!114 &8605102624239711409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120289214175267881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8120289214521092965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,7 +1647,7 @@ GameObject:
   - component: {fileID: 8120289214521092963}
   - component: {fileID: 8120289214521092962}
   - component: {fileID: 8120289214521092990}
-  - component: {fileID: 8120289214521092961}
+  - component: {fileID: 7741673211796493267}
   m_Layer: 5
   m_Name: Shadow
   m_TagString: Untagged
@@ -1731,7 +1726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8120289214521092961
+--- !u!114 &7741673211796493267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1740,7 +1735,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8120289214521092965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1

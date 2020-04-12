@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 350809322302936690}
   - component: {fileID: 350809322302936692}
   - component: {fileID: 350809322302936691}
+  - component: {fileID: 8421035611666411837}
   m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
@@ -355,6 +356,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &8421035611666411837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350809322302936689}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &350809322745107351
 GameObject:
   m_ObjectHideFlags: 0

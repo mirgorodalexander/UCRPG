@@ -70,8 +70,7 @@ public class ItemController : MonoBehaviour
                     {
                         float chance = child.Chance;
                         float rndchance = Random.Range(0f, 100f);
-                        Debug.Log(
-                            $"[DEBUG] - Trying drop item \"{child.Name} - [{child.ID}]\" with chance \"{chance}\", you throw \"{rndchance}\"");
+                        Debug.Log($"[DEBUG] - Trying drop item \"{child.Name} - [{child.ID}]\" with chance \"{chance}\", you throw \"{rndchance}\"");
                         if (rndchance >= 0f && rndchance <= chance)
                         {
                             item = Instantiate(

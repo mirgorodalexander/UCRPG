@@ -276,7 +276,9 @@ public class EnemyController : MonoBehaviour
                 .SetEase(Ease.Linear)
                 .SetOptions(false)
                 .OnWaypointChange((int point) => { })
-                .OnStart(() => { Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk out begin."); })
+                .OnStart(() => { 
+                    Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk out begin.");
+                })
                 .OnPlay(() =>
                 {
                     //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 1);

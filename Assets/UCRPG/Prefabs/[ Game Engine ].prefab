@@ -53,6 +53,7 @@ MonoBehaviour:
   WeaponController: {fileID: 1102095133}
   EnemyController: {fileID: 506032668}
   MenuController: {fileID: 6545922203420678818}
+  ItemController: {fileID: 2945537047249253597}
   PlayerExperience: {fileID: 0}
   ExperiencePopupCanvas: {fileID: 0}
   PlayerExperiencePopupPrefab: {fileID: 424737744741208641, guid: fc9fea05f9c30fb4d9b3513ac578cc94,
@@ -299,6 +300,8 @@ MonoBehaviour:
   ConsolePopupCanvas: {fileID: 0}
   ExperiencePopupCanvas: {fileID: 0}
   DamagePopupCanvas: {fileID: 0}
+  ExperienceTween: {fileID: 0}
+  ExpirienceSlider: {fileID: 0}
   ExperiencePopupLifetime: 0.6
   ExperiencePopupFadetime: 1
   ConsolePopupLifetime: 3
@@ -310,6 +313,8 @@ MonoBehaviour:
   EnemyDamagePopupPrefab: {fileID: 1572705738232587313, guid: fa35c1c00f06fb74a8447b8366aa3084,
     type: 3}
   PlayerDamagePopupPrefab: {fileID: 424737744741208641, guid: 40346e6d067c314448ffd8a9afa27e2c,
+    type: 3}
+  CriticalDamagePopupPrefab: {fileID: 1572705738232587313, guid: 512e130ed4b03dd4eac30879bd3845f6,
     type: 3}
 --- !u!1 &3438877728793334904
 GameObject:
@@ -366,7 +371,9 @@ MonoBehaviour:
   EnemyHealth: {fileID: 0}
   EnemyDeathParticles: {fileID: 0}
   EnemyAttackedLight: {fileID: 0}
+  CriticalAttackedLight: {fileID: 0}
   EnemyAttackedParticles: {fileID: 0}
+  CriticalAttack: {fileID: 0}
   PlayerAttackedParticles: {fileID: 0}
   PlayerDamagePopupPrefab: {fileID: 424737744741208641, guid: 40346e6d067c314448ffd8a9afa27e2c,
     type: 3}
@@ -513,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FPS: 300
   VSYNC: 0
+  Logs: 0
 --- !u!1 &6471603112510805875
 GameObject:
   m_ObjectHideFlags: 0
