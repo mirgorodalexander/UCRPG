@@ -112,6 +112,11 @@ public class PlayerController : MonoBehaviour
     [Button("Respawn", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Respawn()
     {
+        if (EnemyController.Enemy != null)
+        {
+            EnemyController.Remove();
+        }
+        
         Debug.Log($"[DEBUG] - Player respawning.");
         Player.Status = Player._Status.Menu;
         

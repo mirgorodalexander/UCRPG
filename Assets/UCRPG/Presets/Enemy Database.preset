@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.size
-    value: 15
+    value: 17
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].ID
@@ -72,7 +72,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].ItemID.Array.size
-    value: 5
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[0].ItemID.Array.data[0]
@@ -91,17 +91,13 @@ Preset:
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[0].ItemID.Array.data[4]
-    value: 4
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ID
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Prefab
     value: 
-    objectReference: {fileID: 4169343324720926272, guid: eb9cb8f33240be048be7edd073a97198,
+    objectReference: {fileID: 4169343324720926272, guid: 28ecb6fdc9996f64db8c6d7d79eaf7b3,
       type: 3}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].Name
@@ -137,7 +133,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ItemID.Array.size
-    value: 5
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ItemID.Array.data[0]
@@ -154,10 +150,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[1].ItemID.Array.data[3]
     value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[1].ItemID.Array.data[4]
-    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ID
@@ -202,7 +194,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ItemID.Array.size
-    value: 5
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ItemID.Array.data[0]
@@ -219,10 +211,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[2].ItemID.Array.data[3]
     value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[2].ItemID.Array.data[4]
-    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ID
@@ -267,7 +255,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ItemID.Array.size
-    value: 5
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ItemID.Array.data[0]
@@ -284,10 +272,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[3].ItemID.Array.data[3]
     value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[3].ItemID.Array.data[4]
-    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ID
@@ -332,7 +316,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ItemID.Array.size
-    value: 3
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ItemID.Array.data[0]
@@ -345,6 +329,14 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[4].ItemID.Array.data[2]
     value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[5].ID
@@ -511,7 +503,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[7].ItemID.Array.size
-    value: 3
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[7].ItemID.Array.data[0]
@@ -524,6 +516,14 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[7].ItemID.Array.data[2]
     value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[7].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[8].ID
@@ -698,15 +698,27 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].ItemID.Array.size
-    value: 2
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].ItemID.Array.data[0]
-    value: 2
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[10].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ItemID.Array.data[2]
     value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[10].ItemID.Array.data[4]
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[11].ID
@@ -751,7 +763,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[11].ItemID.Array.size
-    value: 5
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[11].ItemID.Array.data[0]
@@ -768,10 +780,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[11].ItemID.Array.data[3]
     value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[11].ItemID.Array.data[4]
-    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[12].ID
@@ -816,7 +824,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[12].ItemID.Array.size
-    value: 5
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[12].ItemID.Array.data[0]
@@ -833,10 +841,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Items.Array.data[12].ItemID.Array.data[3]
     value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Items.Array.data[12].ItemID.Array.data[4]
-    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[13].ID
@@ -869,7 +873,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[13].ATK
-    value: 22
+    value: -175
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[13].ATKD
@@ -946,7 +950,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[14].ItemID.Array.size
-    value: 5
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Items.Array.data[14].ItemID.Array.data[0]
@@ -965,6 +969,132 @@ Preset:
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: Items.Array.data[14].ItemID.Array.data[4]
+    propertyPath: Items.Array.data[15].ID
+    value: 15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].Prefab
+    value: 
+    objectReference: {fileID: 1971915034604582, guid: 10b0c8eea2d76c642be6b455a54f1fcb,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].Name
+    value: Cockroach
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].MOD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].MOVE
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].EXP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].HP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].ATK
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].ATKD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].DEF
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].ItemID.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].ItemID.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[15].ItemID.Array.data[4]
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ID
+    value: 16
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].Prefab
+    value: 
+    objectReference: {fileID: 1971915034604582, guid: 385e2205177390b4ea9e5e11bdcbe8f1,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].Name
+    value: Cockroach Old
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].MOD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].MOVE
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].EXP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].HP
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ATK
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ATKD
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].DEF
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ItemID.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ItemID.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ItemID.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ItemID.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ItemID.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[16].ItemID.Array.data[4]
     value: 4
     objectReference: {fileID: 0}
