@@ -249,8 +249,12 @@ public class MenuController : MonoBehaviour
             elements.Add(element);
         
             index++;
-        }        
+        }
+        
+        elements = new List<GameObject> { };
+        
         index = 0;
+        
         foreach (var child in LocationsMenuElemets.Elements)
         {
             var element = Instantiate(LocationElementPrefab, LocationElementPrefab.transform.position, LocationElementPrefab.transform.rotation) as GameObject;
@@ -321,7 +325,7 @@ public class MenuController : MonoBehaviour
             {
                 var breakline =
                     Instantiate(Breakline, LocationElementPrefab.transform.position, LocationElementPrefab.transform.rotation) as GameObject;
-                breakline.transform.SetParent(Weapons.transform);
+                breakline.transform.SetParent(Locations.transform);
                 breakline.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
                 elements.Add(breakline);
             }
