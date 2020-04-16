@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &395909321
 Transform:
@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957712e84dd61c64d8709ebae22dc4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpdateUI: {fileID: 11400000, guid: a11305a6594c6b4468d323a5546ae6ae, type: 2}
   Player: {fileID: 11400000, guid: 8d6bacd9bce922a4eadc1d36915bdbec, type: 2}
   ExperienceDatabase: {fileID: 11400000, guid: 1e6c48cb4a93b8d449792f287e079968, type: 2}
   HealthDatabase: {fileID: 11400000, guid: c055400ad670fa143b950b816a4c3357, type: 2}
@@ -73,7 +72,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &506032667
 Transform:
@@ -144,7 +143,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1102095132
 Transform:
@@ -198,7 +197,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8361072696982026438
 Transform:
@@ -269,7 +268,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6724466632478634312
 Transform:
@@ -331,7 +330,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5392727322868743527
 Transform:
@@ -399,7 +398,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7081846405767315820
 Transform:
@@ -449,7 +448,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &22519331772352798
 Transform:
@@ -490,7 +489,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1847205541013682924
 Transform:
@@ -536,7 +535,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7876662578909363376
 Transform:
@@ -564,7 +563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d059bf12affb9f4498cf9a9e64b31ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpdateUiEvent: {fileID: 11400000, guid: a11305a6594c6b4468d323a5546ae6ae, type: 2}
   WeaponDatabase: {fileID: 11400000, guid: 992cba25633b025419f3e99e063ab6bd, type: 2}
   ExperienceDatabase: {fileID: 11400000, guid: 1e6c48cb4a93b8d449792f287e079968, type: 2}
   Player: {fileID: 11400000, guid: 8d6bacd9bce922a4eadc1d36915bdbec, type: 2}
@@ -611,14 +609,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4337474811035206428}
-  - component: {fileID: 977782237564553102}
-  - component: {fileID: 1955264062870265146}
   m_Layer: 0
   m_Name: Save Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4337474811035206428
 Transform:
@@ -634,50 +630,3 @@ Transform:
   m_Father: {fileID: 22519331772352798}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &977782237564553102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6563963710425666372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358a6b632803b164ab794336724816ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SaveOnUpdate: 1
-  ES3AutoSaveMgr: {fileID: 1955264062870265146}
---- !u!114 &1955264062870265146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6563963710425666372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9107aee0ced90422da95f0b31680501f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: 444617af-fbe2-486c-a07c-a5c4e306dd47
-  saveEvent: 0
-  loadEvent: 0
-  settings:
-    _location: 0
-    path: SaveData.es3
-    encryptionType: 0
-    encryptionPassword: password
-    directory: 0
-    format: 0
-    bufferSize: 2048
-    saveChildren: 1
-    typeChecking: 1
-    safeReflection: 1
-    memberReferenceMode: 0
-    referenceMode: 2
-    assemblyNames:
-    - Assembly-CSharp
-    - Assembly-CSharp-firstpass
-    showAdvancedSettings: 1
-  autoSaves: []

@@ -9,9 +9,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [Title("Events")]
-    public GlobalEvent UpdateUI;
-    
     [Title("Configurations")]
     public Player Player;
     public ExperienceDatabase ExperienceDatabase;

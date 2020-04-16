@@ -301,7 +301,7 @@ public class EnemyController : MonoBehaviour
                     }
 
                     Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" walk out end.");
-                    EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, 0f, 0f), 0.1f).OnComplete(() =>
+                    EnemyWrapper.transform.DORotate(new Vector3(0f, 0f, 0f), 0.1f).OnComplete(() =>
                     {
                         Enemy.Status = Enemy._Status.Waiting;
                         this.Remove();

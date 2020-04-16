@@ -8,6 +8,7 @@ public class RenderController : MonoBehaviour
     [Title("Configurations")]
     public int FPS;
     public int VSYNC;
+    public bool WarmUpAllShaders;
     public bool Logs;
 
     void Awake()
@@ -15,13 +16,17 @@ public class RenderController : MonoBehaviour
         Debug.unityLogger.logEnabled = Logs;
         QualitySettings.vSyncCount = VSYNC;
         Application.targetFrameRate = FPS;
-        Shader.WarmupAllShaders();
+        if(WarmUpAllShaders){
+            Shader.WarmupAllShaders();
+        }
     }
 
     void Start()
     {
         QualitySettings.vSyncCount = VSYNC;
         Application.targetFrameRate = FPS;
-        Shader.WarmupAllShaders();
+        if(WarmUpAllShaders){
+            Shader.WarmupAllShaders();
+        }
     }
 }
