@@ -35,6 +35,7 @@ public class AnimatorProvider : MonoBehaviour
         this.GetComponent<Animator>().SetInteger("Motion", 0);
         DOVirtual.DelayedCall(0.4f-WeaponController.Weapon.SPD*0.01f, () =>
         {
+            this.GetComponent<Animator>().SetInteger("Motion", 0);
             WeaponController.AttackLock = false;
         });
     }

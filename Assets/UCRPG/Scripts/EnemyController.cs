@@ -289,7 +289,7 @@ public class EnemyController : MonoBehaviour
 
                     if (WeaponController.Taked)
                     {
-                        WeaponController.TakeOff();
+                        //WeaponController.TakeOff();
                     }
                 })
                 .OnComplete(() =>

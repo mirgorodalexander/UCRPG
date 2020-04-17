@@ -28,6 +28,7 @@ public class WeaponController : MonoBehaviour
     public GameObject WeaponParent;
 
     public Animator WeaponAnimator;
+    public Animator PlayerAvatarAnimator;
     
     [Title("Debug")]
     public bool AttackLock = false;
@@ -58,6 +59,7 @@ public class WeaponController : MonoBehaviour
         weapon.transform.position = new Vector3(0, 0, 0);
         weapon.transform.localPosition = new Vector3(0, 0, 0);
         weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 345, 0));
+        weapon.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
 
         PlayerController.Player.WID = WeaponID;
     }
@@ -75,8 +77,10 @@ public class WeaponController : MonoBehaviour
                 if (!AttackLock)
                 {
                     AttackLock = true;
-                    WeaponAnimator.SetInteger("Motion", 1);
-                    WeaponAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
+                    //WeaponAnimator.SetInteger("Motion", 1);
+                    PlayerAvatarAnimator.SetInteger("Motion", 2);
+                    //WeaponAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
+                    PlayerAvatarAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
 
                     PlayerController.Player.Status = Player._Status.Fighting;
 
@@ -169,10 +173,13 @@ public class WeaponController : MonoBehaviour
         trigger.triggers.Add(pointerUp);
         
         Equip(PlayerController.Player.WID);
+        attacking = true;
+        TakeOn();
     }
 
     void Update()
     {
+        attacking = true;
         if (attacking)
         {
             if (PlayerController.Player.Status != Player._Status.Die)

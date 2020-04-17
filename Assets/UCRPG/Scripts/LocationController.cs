@@ -8,6 +8,7 @@ public class LocationController : MonoBehaviour
 {
     [Title("Configurations")]
     public GameObject LocationSpawnParent;
+    public GameObject PlayerAvatar;
 
     public float MovementSpeed;
 
@@ -74,6 +75,8 @@ public class LocationController : MonoBehaviour
     [Button("Move", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Move()
     {
+        PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 1);
+        
         //WeaponController.Run();
         Debug.Log($"[DEBUG] - Player move begin.");
         // StackinglocationMiddle = Instantiate(location, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
@@ -95,6 +98,7 @@ public class LocationController : MonoBehaviour
         {
             location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, 4f), MovementSpeed*2).OnComplete(() =>
             {
+                PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
                 location.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0f,0f);
                 EnemyController.PlayerReady();
             });
@@ -103,6 +107,7 @@ public class LocationController : MonoBehaviour
         {
             location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, -4f), MovementSpeed*2).OnComplete(() =>
             {
+                PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
                 location.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0f,0f);
                 EnemyController.PlayerReady();
             });

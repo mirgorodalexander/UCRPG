@@ -6,7 +6,7 @@ public class Favorite : MonoBehaviour
 
     void OnGUI()
     {
-        windowRect = GUI.Window(0, windowRect, DoMyWindow, "Favorite");
+        windowRect = GUI.Window(0, windowRect, DoMyWindow, "My Window");
     }
 
     // Make the contents of the window

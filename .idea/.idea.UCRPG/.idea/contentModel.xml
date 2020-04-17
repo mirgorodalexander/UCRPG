@@ -81,20 +81,57 @@
             <e p="ETFXRotation.cs" t="Include" />
           </e>
         </e>
-        <e p="FlipbookGames" t="Include">
-          <e p="Common" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="FG_GameObjectGUIDs.cs" t="Include" />
+        <e p="Fantasy Adventure Environment" t="Include">
+          <e p="_DemoScenes" t="Include">
+            <e p="Source" t="Include">
+              <e p="_These assets are not officially included, only produced for the demo scene.txt" t="Include" />
+              <e p="FAE_DemoOrbitCamera.cs" t="Include" />
+              <e p="FAE_Waterfall.shader" t="Include" />
+              <e p="FAE_WaterfallFoam.shader" t="Include" />
             </e>
           </e>
-          <e p="FavoritesTab" t="Include">
+          <e p="CHANGELOG.txt" t="Include" />
+          <e p="PostProcessingAssets" t="Include">
+            <e p="Readme.txt" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="CliffAppearance.cs" t="Include" />
             <e p="Editor" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="AboutFavoritesTab.cs" t="Include" />
-                <e p="FavoritesTab.cs" t="Include" />
-                <e p="GameObjectGUIDsInspector.cs" t="Include" />
-              </e>
+              <e p="CliffAppearanceInspector.cs" t="Include" />
+              <e p="FAE_Core.cs" t="Include" />
+              <e p="FoliageShaderGUI.cs" t="Include" />
+              <e p="GrassShaderGUI.cs" t="Include" />
+              <e p="GUIHelper.cs" t="Include" />
+              <e p="HelpWindow.cs" t="Include" />
+              <e p="PigmentMapGeneratorInspector.cs" t="Include" />
+              <e p="TreeBranchShaderGUI.cs" t="Include" />
+              <e p="TreeTrunkShaderGUI.cs" t="Include" />
+              <e p="WindControllerInspector.cs" t="Include" />
             </e>
+            <e p="FoliageBender.cs" t="Include" />
+            <e p="PigmentMapGenerator.cs" t="Include" />
+            <e p="TerrainUVUtil.cs" t="Include" />
+            <e p="VegetationStudioPro" t="Include">
+              <e p="FAEFoliageShaderController.cs" t="Include" />
+              <e p="FAEGrassShaderController.cs" t="Include" />
+              <e p="FAETreeShaderController.cs" t="Include" />
+            </e>
+            <e p="WindController.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="FAE_Cliff.shader" t="Include" />
+            <e p="FAE_Cliff_Coverage.shader" t="Include" />
+            <e p="FAE_FogSheet.shader" t="Include" />
+            <e p="FAE_Foliage.shader" t="Include" />
+            <e p="FAE_Grass.shader" t="Include" />
+            <e p="FAE_Sunshaft.shader" t="Include" />
+            <e p="FAE_SunshaftParticle.shader" t="Include" />
+            <e p="FAE_TreeBillboard.shader" t="Include" />
+            <e p="FAE_TreeBranch.shader" t="Include" />
+            <e p="FAE_TreeTrunk.shader" t="Include" />
+            <e p="FAE_Water.shader" t="Include" />
+            <e p="PigmentMapComposite.shader" t="Include" />
+            <e p="VS_InstancedIndirect.cginc" t="Include" />
           </e>
         </e>
         <e p="GlobalVariables.cs" t="Include" />
@@ -711,6 +748,7 @@
             <e p="TextOutline.cs" t="Include" />
             <e p="Tools" t="Include">
               <e p="Favorite.cs" t="Include" />
+              <e p="FreeCam.cs" t="Include" />
             </e>
             <e p="Weapon.cs" t="Include" />
             <e p="WeaponController.cs" t="Include" />

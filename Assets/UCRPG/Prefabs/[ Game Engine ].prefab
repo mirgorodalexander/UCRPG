@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 11400000, guid: 8d6bacd9bce922a4eadc1d36915bdbec, type: 2}
+  PlayerAvatar: {fileID: 0}
   ExperienceDatabase: {fileID: 11400000, guid: 1e6c48cb4a93b8d449792f287e079968, type: 2}
   HealthDatabase: {fileID: 11400000, guid: c055400ad670fa143b950b816a4c3357, type: 2}
   LocationController: {fileID: 3874880924033241922}
@@ -179,9 +180,10 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   WeaponParent: {fileID: 0}
   WeaponAnimator: {fileID: 0}
+  PlayerAvatarAnimator: {fileID: 0}
   AttackLock: 0
   Taked: 0
-  attacking: 0
+  attacking: 1
 --- !u!1 &1067523399730056777
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +366,7 @@ MonoBehaviour:
   EnemyController: {fileID: 506032668}
   ItemController: {fileID: 2945537047249253597}
   Player: {fileID: 11400000, guid: 8d6bacd9bce922a4eadc1d36915bdbec, type: 2}
+  PlayerAvatarAnimator: {fileID: 0}
   Enemy: {fileID: 0}
   FlashNums: 6
   PlayerHealth: {fileID: 0}
@@ -427,6 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LocationSpawnParent: {fileID: 0}
+  PlayerAvatar: {fileID: 0}
   MovementSpeed: 0.6
   WeaponController: {fileID: 1102095133}
   PlayerController: {fileID: 395909322}

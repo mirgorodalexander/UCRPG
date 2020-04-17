@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     [Title("Configurations")]
     public Player Player;
+    public Animator PlayerAvatar;
     public ExperienceDatabase ExperienceDatabase;
     public HealthDatabase HealthDatabase;
     
@@ -76,6 +77,8 @@ public class PlayerController : MonoBehaviour
     [Button("Die", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Die()
     {
+        PlayerAvatar.SetInteger("Motion", 9);
+        
         EnemyController.StopAttack();
         EnemyController.WalkOut();
         
@@ -109,6 +112,8 @@ public class PlayerController : MonoBehaviour
     [Button("Respawn", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Respawn()
     {
+        
+        PlayerAvatar.Play("wait", -1, 0f);
         if (EnemyController.Enemy != null)
         {
             EnemyController.Remove();

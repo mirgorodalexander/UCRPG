@@ -17,6 +17,7 @@ public class HealthController : MonoBehaviour
 
     [Title("Configurations")]
     public Player Player;
+    public Animator PlayerAvatarAnimator;
 
     public Enemy Enemy;
     private int FlashNumsCount;
@@ -48,6 +49,7 @@ public class HealthController : MonoBehaviour
     [Title("Buttons")]
     public void PlayerWasAttacked()
     {
+        PlayerAvatarAnimator.GetComponent<Animator>().SetInteger("Motion", 3);
         int damage = EnemyController.Enemy.ATK;
         PlayerDamage(damage);
     }
@@ -96,7 +98,10 @@ public class HealthController : MonoBehaviour
 
         PlayerAttackedParticles.SetActive(true);
 
-        DOVirtual.DelayedCall(0.2f, () => { PlayerAttackedParticles.SetActive(false); });
+        DOVirtual.DelayedCall(0.2f, () =>
+        {
+            PlayerAttackedParticles.SetActive(false);
+        });
     }
 
     private void EnemyDyingAnimation()
@@ -165,7 +170,7 @@ public class HealthController : MonoBehaviour
                 EnemyController.StopAttack();
                 EnemyDyingAnimation();
                 DOVirtual.DelayedCall(0.3f, () => { 
-                    WeaponController.TakeOff();
+                    //WeaponController.TakeOff();
                 });
             }
         }
@@ -225,7 +230,7 @@ public class HealthController : MonoBehaviour
                 EnemyController.StopAttack();
                 EnemyDyingAnimation();
                 DOVirtual.DelayedCall(0.3f, () => { 
-                    WeaponController.TakeOff();
+                    //WeaponController.TakeOff();
                 });
             }
         }
