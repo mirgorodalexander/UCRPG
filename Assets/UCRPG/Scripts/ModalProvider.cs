@@ -22,6 +22,7 @@ public class ModalProvider : MonoBehaviour
         Title.text = TitleDefault;
         Description.text = DescriptionDefault;
         this.gameObject.SetActive(false);
+        PlayerController.Player.Status = Player._Status.Waiting;
     }
     
     public void ReloadScene()

@@ -84,18 +84,27 @@ public class HealthController : MonoBehaviour
         {
             if (Player.HP <= HealthDatabase.Items[Player.LVL] / 4f)
             {
-                if (Player.Status != Player._Status.Menu && Player.Status != Player._Status.Sitting && Player.Status != Player._Status.Fighting)
+                DOVirtual.DelayedCall(0.2f, () =>
                 {
-                    Debug.Log($"[DEBUG] - Player is too tired, need to rest. {Player.HP} < {HealthDatabase.Items[Player.LVL] / 2}");
-                    PlayerController.Sit();
-                }
+                    if (Player.Status != Player._Status.Menu && Player.Status != Player._Status.Sitting &&
+                        Player.Status != Player._Status.Fighting)
+                    {
+                        Player.Status = Player._Status.Sitting;
+                        Debug.Log(
+                            $"[DEBUG] - Player is too tired, need to rest. {Player.HP} < {HealthDatabase.Items[Player.LVL] / 2}");
+                        PlayerController.Sit();
+                    }
+                });
             }
             if (Player.HP >= HealthDatabase.Items[Player.LVL] / 2f)
             {
-                if (Player.Status != Player._Status.Menu && Player.Status == Player._Status.Sitting)
+                DOVirtual.DelayedCall(0.2f, () =>
                 {
-                    PlayerController.Stay();
-                }
+                    if (Player.Status != Player._Status.Menu && Player.Status == Player._Status.Sitting)
+                    {
+                        PlayerController.Stay();
+                    }
+                });
             }
         }
     }

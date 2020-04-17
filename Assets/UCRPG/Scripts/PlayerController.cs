@@ -134,7 +134,6 @@ public class PlayerController : MonoBehaviour
     [Button("Sit", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Sit()
     {
-        virtualTween.Kill();
         Player.Status = Player._Status.Sitting;
         PlayerAvatar.SetInteger("Motion", 4);
         Debug.Log($"[DEBUG] - Player is sitting.");
@@ -197,7 +196,7 @@ public class PlayerController : MonoBehaviour
             WeaponController.WeaponParentFirstPerson.SetActive(false);
         }
         WeaponController.TakeOn();
-        MenuController.Show();
+        MenuController.Hide();
         ItemController.Remove();
         LocationController.Spawn(tempLID);
         EnemyController.Spawn();

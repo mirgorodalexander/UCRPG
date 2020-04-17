@@ -11,6 +11,8 @@ public class LocationController : MonoBehaviour
     public GameObject PlayerAvatar;
 
     public float MovementSpeed;
+    public float MovementDistance;
+    public bool RandomMovementDistance;
 
     [Title("Controllers")]
     public WeaponController WeaponController;
@@ -82,6 +84,11 @@ public class LocationController : MonoBehaviour
     [Button("Move", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Move()
     {
+        if (RandomMovementDistance)
+        {
+            MovementDistance = Random.Range(1, MovementDistance+1);
+        }
+        
         PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 1);
         
         //WeaponController.Run();
@@ -103,7 +110,8 @@ public class LocationController : MonoBehaviour
         float offset = Time.time * scrollSpeed;
         if (LocationDatabase.Items[PlayerController.Player.LID].Name.Contains("Sea"))
         {
-            location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, 4f), MovementSpeed*2).OnComplete(() =>
+            location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, 4f*MovementDistance), MovementDistance*MovementSpeed)
+                .SetEase(Ease.Linear).OnComplete(() =>
             {
                 PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
                 location.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0f,0f);
@@ -112,7 +120,8 @@ public class LocationController : MonoBehaviour
         }
         else
         {
-            location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, -4f), MovementSpeed*2).OnComplete(() =>
+            location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, -4f*MovementDistance), MovementDistance*MovementSpeed)
+                .SetEase(Ease.Linear).OnComplete(() =>
             {
                 PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
                 location.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0f,0f);

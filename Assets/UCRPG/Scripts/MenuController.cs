@@ -107,6 +107,7 @@ public class MenuController : MonoBehaviour
     [Button("ShowDefeated", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void ShowDefeated(int explost)
     {
+        Player.Status = Player._Status.Menu;
         if (!RenderController.ThirdPersonView)
         {
             WeaponController.WeaponParentFirstPerson.SetActive(false);
@@ -121,6 +122,7 @@ public class MenuController : MonoBehaviour
     public void ShowLevelUp()
     {
         LevelUpWindow.gameObject.SetActive(true);
+        Player.Status = Player._Status.Menu;
         ModalProvider modalProvider = LevelUpWindow.GetComponent<ModalProvider>();
         String description = modalProvider.Description.text.Replace("{LEVEL}", $"<incr f=6>{Player.LVL.ToString()}");
         modalProvider.Description.gameObject.GetComponent<TextAnimatorPlayer>().ShowText(description);
@@ -337,7 +339,7 @@ public class MenuController : MonoBehaviour
         LevelUpWindow.gameObject.SetActive(false);
         DefeatedWindow.gameObject.SetActive(false);
         UpdateInGameUI();
-        this.Show();
+        this.Hide();
     }
 
     void Update()
