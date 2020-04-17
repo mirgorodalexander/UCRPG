@@ -25,6 +25,8 @@ public class EnemyController : MonoBehaviour
     [Title("Controllers")]
     public MessageController MessageController;
     public LocationController LocationController;
+    public MenuController MenuController;
+    public RenderController RenderController;
     public WeaponController WeaponController;
     public HealthController HealthController;
     public PlayerController PlayerController;
@@ -222,9 +224,11 @@ public class EnemyController : MonoBehaviour
                 
                 Enemy.Status = Enemy._Status.Waiting;
 
-                if (Enemy.MOD == Enemy._MOD.Aggresive && PlayerController.Player.Status != Player._Status.Menu)
+                if (Enemy.MOD == Enemy._MOD.Aggresive && PlayerController.Player.Status != Player._Status.Sitting && PlayerController.Player.Status != Player._Status.Menu)
                 {
                     Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" is aggresive");
+                    
+                    MenuController.UpdateInGameUI();
 
                     virtualTween = DOVirtual.DelayedCall(1, () =>
                     {
@@ -232,6 +236,7 @@ public class EnemyController : MonoBehaviour
                         PlayerController.Player.Status = Player._Status.Fighting;
                         PlayerController.MenuController.ShowMenuButton.interactable = PlayerController.Player.Status != Player._Status.Fighting;
                         this.Attack();
+                        
                     });
                 }
 
@@ -254,7 +259,7 @@ public class EnemyController : MonoBehaviour
     [Button("Walk Out", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void WalkOut()
     {
-        if (Enemy.Status != Enemy._Status.Fighting)
+        if (Enemy != null && Enemy.Status != Enemy._Status.Fighting)
         {
             Enemy.transform.DORotate(new Vector3(0f, 270f, 0f), 1f);
             Enemy.Status = Enemy._Status.Moving;
@@ -289,7 +294,9 @@ public class EnemyController : MonoBehaviour
 
                     if (WeaponController.Taked)
                     {
-                        //WeaponController.TakeOff();
+                        if(!RenderController.ThirdPersonView){
+                            WeaponController.TakeOff();
+                        }
                     }
                 })
                 .OnComplete(() =>
@@ -313,7 +320,7 @@ public class EnemyController : MonoBehaviour
                         virtualTween = DOVirtual.DelayedCall(0.1f, () =>
                         {
                             Debug.Log($"[DEBUG] - Enemy controller waiting is end.");
-                            if(PlayerController.Player.Status != Player._Status.Die)
+                            if(PlayerController.Player.Status != Player._Status.Die && PlayerController.Player.Status != Player._Status.Sitting)
                             {
                                 this.Spawn();
                             }
@@ -347,16 +354,18 @@ public class EnemyController : MonoBehaviour
     [Button("Stop Attack", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void StopAttack()
     {
-        Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" stops attack.");
-        Enemy.Status = Enemy._Status.Dying;
-        AnimatorProvider.AnimationAttackEnd();
-        AnimatorProvider.JumpAnimationEnd();
-        virtualTween.Kill();
-        tween.Kill();
-        //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 0);
-        if (Enemy.GetComponent<Animator>() != null)
-        {
-            Enemy.GetComponent<Animator>().SetInteger("Motion", 9);
+        if(Enemy != null){
+            Debug.Log($"[DEBUG] - Enemy \"{Enemy.gameObject.name}\" stops attack.");
+            Enemy.Status = Enemy._Status.Dying;
+            AnimatorProvider.AnimationAttackEnd();
+            AnimatorProvider.JumpAnimationEnd();
+            virtualTween.Kill();
+            tween.Kill();
+            //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 0);
+            if (Enemy.GetComponent<Animator>() != null)
+            {
+                Enemy.GetComponent<Animator>().SetInteger("Motion", 9);
+            }
         }
     }
 
@@ -378,6 +387,11 @@ public class EnemyController : MonoBehaviour
         virtualTween.Kill();
         tween.Kill();
 
+        if (!RenderController.ThirdPersonView)
+        {
+            WeaponController.TakeOff();
+        }
+
         foreach (var child in EnableOnAttackEnd)
         {
             child.SetActive(true);
@@ -392,8 +406,18 @@ public class EnemyController : MonoBehaviour
 
         EnemyWrapper.transform.localPosition = enemyWrapperDefaultPosition;
         EnemyWrapper.transform.localRotation = Quaternion.Euler(enemyWrapperDefaultRotation);
-        if(PlayerController.Player.Status != Player._Status.Die){
-            virtualTween = DOVirtual.DelayedCall(1f, () => { LocationController.Move(); });
+        
+        HealthController.PlayerCheck();
+        
+        if(PlayerController.Player.Status != Player._Status.Die && PlayerController.Player.Status != Player._Status.Sitting){
+            virtualTween = DOVirtual.DelayedCall(1.3f, () =>
+            {
+                if (PlayerController.Player.Status != Player._Status.Die &&
+                    PlayerController.Player.Status != Player._Status.Sitting)
+                {
+                    LocationController.Move();
+                }
+            });
         }
     }
 
@@ -433,7 +457,7 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log($"[DEBUG] - Player is ready.");
 
-        if (_Spawn)
+        if (_Spawn && PlayerController.Player.Status != Player._Status.Sitting)
         {
             this.Spawn();
         }
@@ -452,7 +476,11 @@ public class EnemyController : MonoBehaviour
 
         if (_Moving)
         {
-            DOVirtual.DelayedCall(0.1f, () => LocationController.Move());
+            HealthController.PlayerCheck();
+            if (PlayerController.Player.Status != Player._Status.Sitting)
+            {
+                DOVirtual.DelayedCall(1.2f, () => LocationController.Move());
+            }
         }
     }
 

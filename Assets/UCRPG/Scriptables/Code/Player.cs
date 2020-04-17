@@ -9,13 +9,14 @@ public class Player : ScriptableObject
 {
     [Title("Status")]
     public _Status Status;
-    public enum _Status { Waiting, Moving, Fighting, Die, Menu };
+    public enum _Status { Waiting, Moving, Fighting, Die, Menu, Sitting };
     [Title("Settings")]
     public int LVL;
     public int EXP;
     public int HP;
     public int ATK;
     public int LUK;
+    public int VIT;
     public int DEF;
     public float ASPD;
     public int WID;

@@ -10,10 +10,14 @@ public class HealthController : MonoBehaviour
 {
     [Title("Controllers")]
     public MessageController MessageController;
+    public RenderController RenderController;
     public WeaponController WeaponController;
     public PlayerController PlayerController;
     public EnemyController EnemyController;
     public ItemController ItemController;
+    
+    [Title("Databases")]
+    public HealthDatabase HealthDatabase;
 
     [Title("Configurations")]
     public Player Player;
@@ -73,6 +77,29 @@ public class HealthController : MonoBehaviour
         }
     }
     
+    [Button("Player Check", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void PlayerCheck()
+    {
+        if (Player.Status != Player._Status.Fighting && Player.Status != Player._Status.Die)
+        {
+            if (Player.HP <= HealthDatabase.Items[Player.LVL] / 4f)
+            {
+                if (Player.Status != Player._Status.Menu && Player.Status != Player._Status.Sitting && Player.Status != Player._Status.Fighting)
+                {
+                    Debug.Log($"[DEBUG] - Player is too tired, need to rest. {Player.HP} < {HealthDatabase.Items[Player.LVL] / 2}");
+                    PlayerController.Sit();
+                }
+            }
+            if (Player.HP >= HealthDatabase.Items[Player.LVL] / 2f)
+            {
+                if (Player.Status != Player._Status.Menu && Player.Status == Player._Status.Sitting)
+                {
+                    PlayerController.Stay();
+                }
+            }
+        }
+    }
+    
     [Button("Player Damage", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void PlayerDamage(int damage)
     {
@@ -126,7 +153,7 @@ public class HealthController : MonoBehaviour
                     PlayerController.GainEXP(Enemy.BEXP);
                     EnemyAttackedLight.SetActive(false);
                     EnemyDeathParticles.SetActive(true);
-                    if(PlayerController.Player.Status != Player._Status.Die){
+                    if(PlayerController.Player.Status != Player._Status.Die && PlayerController.Player.Status != Player._Status.Sitting){
                         PlayerController.Player.Status = Player._Status.Waiting;
                     }
                     
@@ -280,6 +307,8 @@ public class HealthController : MonoBehaviour
         PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
         PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
             $"{Player.HP} / {playerHealthDefault}";
+        PlayerCheck();
+        InvokeRepeating("PlayerCheck", 0f, 1f);
     }
 
     void Update()

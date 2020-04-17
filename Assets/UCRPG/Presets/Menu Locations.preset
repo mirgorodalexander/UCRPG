@@ -27,15 +27,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: LockedText
-    value: 
+    value: Need {Level} lvl
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: OpenedText
-    value: 
+    value: ${Price}
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: OwnedText
-    value: 
+    value: GO
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.size
@@ -51,11 +51,11 @@ Preset:
     objectReference: {fileID: 21300000, guid: 7ab87581d82661b4e9c2ef5684adeb02, type: 3}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Title
-    value: Prontera
+    value: Hideleaf fields
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Description
-    value: Prontera description
+    value: Endless green fields near Hideleaf Village
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[0].Status
@@ -87,11 +87,11 @@ Preset:
     objectReference: {fileID: 21300000, guid: a7249972b5f2f9b43ad31b95aa9bb23d, type: 3}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Title
-    value: Morroc
+    value: Diredust desert
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Description
-    value: Morroc description
+    value: Dangerous desert in which there is no night
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Status
@@ -99,11 +99,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Level
-    value: 5
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[1].Price
-    value: 100
+    value: 500
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: "Elements.Array.data[1].\u0421urrency"
@@ -115,23 +115,23 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[2].ID
-    value: 0
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[2].Icon
     value: 
-    objectReference: {fileID: 21300000, guid: dd04b2931b2d1114aab1360bfee69ea4, type: 3}
+    objectReference: {fileID: 21300000, guid: 17e9c9e81f543ea40b573fe9043f1a7e, type: 3}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[2].Title
-    value: Shmorroc
+    value: Stonestrong city
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[2].Description
-    value: Shmorroc description
+    value: The main trading city of the kingdom
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[2].Status
-    value: 0
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[2].Level
@@ -151,7 +151,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[3].ID
-    value: 0
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[3].Icon
@@ -167,7 +167,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[3].Status
-    value: 0
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[3].Level
@@ -187,7 +187,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[4].ID
-    value: 0
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Elements.Array.data[4].Icon

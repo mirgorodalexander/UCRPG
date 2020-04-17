@@ -18,14 +18,17 @@ public class WeaponController : MonoBehaviour
     
     [Title("Controllers")]
     public EnemyController EnemyController;
+    public RenderController RenderController;
     public PlayerController PlayerController;
     public HealthController HealthController;
+    public MenuController MenuController;
 
     [FormerlySerializedAs("Weapon")] [Title("Configurations")]
     public Weapon Weapon;
     private GameObject weapon;
     [FormerlySerializedAs("WeaponWrapper")]
-    public GameObject WeaponParent;
+    public GameObject WeaponParentFirstPerson;
+    public GameObject WeaponParentThirdPerson;
 
     public Animator WeaponAnimator;
     public Animator PlayerAvatarAnimator;
@@ -54,7 +57,14 @@ public class WeaponController : MonoBehaviour
         Weapon.SPD = WeaponDatabase.Items[WeaponID].SPD;
         
         weapon.name = WeaponDatabase.Items[WeaponID].Name;
-        weapon.transform.SetParent(WeaponParent.transform);
+        if (RenderController.ThirdPersonView)
+        {
+            weapon.transform.SetParent(WeaponParentThirdPerson.transform);
+        }
+        else
+        {
+            weapon.transform.SetParent(WeaponParentFirstPerson.transform);
+        }
         
         weapon.transform.position = new Vector3(0, 0, 0);
         weapon.transform.localPosition = new Vector3(0, 0, 0);
@@ -72,19 +82,26 @@ public class WeaponController : MonoBehaviour
         {
             if ((EnemyController.Enemy.Status == Enemy._Status.Waiting ||
                 EnemyController.Enemy.Status == Enemy._Status.Fighting) &&
-                PlayerController.Player.Status != Player._Status.Menu)
+                (PlayerController.Player.Status != Player._Status.Menu &&
+                PlayerController.Player.Status != Player._Status.Sitting))
             {
                 if (!AttackLock)
                 {
                     AttackLock = true;
-                    //WeaponAnimator.SetInteger("Motion", 1);
-                    PlayerAvatarAnimator.SetInteger("Motion", 2);
-                    //WeaponAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
-                    PlayerAvatarAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
+                    if (RenderController.ThirdPersonView)
+                    {
+                        PlayerAvatarAnimator.SetInteger("Motion", 2);
+                        PlayerAvatarAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
+                    }
+                    else
+                    {
+                        WeaponAnimator.SetInteger("Motion", 1);
+                        WeaponAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
+                    }
 
                     PlayerController.Player.Status = Player._Status.Fighting;
 
-                    DOVirtual.DelayedCall(0.4f, () =>
+                    DOVirtual.DelayedCall(0f, () =>
                     {
                         // If enemy is neutral but you are attacking
                         if (EnemyController.Enemy.Status == Enemy._Status.Waiting)
@@ -105,10 +122,10 @@ public class WeaponController : MonoBehaviour
     public void TakeOn()
     {
         Taked = true;
-        WeaponParent.SetActive(false);
         Debug.Log($"[DEBUG] - Player taking on weapon.");
         WeaponAnimator.SetInteger("Motion", 2);
-        WeaponParent.SetActive(true);
+        WeaponParentFirstPerson.SetActive(!RenderController.ThirdPersonView);
+        WeaponParentThirdPerson.SetActive(RenderController.ThirdPersonView);
         DOVirtual.DelayedCall(0.28f, () =>
         {
             AttackLock = false;
@@ -127,14 +144,15 @@ public class WeaponController : MonoBehaviour
         {
             AttackLock = false;
             WeaponAnimator.SetInteger("Motion", 0);
-            WeaponParent.SetActive(false);
+            WeaponParentFirstPerson.SetActive(false);
         });
     }
     
     [Button("Run", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Run()
     {
-        WeaponParent.SetActive(true);
+        WeaponParentFirstPerson.SetActive(true);
+        WeaponParentThirdPerson.SetActive(true);
         Debug.Log($"[DEBUG] - Player is runnig with weapon.");
         WeaponAnimator.SetInteger("Motion", 4);
         DOVirtual.DelayedCall(0.6f, () =>
@@ -148,7 +166,8 @@ public class WeaponController : MonoBehaviour
     [Button("Idle", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Idle()
     {
-        WeaponParent.SetActive(true);
+        WeaponParentFirstPerson.SetActive(true);
+        WeaponParentFirstPerson.SetActive(true);
         Debug.Log($"[DEBUG] - Player is idle with weapon.");
         WeaponAnimator.SetInteger("Motion", 0);
     }
@@ -157,10 +176,19 @@ public class WeaponController : MonoBehaviour
 
     void Start()
     {
-        defaultRotation = WeaponParent.transform.rotation.eulerAngles;
+        if (RenderController.ThirdPersonView)
+        {
+            defaultRotation = WeaponParentThirdPerson.transform.rotation.eulerAngles;
+            WeaponParentThirdPerson.SetActive(false);
+        }
+        else
+        {
+            defaultRotation = WeaponParentFirstPerson.transform.rotation.eulerAngles;
+            WeaponParentFirstPerson.SetActive(false);
+        }
+        
         AttackLock = false;
         Taked = false;
-        WeaponParent.SetActive(false);
         
         EventTrigger trigger = AttackButton.gameObject.AddComponent<EventTrigger>();
         var pointerDown = new EventTrigger.Entry();
@@ -173,17 +201,26 @@ public class WeaponController : MonoBehaviour
         trigger.triggers.Add(pointerUp);
         
         Equip(PlayerController.Player.WID);
-        attacking = true;
+        
+        AttackButton.gameObject.SetActive(!RenderController.ThirdPersonView);
+        
+        attacking = RenderController.ThirdPersonView;
+
         TakeOn();
     }
 
     void Update()
     {
-        attacking = true;
+        if (RenderController.ThirdPersonView)
+        {
+            attacking = true;
+        }
+
         if (attacking)
         {
-            if (PlayerController.Player.Status != Player._Status.Die)
+            if (PlayerController.Player.Status != Player._Status.Die && PlayerController.Player.Status != Player._Status.Sitting && PlayerController.Player.Status != Player._Status.Menu)
             {
+                HealthController.PlayerCheck();
                 this.Attack();
             }
         }

@@ -49,6 +49,7 @@ MonoBehaviour:
   HealthDatabase: {fileID: 11400000, guid: c055400ad670fa143b950b816a4c3357, type: 2}
   LocationController: {fileID: 3874880924033241922}
   MessageController: {fileID: 2398333976520409708}
+  RenderController: {fileID: 4388090128332794697}
   HealthController: {fileID: 287899903}
   WeaponController: {fileID: 1102095133}
   EnemyController: {fileID: 506032668}
@@ -112,6 +113,7 @@ MonoBehaviour:
   IsTrigger: 0
   MessageController: {fileID: 2398333976520409708}
   LocationController: {fileID: 3874880924033241922}
+  RenderController: {fileID: 4388090128332794697}
   WeaponController: {fileID: 1102095133}
   HealthController: {fileID: 287899903}
   PlayerController: {fileID: 395909322}
@@ -175,15 +177,17 @@ MonoBehaviour:
   AttackButton: {fileID: 0}
   WeaponDatabase: {fileID: 11400000, guid: 992cba25633b025419f3e99e063ab6bd, type: 2}
   EnemyController: {fileID: 506032668}
+  RenderController: {fileID: 4388090128332794697}
   PlayerController: {fileID: 395909322}
   HealthController: {fileID: 287899903}
   Weapon: {fileID: 0}
-  WeaponParent: {fileID: 0}
+  WeaponParentFirstPerson: {fileID: 0}
+  WeaponParentThirdPerson: {fileID: 0}
   WeaponAnimator: {fileID: 0}
   PlayerAvatarAnimator: {fileID: 0}
   AttackLock: 0
   Taked: 0
-  attacking: 1
+  attacking: 0
 --- !u!1 &1067523399730056777
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +306,7 @@ MonoBehaviour:
   ExperiencePopupCanvas: {fileID: 0}
   DamagePopupCanvas: {fileID: 0}
   ExperienceTween: {fileID: 0}
+  RenderController: {fileID: 4388090128332794697}
   ExpirienceSlider: {fileID: 0}
   ExperiencePopupLifetime: 0.6
   ExperiencePopupFadetime: 1
@@ -361,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MessageController: {fileID: 2398333976520409708}
+  RenderController: {fileID: 4388090128332794697}
   WeaponController: {fileID: 1102095133}
   PlayerController: {fileID: 395909322}
   EnemyController: {fileID: 506032668}
@@ -434,6 +440,7 @@ MonoBehaviour:
   MovementSpeed: 0.6
   WeaponController: {fileID: 1102095133}
   PlayerController: {fileID: 395909322}
+  RenderController: {fileID: 4388090128332794697}
   EnemyController: {fileID: 506032668}
   ItemController: {fileID: 2945537047249253597}
   LocationDatabase: {fileID: 11400000, guid: c742ba351e7eb904d9518a8df6af105a, type: 2}
@@ -525,6 +532,9 @@ MonoBehaviour:
   VSYNC: 0
   WarmUpAllShaders: 0
   Logs: 1
+  ThirdPersonView: 1
+  FirstPersonCamera: {fileID: 0}
+  ThirdPersonCamera: {fileID: 0}
 --- !u!1 &6471603112510805875
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,8 +601,9 @@ MonoBehaviour:
   NextLevel: {fileID: 0}
   PlayerExperience: {fileID: 0}
   PlayerHealth: {fileID: 0}
-  WeaponController: {fileID: 1102095133}
   LocationController: {fileID: 3874880924033241922}
+  WeaponController: {fileID: 1102095133}
+  RenderController: {fileID: 4388090128332794697}
   HealthController: {fileID: 287899903}
   ItemController: {fileID: 2945537047249253597}
   ItemElementPrefab: {fileID: 7660853259473834906, guid: 237584245675821478bb8635064d348a,
@@ -605,6 +616,7 @@ MonoBehaviour:
     type: 3}
   Breakline: {fileID: 5926715838122730593, guid: 2c8abc80abc86d949a6fab3cc209d8d9,
     type: 3}
+  elements: []
 --- !u!1 &6563963710425666372
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4337474811035206428}
+  - component: {fileID: 2024000524}
   m_Layer: 0
   m_Name: Save Controller
   m_TagString: Untagged
@@ -635,3 +648,22 @@ Transform:
   m_Father: {fileID: 22519331772352798}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2024000524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563963710425666372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358a6b632803b164ab794336724816ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveOnUpdate: 0
+  SavedItems:
+  - {fileID: 11400000, guid: 8d6bacd9bce922a4eadc1d36915bdbec, type: 2}
+  - {fileID: 11400000, guid: 59f9955815a7a974a8263a78da3e0006, type: 2}
+  - {fileID: 11400000, guid: c3f9256e80f3c564aa15df38b019a64a, type: 2}
+  - {fileID: 11400000, guid: a05025cec7370f940add19c4208d9f57, type: 2}
+  - {fileID: 11400000, guid: 24b0d3ab20e5ffa4e8a399ace42d7963, type: 2}

@@ -16,6 +16,7 @@ public class LocationController : MonoBehaviour
     public WeaponController WeaponController;
 
     public PlayerController PlayerController;
+    public RenderController RenderController;
     public EnemyController EnemyController;
     public ItemController ItemController;
 
@@ -44,7 +45,13 @@ public class LocationController : MonoBehaviour
             if (EnemyController.Enemy != null)
             {
                 EnemyController.Remove();
-                DOVirtual.DelayedCall(0.01f, () => { EnemyController.Spawn(); });
+                DOVirtual.DelayedCall(0.01f, () =>
+                {
+                    if (PlayerController.Player.Status != Player._Status.Sitting)
+                    {
+                        EnemyController.Spawn();
+                    }
+                });
             }
 
             if (location != null)

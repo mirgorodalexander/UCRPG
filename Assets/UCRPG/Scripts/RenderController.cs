@@ -10,6 +10,10 @@ public class RenderController : MonoBehaviour
     public int VSYNC;
     public bool WarmUpAllShaders;
     public bool Logs;
+    public bool ThirdPersonView;
+
+    public Camera FirstPersonCamera;
+    public Camera ThirdPersonCamera;
 
     void Awake()
     {
@@ -28,5 +32,8 @@ public class RenderController : MonoBehaviour
         if(WarmUpAllShaders){
             Shader.WarmupAllShaders();
         }
+
+        FirstPersonCamera.gameObject.SetActive(!ThirdPersonView);
+        ThirdPersonCamera.gameObject.SetActive(ThirdPersonView);
     }
 }

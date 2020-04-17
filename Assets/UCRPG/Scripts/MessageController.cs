@@ -14,6 +14,9 @@ public class MessageController : MonoBehaviour
 
     [Title("Camera")]
     public DOTweenAnimation ExperienceTween;
+
+    [Title("Controllers")]
+    public RenderController RenderController;
     
     [Title("Slider")]
     public RectTransform ExpirienceSlider;
@@ -66,14 +69,14 @@ public class MessageController : MonoBehaviour
             {
                 Experience.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime);
 
-                Experience.transform.DOMoveY(Screen.height-100f, ExperiencePopupLifetime/2, false).OnComplete(() => { });
+                Experience.transform.DOMoveY(Screen.height-150f, ExperiencePopupLifetime, false).OnComplete(() => { });
              
                     DOVirtual.DelayedCall(ExperiencePopupFadetime/5f, () =>
                     {
                         ExperienceTween.DORestart();   
                     });
-                    Experience.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime/4);
-                    Experience.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), ExperiencePopupFadetime/4).OnComplete(() =>
+                    Experience.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime/2);
+                    Experience.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), ExperiencePopupFadetime).OnComplete(() =>
                     {
                         Destroy(Experience.gameObject);
                     });

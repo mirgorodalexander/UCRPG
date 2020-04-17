@@ -12,12 +12,14 @@ public class PlayerController : MonoBehaviour
     [Title("Configurations")]
     public Player Player;
     public Animator PlayerAvatar;
+    public AnimatorProvider AnimatorProvider;
     public ExperienceDatabase ExperienceDatabase;
     public HealthDatabase HealthDatabase;
     
     [Title("Controllers")]
     public LocationController LocationController;
     public MessageController MessageController;
+    public RenderController RenderController;
     public HealthController HealthController;
     public WeaponController WeaponController;
     public EnemyController EnemyController;
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
     [Title("FX")]
     public GameObject ExperiencePopupCanvas;
     public GameObject PlayerExperiencePopupPrefab;
+    
+    private Tween virtualTween;
     
     [Title("Buttons")]
     [Button("Gain EXP", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -77,6 +81,7 @@ public class PlayerController : MonoBehaviour
     [Button("Die", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Die()
     {
+        virtualTween.Kill();
         PlayerAvatar.SetInteger("Motion", 9);
         
         EnemyController.StopAttack();
@@ -105,13 +110,70 @@ public class PlayerController : MonoBehaviour
         PlayerExperience.gameObject.transform.Find("Line").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Items[Player.LVL]}";
         PlayerExperience.DOValue((1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP, 1f).OnComplete(
             () => {
+                Player.Status = Player._Status.Die;
+                PlayerAvatar.SetInteger("Motion", 9);
                 PlayerExperience.GetComponent<SliderProvider>().PreFill.fillAmount = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
                 MenuController.UpdateInGameUI();
             });
     }
+    [Button("Stay", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void Stay()
+    {
+        virtualTween.Kill();
+        Debug.Log($"[DEBUG] - Player is staying.");
+        WeaponController.AttackLock = false;
+        if(Player.Status != Player._Status.Menu){
+            PlayerAvatar.SetInteger("Motion", 0);
+            Player.Status = Player._Status.Waiting;
+            if (EnemyController.Enemy == null)
+            {
+                virtualTween = DOVirtual.DelayedCall(1f, () => { LocationController.Move(); });
+            }
+        }
+    }
+    [Button("Sit", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void Sit()
+    {
+        virtualTween.Kill();
+        Player.Status = Player._Status.Sitting;
+        PlayerAvatar.SetInteger("Motion", 4);
+        Debug.Log($"[DEBUG] - Player is sitting.");
+
+        if (Player.HP < HealthDatabase.Items[Player.LVL] / 1.5f)
+        {
+            Debug.Log($"[DEBUG] - Next sitting health in {50f/Player.VIT} sec.");
+            virtualTween = DOVirtual.DelayedCall(50f/Player.VIT, () =>
+            {
+                if(Player.Status == Player._Status.Sitting && Player.Status != Player._Status.Die){
+                    Player.HP += Player.LVL * Player.VIT;
+
+                    HealthController.PlayerHealth.DOValue((1f / HealthController.playerHealthDefault) * Player.HP, 1f).SetEase(Ease.Linear);
+                    HealthController.PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+                        $"{Player.HP} / {HealthController.playerHealthDefault}";
+                    Sit();
+                }
+            });
+        }
+        else
+        {
+            Stay();
+        }
+    }
+    [Button("Stop Attack", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void StopAttack()
+    {
+        Debug.Log($"[DEBUG] - Player stops attack.");
+        AnimatorProvider.AnimationAttackEnd();
+        AnimatorProvider.AnimationAttackEnemyEnd();
+        if (PlayerAvatar.GetComponent<Animator>() != null)
+        {
+            PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
+        }
+    }
     [Button("Respawn", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Respawn()
     {
+        PlayerAvatar.SetInteger("Motion", 0);
         
         PlayerAvatar.Play("wait", -1, 0f);
         if (EnemyController.Enemy != null)
@@ -131,8 +193,10 @@ public class PlayerController : MonoBehaviour
         Player.LID = -1;
         HealthController.PlayerHealth.gameObject.SetActive(false);
         HealthController.EnemyHealth.gameObject.SetActive(false);
-        WeaponController.WeaponParent.SetActive(false);
-        WeaponController.TakeOff();
+        if(!RenderController.ThirdPersonView){
+            WeaponController.WeaponParentFirstPerson.SetActive(false);
+        }
+        WeaponController.TakeOn();
         MenuController.Show();
         ItemController.Remove();
         LocationController.Spawn(tempLID);
@@ -151,6 +215,19 @@ public class PlayerController : MonoBehaviour
             Player.HP = HealthDatabase.Items[Player.LVL];
         }
         
+        if(RenderController.ThirdPersonView){
+            foreach (Transform child in PlayerAvatar.gameObject.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (Transform child in PlayerAvatar.gameObject.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
         //PlayerExperience.gameObject.transform.GetChild(0).transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Experience[Player.LVL]}";
     }
 

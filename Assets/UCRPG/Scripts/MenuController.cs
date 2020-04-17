@@ -48,8 +48,9 @@ public class MenuController : MonoBehaviour
     public Slider PlayerHealth;
 
     [Title("Controllers")]
-    public WeaponController WeaponController;
     public LocationController LocationController;
+    public WeaponController WeaponController;
+    public RenderController RenderController;
     public HealthController HealthController;
 
     public ItemController ItemController;
@@ -62,7 +63,7 @@ public class MenuController : MonoBehaviour
 
     public GameObject Breakline;
 
-    private List<GameObject> elements;
+    public List<GameObject> elements;
 
     public void UpdateUI()
     {
@@ -106,7 +107,10 @@ public class MenuController : MonoBehaviour
     [Button("ShowDefeated", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void ShowDefeated(int explost)
     {
-        WeaponController.WeaponParent.SetActive(false);
+        if (!RenderController.ThirdPersonView)
+        {
+            WeaponController.WeaponParentFirstPerson.SetActive(false);
+        }
         DefeatedWindow.gameObject.SetActive(true);
         ModalProvider modalProvider = DefeatedWindow.GetComponent<ModalProvider>();
         String description = modalProvider.Description.text.Replace("{EXPLOST}", $"<incr f=6>{explost.ToString()}</incr>");
@@ -198,7 +202,7 @@ public class MenuController : MonoBehaviour
             Element.Locked.text =  WeaponsMenuElemets.LockedText.Replace("{Level}", child.Level.ToString());
             Element.Opened.text = WeaponsMenuElemets.OpenedText.Replace("{Price}", child.Price.ToString());
             Element.Owned.text = WeaponsMenuElemets.OwnedText;
-
+            
             if (child.Status == MenuElement.ElementSetupClass._Status.Locked)
             {
                 Element.Locked.gameObject.transform.parent.gameObject.SetActive(true);
@@ -211,12 +215,6 @@ public class MenuController : MonoBehaviour
             if (child.Status == MenuElement.ElementSetupClass._Status.Opened)
             {
                 Element.Opened.gameObject.transform.parent.gameObject.SetActive(true);
-                // if (Player.LVL < child.Level)
-                // {
-                //     child.Status = MenuElement.ElementSetupClass._Status.Locked;
-                //     Element.Opened.gameObject.SetActive(false);
-                //     Element.Locked.gameObject.SetActive(true);
-                // }
                 
                 Element.Button.onClick.AddListener(() =>
                 {
@@ -250,8 +248,6 @@ public class MenuController : MonoBehaviour
         
             index++;
         }
-        
-        elements = new List<GameObject> { };
         
         index = 0;
         
