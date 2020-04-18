@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 11400000, guid: 8d6bacd9bce922a4eadc1d36915bdbec, type: 2}
   PlayerAvatar: {fileID: 0}
+  AnimatorProvider: {fileID: 0}
   ExperienceDatabase: {fileID: 11400000, guid: 1e6c48cb4a93b8d449792f287e079968, type: 2}
   HealthDatabase: {fileID: 11400000, guid: c055400ad670fa143b950b816a4c3357, type: 2}
   LocationController: {fileID: 3874880924033241922}
@@ -57,6 +58,7 @@ MonoBehaviour:
   ItemController: {fileID: 2945537047249253597}
   PlayerExperience: {fileID: 0}
   ExperiencePopupCanvas: {fileID: 0}
+  HealParticles: {fileID: 0}
   PlayerExperiencePopupPrefab: {fileID: 424737744741208641, guid: fc9fea05f9c30fb4d9b3513ac578cc94,
     type: 3}
 --- !u!1 &506032666
@@ -113,6 +115,7 @@ MonoBehaviour:
   IsTrigger: 0
   MessageController: {fileID: 2398333976520409708}
   LocationController: {fileID: 3874880924033241922}
+  MenuController: {fileID: 6545922203420678818}
   RenderController: {fileID: 4388090128332794697}
   WeaponController: {fileID: 1102095133}
   HealthController: {fileID: 287899903}
@@ -180,11 +183,14 @@ MonoBehaviour:
   RenderController: {fileID: 4388090128332794697}
   PlayerController: {fileID: 395909322}
   HealthController: {fileID: 287899903}
+  MenuController: {fileID: 6545922203420678818}
   Weapon: {fileID: 0}
   WeaponParentFirstPerson: {fileID: 0}
   WeaponParentThirdPerson: {fileID: 0}
   WeaponAnimator: {fileID: 0}
   PlayerAvatarAnimator: {fileID: 0}
+  StatePosition: 0
+  AnimationStates: 140000001500000002000000
   AttackLock: 0
   Taked: 0
   attacking: 0
@@ -316,6 +322,8 @@ MonoBehaviour:
     type: 3}
   PlayerExperiencePopupPrefab: {fileID: 424737744741208641, guid: fc9fea05f9c30fb4d9b3513ac578cc94,
     type: 3}
+  PlayerHealPopupPrefab: {fileID: 424737744741208641, guid: 050d714aa184b3f4e895dcaa4cb0926d,
+    type: 3}
   EnemyDamagePopupPrefab: {fileID: 1572705738232587313, guid: fa35c1c00f06fb74a8447b8366aa3084,
     type: 3}
   PlayerDamagePopupPrefab: {fileID: 424737744741208641, guid: 40346e6d067c314448ffd8a9afa27e2c,
@@ -371,6 +379,7 @@ MonoBehaviour:
   PlayerController: {fileID: 395909322}
   EnemyController: {fileID: 506032668}
   ItemController: {fileID: 2945537047249253597}
+  HealthDatabase: {fileID: 11400000, guid: c055400ad670fa143b950b816a4c3357, type: 2}
   Player: {fileID: 11400000, guid: 8d6bacd9bce922a4eadc1d36915bdbec, type: 2}
   PlayerAvatarAnimator: {fileID: 0}
   Enemy: {fileID: 0}
@@ -388,6 +397,7 @@ MonoBehaviour:
   EnemyDamagePopupPrefab: {fileID: 1572705738232587313, guid: fa35c1c00f06fb74a8447b8366aa3084,
     type: 3}
   DamagePopupCanvas: {fileID: 0}
+  HealSittingParticles: {fileID: 0}
   CameraPunchEffect: {fileID: 0}
   playerHealthDefault: 0
   playerHealthDefault1: 0
@@ -437,7 +447,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LocationSpawnParent: {fileID: 0}
   PlayerAvatar: {fileID: 0}
-  MovementSpeed: 0.6
+  MovementSpeed: 1
+  MovementDistance: 4
+  RandomMovementDistance: 0
   WeaponController: {fileID: 1102095133}
   PlayerController: {fileID: 395909322}
   RenderController: {fileID: 4388090128332794697}

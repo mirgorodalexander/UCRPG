@@ -13,8 +13,19 @@ public class AnimatorProvider : MonoBehaviour
     public WeaponController WeaponController;
     public EnemyController EnemyController;
 
+    [Title("FX")]
+    public GameObject ComboParticles;
+
     private Tween tweenVirtual;
 
+    public void ComboFX()
+    {
+        ComboParticles.SetActive(true);
+        DOVirtual.DelayedCall(0.8f, () =>
+        {
+            ComboParticles.SetActive(false);
+        });
+    }
     public void AnimationAttackBegin()
     {
         //this.GetComponent<Animator>().SetFloat("speed", 5.0f);

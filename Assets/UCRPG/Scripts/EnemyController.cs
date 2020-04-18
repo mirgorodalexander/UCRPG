@@ -423,6 +423,7 @@ public class EnemyController : MonoBehaviour
         if(PlayerController.Player.Status != Player._Status.Die && PlayerController.Player.Status != Player._Status.Sitting){
             virtualTween = DOVirtual.DelayedCall(1.3f, () =>
             {
+                WeaponController.AttackLock = false;
                 if (PlayerController.Player.Status != Player._Status.Die &&
                     PlayerController.Player.Status != Player._Status.Sitting)
                 {

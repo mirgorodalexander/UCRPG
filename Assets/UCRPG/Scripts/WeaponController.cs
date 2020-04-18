@@ -34,6 +34,8 @@ public class WeaponController : MonoBehaviour
     public Animator PlayerAvatarAnimator;
     
     [Title("Debug")]
+    public int StatePosition = 0;
+    public int[] AnimationStates = new[] {2, 20, 21};
     public bool AttackLock = false;
     public bool Taked = false;
 
@@ -90,8 +92,28 @@ public class WeaponController : MonoBehaviour
                     AttackLock = true;
                     if (RenderController.ThirdPersonView)
                     {
-                        PlayerAvatarAnimator.SetInteger("Motion", 2);
+                        float chance = PlayerController.Player.LUK/2;
+                        var rndchance = Random.Range(0f, 100f);
+                        if (rndchance >= 0f && rndchance <= chance)
+                        {
+                            Debug.Log($"[DEBUG] - Player combo attack!");
+                            PlayerAvatarAnimator.SetInteger("Motion", 29);
+                        }
+                        else
+                        {
+                            PlayerAvatarAnimator.SetInteger("Motion", AnimationStates[StatePosition]);
+                        }
+                        
+                        
                         PlayerAvatarAnimator.SetFloat("Speed", Weapon.SPD*0.03f+0.5f);
+                        if (StatePosition < AnimationStates.Length-1)
+                        {
+                            StatePosition++;
+                        }
+                        else
+                        {
+                            StatePosition = 0;
+                        }
                     }
                     else
                     {
