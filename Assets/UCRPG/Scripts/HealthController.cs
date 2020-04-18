@@ -260,6 +260,10 @@ public class HealthController : MonoBehaviour
                     });
                 });
             }
+            else
+            {
+                EnemyAttackedLight.SetActive(true);
+            }
         });
         DOVirtual.DelayedCall(0.2f, () => { EnemyAttackedParticles.SetActive(false); });
     }
@@ -331,6 +335,10 @@ public class HealthController : MonoBehaviour
                         });
                     });
                 });
+            }
+            else
+            {
+                EnemyAttackedLight.SetActive(true);
             }
         });
         DOVirtual.DelayedCall(0.2f, () => { EnemyAttackedParticles.SetActive(false); });

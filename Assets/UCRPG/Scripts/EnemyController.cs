@@ -57,6 +57,7 @@ public class EnemyController : MonoBehaviour
     [Button("Spawn Enemy", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Spawn()
     {
+        HealthController.EnemyAttackedLight.SetActive(false);
         if(this.Enemy == null){
             int rnd = Random.Range(LocationEnemies[0], LocationEnemies[LocationEnemies.Count-1]+1);
 
@@ -198,6 +199,7 @@ public class EnemyController : MonoBehaviour
                 if (Enemy.MOVE == Enemy._MOVE.Static)
                 {
                     tween.Complete();
+                    PlayerController.PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
                     if (!WeaponController.Taked && PlayerController.Player.Status != Player._Status.Die)
                     {
                         WeaponController.TakeOn();
@@ -220,6 +222,7 @@ public class EnemyController : MonoBehaviour
             })
             .OnComplete(() =>
             {
+                PlayerController.PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
                 //EnemyWrapper.GetComponent<Animator>().SetInteger("Motion", 0);
                 if (Enemy.GetComponent<Animator>() != null)
                 {
