@@ -33,7 +33,6 @@ public class HealthController : MonoBehaviour
 
     [Title("FX")]
     public GameObject EnemyDeathParticles;
-
     public GameObject EnemyAttackedLight;
     public GameObject CriticalAttackedLight;
     public GameObject EnemyAttackedParticles;
@@ -42,6 +41,7 @@ public class HealthController : MonoBehaviour
     public GameObject PlayerDamagePopupPrefab;
     public GameObject EnemyDamagePopupPrefab;
     public GameObject DamagePopupCanvas;
+    public GameObject HealSittingParticles;
     public DOTweenAnimation CameraPunchEffect;
 
     [Title("Debug")]
@@ -75,6 +75,7 @@ public class HealthController : MonoBehaviour
         {
             EnemyDamage(damage);
         }
+        EnemyHealth.GetComponent<DOTweenAnimation>().DORestart();
     }
     
     [Button("Player Check", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -93,6 +94,7 @@ public class HealthController : MonoBehaviour
                         Debug.Log(
                             $"[DEBUG] - Player is too tired, need to rest. {Player.HP} < {HealthDatabase.Items[Player.LVL] / 2}");
                         PlayerController.Sit();
+                        HealSittingParticles.SetActive(true);
                     }
                 });
             }
@@ -103,6 +105,7 @@ public class HealthController : MonoBehaviour
                     if (Player.Status != Player._Status.Menu && Player.Status == Player._Status.Sitting)
                     {
                         PlayerController.Stay();
+                        HealSittingParticles.SetActive(false);
                     }
                 });
             }
@@ -124,9 +127,17 @@ public class HealthController : MonoBehaviour
             }
         }
 
-        PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
-        PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-            $"{Player.HP} / {playerHealthDefault}";
+        // PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
+        // PlayerHealth.GetComponent<SliderProvider>().TextValue.text =
+        //     $"{Player.HP} / {playerHealthDefault}";
+        
+        PlayerHealth.DOValue((1f / playerHealthDefault) * Player.HP, 1f)
+            .SetEase(Ease.Linear).OnComplete(() =>
+            {
+                PlayerHealth.GetComponent<SliderProvider>().PreFill.fillAmount = (1f / playerHealthDefault) * Player.HP;
+                PlayerHealth.GetComponent<SliderProvider>().TextValue.text = $"{Player.HP} / {playerHealthDefault}";
+                PlayerHealth.GetComponent<DOTweenAnimation>().DORestart();
+            });
         
         MessageController.PlayerDamagePopup(damage);
 
@@ -166,6 +177,8 @@ public class HealthController : MonoBehaviour
                         PlayerController.Player.Status = Player._Status.Waiting;
                     }
                     
+                    PlayerCheck();
+                    
                     ItemController.Drop();
                     enemyHealthDefault = 0;
                     EnemyController.Die();
@@ -186,15 +199,22 @@ public class HealthController : MonoBehaviour
         if (Player != null && playerHealthDefault == 0)
         {
             playerHealthDefault = Player.HP;
-            PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-                $"{Player.HP} / {playerHealthDefault}";
+            // PlayerHealth.GetComponent<SliderProvider>().TextValue.text =
+            //     $"{Player.HP} / {playerHealthDefault}";
+            PlayerHealth.DOValue((1f / playerHealthDefault) * Player.HP, 1f)
+                .SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    PlayerHealth.GetComponent<SliderProvider>().PreFill.fillAmount = (1f / playerHealthDefault) * Player.HP;
+                    PlayerHealth.GetComponent<SliderProvider>().TextValue.text = $"{Player.HP} / {playerHealthDefault}";
+                });
         }
 
         if (Enemy != null && enemyHealthDefault == 0)
         {
             enemyHealthDefault = Enemy.HP;
-            EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-                $"{Enemy.HP} / {enemyHealthDefault}";
+            EnemyHealth.value = (1f / enemyHealthDefault) * Enemy.HP;
+            EnemyHealth.GetComponent<SliderProvider>().PreFill.fillAmount = EnemyHealth.value;
+            EnemyHealth.GetComponent<SliderProvider>().TextValue.text = $"{Enemy.HP} / {enemyHealthDefault}";
         }
         Debug.Log($"[DEBUG] - Enemy has damage \"{damage}\"");
         if (Enemy.HP > 0)
@@ -212,8 +232,9 @@ public class HealthController : MonoBehaviour
         }
 
         EnemyHealth.value = (1f / enemyHealthDefault) * Enemy.HP;
-        EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Enemy.HP} / {enemyHealthDefault}";
-
+        EnemyHealth.GetComponent<SliderProvider>().PreFill.fillAmount = EnemyHealth.value;
+        EnemyHealth.GetComponent<SliderProvider>().TextValue.text = $"{Enemy.HP} / {enemyHealthDefault}";
+        
         MessageController.CriticalDamagePopup(damage);
 
         EnemyAttackedParticles.SetActive(true);
@@ -246,15 +267,14 @@ public class HealthController : MonoBehaviour
         if (Player != null && playerHealthDefault == 0)
         {
             playerHealthDefault = Player.HP;
-            PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-                $"{Player.HP} / {playerHealthDefault}";
         }
 
         if (Enemy != null && enemyHealthDefault == 0)
         {
             enemyHealthDefault = Enemy.HP;
-            EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-                $"{Enemy.HP} / {enemyHealthDefault}";
+            EnemyHealth.value = (1f / enemyHealthDefault) * Enemy.HP;
+            EnemyHealth.GetComponent<SliderProvider>().PreFill.fillAmount = EnemyHealth.value;
+            EnemyHealth.GetComponent<SliderProvider>().TextValue.text = $"{Enemy.HP} / {enemyHealthDefault}";
         }
         Debug.Log($"[DEBUG] - Enemy has damage \"{damage}\"");
         if (Enemy.HP > 0)
@@ -272,7 +292,17 @@ public class HealthController : MonoBehaviour
         }
 
         EnemyHealth.value = (1f / enemyHealthDefault) * Enemy.HP;
-        EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Enemy.HP} / {enemyHealthDefault}";
+        EnemyHealth.GetComponent<SliderProvider>().PreFill.fillAmount = EnemyHealth.value;
+        EnemyHealth.GetComponent<SliderProvider>().TextValue.text = $"{Enemy.HP} / {enemyHealthDefault}";
+        
+        // EnemyHealth.value = (1f / enemyHealthDefault) * Enemy.HP;
+        // EnemyHealth.GetComponent<SliderProvider>().PreFill.fillAmount = (1f / enemyHealthDefault) * Enemy.HP;
+        // EnemyHealth.GetComponent<SliderProvider>().PreFill.DOFillAmount((1f / enemyHealthDefault) * Enemy.HP, 0.2f)
+        //     .SetEase(Ease.Linear).OnComplete(() =>
+        //     {
+        //         EnemyHealth.GetComponent<SliderProvider>().TextValue.text = $"{Enemy.HP} / {enemyHealthDefault}";
+        //         EnemyHealth.GetComponent<DOTweenAnimation>().DORestart();
+        //     });
 
         MessageController.EnemyDamagePopup(damage);
 
@@ -314,7 +344,8 @@ public class HealthController : MonoBehaviour
         playerHealthDefault = PlayerController.HealthDatabase.Items[Player.LVL];
         
         PlayerHealth.value = (1f / playerHealthDefault) * Player.HP;
-        PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+        PlayerHealth.GetComponent<SliderProvider>().PreFill.fillAmount = PlayerHealth.value;
+        PlayerHealth.GetComponent<SliderProvider>().TextValue.text =
             $"{Player.HP} / {playerHealthDefault}";
         PlayerCheck();
         InvokeRepeating("PlayerCheck", 0f, 1f);

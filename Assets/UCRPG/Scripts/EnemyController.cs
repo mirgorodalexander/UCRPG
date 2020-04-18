@@ -57,81 +57,83 @@ public class EnemyController : MonoBehaviour
     [Button("Spawn Enemy", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Spawn()
     {
-        int rnd = Random.Range(LocationEnemies[0], LocationEnemies[LocationEnemies.Count-1]+1);
+        if(this.Enemy == null){
+            int rnd = Random.Range(LocationEnemies[0], LocationEnemies[LocationEnemies.Count-1]+1);
 
-        if (EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Walking ||
-            EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Flying)
-        {
-            EnemySpawnPoint = Points[0];
-        }
-
-        if (EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Static)
-        {
-            EnemySpawnPoint = Points[1];
-        }
-
-        enemy = Instantiate(
-            EnemyDatabase.Items[rnd].Prefab,
-            EnemySpawnPoint.transform.position,
-            EnemyDatabase.Items[rnd].Prefab.transform.rotation
-        ) as GameObject;
-
-        Enemy Enemy = enemy.AddComponent<Enemy>();
-
-        Enemy.ID = EnemyDatabase.Items[rnd].ID;
-        Enemy.BEXP = EnemyDatabase.Items[rnd].EXP;
-        Enemy.JEXP = EnemyDatabase.Items[rnd].EXP;
-        Enemy.HP = EnemyDatabase.Items[rnd].HP;
-        Enemy.ATK = EnemyDatabase.Items[rnd].ATK;
-        Enemy.ATKD = EnemyDatabase.Items[rnd].ATKD;
-        Enemy.DEF = EnemyDatabase.Items[rnd].DEF;
-        Enemy.MOD = (Enemy._MOD) EnemyDatabase.Items[rnd].MOD;
-        Enemy.MOVE = (Enemy._MOVE) EnemyDatabase.Items[rnd].MOVE;
-        Enemy.ItemID = EnemyDatabase.Items[rnd].ItemID;
-
-
-        enemy.name = EnemyDatabase.Items[rnd].Name;
-        enemy.transform.parent = EnemySpawnParent.transform;
-
-        this.Enemy = Enemy;
-        HealthController.Enemy = Enemy;
-        ItemController.Enemy = Enemy;
-        AnimatorProvider = Enemy.GetComponent<AnimatorProvider>();
-
-        HealthController.enemyHealthDefault = Enemy.HP;
-        HealthController.EnemyHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-            $"{Enemy.HP} / {HealthController.enemyHealthDefault}";
-
-        Enemy.Status = Enemy._Status.Init;
-        enemy.transform.localPosition = EnemySpawnPoint.transform.localPosition;
-        //enemy.transform.localPosition = new Vector3(0, 0, 0);
-
-        Enemy.transform.DORotate(
-            new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
-        Enemy.transform.DOLocalRotate(
-            new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
-        //EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, 0f, 0f), 0.01f);
-
-        Debug.Log($"[DEBUG] - Spawn enemy \"{enemy.name}\".");
-
-        if (Enemy.GetComponent<Animator>() != null)
-        {
-            Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
-        }
-
-        if (_Live)
-        {
-            Debug.Log($"[DEBUG] - Position \"{EnemySpawnPoint.transform.position}\".");
-            virtualTween = DOVirtual.DelayedCall(0f, () => { this.Live(); });
-        }
-        
-        if (Enemy.MOVE == Enemy._MOVE.Static)
-        {
-            EnemySpawnParticles.SetActive(true);
-            DOVirtual.DelayedCall(2f, () =>
+            if (EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Walking ||
+                EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Flying)
             {
-                EnemySpawnParticles.SetActive(false);
-            });
+                EnemySpawnPoint = Points[0];
+            }
+
+            if (EnemyDatabase.Items[rnd].MOVE == EnemyDatabase.EnemySetupClass._MOVE.Static)
+            {
+                EnemySpawnPoint = Points[1];
+            }
+
+            enemy = Instantiate(
+                EnemyDatabase.Items[rnd].Prefab,
+                EnemySpawnPoint.transform.position,
+                EnemyDatabase.Items[rnd].Prefab.transform.rotation
+            ) as GameObject;
+
+            Enemy Enemy = enemy.AddComponent<Enemy>();
+
+            Enemy.ID = EnemyDatabase.Items[rnd].ID;
+            Enemy.BEXP = EnemyDatabase.Items[rnd].EXP;
+            Enemy.JEXP = EnemyDatabase.Items[rnd].EXP;
+            Enemy.HP = EnemyDatabase.Items[rnd].HP;
+            Enemy.ATK = EnemyDatabase.Items[rnd].ATK;
+            Enemy.ATKD = EnemyDatabase.Items[rnd].ATKD;
+            Enemy.DEF = EnemyDatabase.Items[rnd].DEF;
+            Enemy.MOD = (Enemy._MOD) EnemyDatabase.Items[rnd].MOD;
+            Enemy.MOVE = (Enemy._MOVE) EnemyDatabase.Items[rnd].MOVE;
+            Enemy.ItemID = EnemyDatabase.Items[rnd].ItemID;
+
+
+            enemy.name = EnemyDatabase.Items[rnd].Name;
+            enemy.transform.parent = EnemySpawnParent.transform;
+
+            this.Enemy = Enemy;
+            HealthController.Enemy = Enemy;
+            ItemController.Enemy = Enemy;
+            AnimatorProvider = Enemy.GetComponent<AnimatorProvider>();
+
+            HealthController.enemyHealthDefault = Enemy.HP;
+            HealthController.EnemyHealth.GetComponent<SliderProvider>().TextValue.text =
+                $"{Enemy.HP} / {HealthController.enemyHealthDefault}";
+
+            Enemy.Status = Enemy._Status.Init;
+            enemy.transform.localPosition = EnemySpawnPoint.transform.localPosition;
+            //enemy.transform.localPosition = new Vector3(0, 0, 0);
+
+            Enemy.transform.DORotate(
+                new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
+            Enemy.transform.DOLocalRotate(
+                new Vector3(Enemy.transform.rotation.eulerAngles.x, Enemy.transform.rotation.eulerAngles.y, 0f), 0.01f);
+            //EnemyWrapper.GetComponent<Rigidbody>().DORotate(new Vector3(0f, 0f, 0f), 0.01f);
+
+            Debug.Log($"[DEBUG] - Spawn enemy \"{enemy.name}\".");
+
+            if (Enemy.GetComponent<Animator>() != null)
+            {
+                Enemy.GetComponent<Animator>().SetInteger("Motion", 0);
+            }
+
+            if (_Live)
+            {
+                Debug.Log($"[DEBUG] - Position \"{EnemySpawnPoint.transform.position}\".");
+                virtualTween = DOVirtual.DelayedCall(0f, () => { this.Live(); });
+            }
+            
+            if (Enemy.MOVE == Enemy._MOVE.Static)
+            {
+                EnemySpawnParticles.SetActive(true);
+                DOVirtual.DelayedCall(2f, () =>
+                {
+                    EnemySpawnParticles.SetActive(false);
+                });
+            }
         }
     }
 
@@ -139,8 +141,17 @@ public class EnemyController : MonoBehaviour
     public void Remove()
     {
         this.StopAttack();
-        Debug.Log($"[DEBUG] - Removing enemy \"{enemy.name}\".");
-        DestroyImmediate(enemy.gameObject);
+        if(enemy != null){
+            Debug.Log($"[DEBUG] - Removing enemy \"{enemy.name}\".");
+            DestroyImmediate(enemy.gameObject);
+        }
+        if (EnemySpawnParent.transform.childCount > 0)
+        {
+            foreach (Transform child in EnemySpawnParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
     }
 
     [Button("Enemy Live", ButtonSizes.Large), GUIColor(1, 1, 1)]

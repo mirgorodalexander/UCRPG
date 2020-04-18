@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1770541085}
   - component: {fileID: 1770541084}
   - component: {fileID: 1770541083}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 52816159928821879}
   - component: {fileID: 52816159928821878}
   m_Layer: 5
-  m_Name: Current Level
+  m_Name: Current Leyyvel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,10 +908,9 @@ GameObject:
   - component: {fileID: 52816160359123997}
   - component: {fileID: 52816160359123998}
   - component: {fileID: 3295310102574170583}
-  - component: {fileID: 5572300528881729300}
   - component: {fileID: 875535713}
   - component: {fileID: 1032503990292210563}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player Experience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,21 +1020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fill: {fileID: 52816160138782908}
   PreFill: {fileID: 7228881556513794350}
---- !u!114 &5572300528881729300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52816160359123994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preset: 0
-  onEnableBehaviour: 0
-  onDisableBehaviour: 0
+  TextValue: {fileID: 1770541084}
 --- !u!114 &875535713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,7 +1153,7 @@ GameObject:
   - component: {fileID: 52816160383299953}
   - component: {fileID: 52816160383299951}
   - component: {fileID: 52816160383299952}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3005,7 +2990,7 @@ GameObject:
   - component: {fileID: 52816161615659591}
   - component: {fileID: 52816161615659592}
   - component: {fileID: 52816161615659589}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}

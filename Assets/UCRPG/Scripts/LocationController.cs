@@ -84,66 +84,68 @@ public class LocationController : MonoBehaviour
     [Button("Move", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Move()
     {
-        if (RandomMovementDistance)
-        {
-            MovementDistance = Random.Range(1, MovementDistance+1);
-        }
-        
-        PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 1);
-        
-        //WeaponController.Run();
-        Debug.Log($"[DEBUG] - Player move begin.");
-        // StackinglocationMiddle = Instantiate(location, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        // StackinglocationMiddle.name = "Stacking location Middle";
-        //
-        // StackinglocationEnd = Instantiate(location, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        // StackinglocationEnd.name = "Stacking location End";
-        //
-        // StackinglocationMiddle.transform.SetParent(location.transform.parent.transform);
-        // StackinglocationEnd.transform.SetParent(location.transform.parent.transform);
-        //
-        // float move = Random.Range(2f, 2f);
-        //
-        // StackinglocationMiddle.transform.localPosition = new Vector3(0f, 0f, 0f);
-        // StackinglocationEnd.transform.localPosition = new Vector3(0f, 0f, move);
-        float scrollSpeed = MovementSpeed;
-        float offset = Time.time * scrollSpeed;
-        if (LocationDatabase.Items[PlayerController.Player.LID].Name.Contains("Sea"))
-        {
-            location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, 4f*MovementDistance), MovementDistance*MovementSpeed)
-                .SetEase(Ease.Linear).OnComplete(() =>
+        if(PlayerController.Player.Status != Player._Status.Sitting && PlayerController.Player.Status != Player._Status.Die){
+            if (RandomMovementDistance)
             {
-                PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
-                location.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0f,0f);
-                EnemyController.PlayerReady();
-            });
-        }
-        else
-        {
-            location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, -4f*MovementDistance), MovementDistance*MovementSpeed)
-                .SetEase(Ease.Linear).OnComplete(() =>
+                MovementDistance = Random.Range(1, MovementDistance+1);
+            }
+            
+            PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 1);
+            
+            //WeaponController.Run();
+            Debug.Log($"[DEBUG] - Player move begin.");
+            // StackinglocationMiddle = Instantiate(location, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            // StackinglocationMiddle.name = "Stacking location Middle";
+            //
+            // StackinglocationEnd = Instantiate(location, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            // StackinglocationEnd.name = "Stacking location End";
+            //
+            // StackinglocationMiddle.transform.SetParent(location.transform.parent.transform);
+            // StackinglocationEnd.transform.SetParent(location.transform.parent.transform);
+            //
+            // float move = Random.Range(2f, 2f);
+            //
+            // StackinglocationMiddle.transform.localPosition = new Vector3(0f, 0f, 0f);
+            // StackinglocationEnd.transform.localPosition = new Vector3(0f, 0f, move);
+            float scrollSpeed = MovementSpeed;
+            float offset = Time.time * scrollSpeed;
+            if (LocationDatabase.Items[PlayerController.Player.LID].Name.Contains("Sea"))
             {
-                PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
-                location.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0f,0f);
-                EnemyController.PlayerReady();
-            });
+                location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, 4f*MovementDistance), MovementDistance*MovementSpeed)
+                    .SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
+                    location.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0f,0f);
+                    EnemyController.PlayerReady();
+                });
+            }
+            else
+            {
+                location.GetComponent<Renderer>().material.DOOffset(new Vector2(0f, -4f*MovementDistance), MovementDistance*MovementSpeed)
+                    .SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    PlayerAvatar.GetComponent<Animator>().SetInteger("Motion", 0);
+                    location.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0f,0f);
+                    EnemyController.PlayerReady();
+                });
+            }
+            // location.SetActive(false);
+            // StackinglocationMiddle.transform
+            //     .DOLocalMove(new Vector3(0, 0, move * -1f), MovementSpeed, false)
+            //     .SetEase(Ease.InOutQuad);
+            //
+            // StackinglocationEnd.transform
+            //     .DOMove(location.transform.position, MovementSpeed, false)
+            //     .SetEase(Ease.InOutQuad)
+            //     .OnComplete(() =>
+            //     {
+            //         location.SetActive(true);
+            //         this.Remove();
+            //
+            //         Debug.Log($"[DEBUG] - Player move end.");
+            //         EnemyController.PlayerReady();
+            //     });
         }
-        // location.SetActive(false);
-        // StackinglocationMiddle.transform
-        //     .DOLocalMove(new Vector3(0, 0, move * -1f), MovementSpeed, false)
-        //     .SetEase(Ease.InOutQuad);
-        //
-        // StackinglocationEnd.transform
-        //     .DOMove(location.transform.position, MovementSpeed, false)
-        //     .SetEase(Ease.InOutQuad)
-        //     .OnComplete(() =>
-        //     {
-        //         location.SetActive(true);
-        //         this.Remove();
-        //
-        //         Debug.Log($"[DEBUG] - Player move end.");
-        //         EnemyController.PlayerReady();
-        //     });
     }
 
     [Button("Remove", ButtonSizes.Large), GUIColor(1, 1, 1)]

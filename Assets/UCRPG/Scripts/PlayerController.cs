@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     
     [Title("FX")]
     public GameObject ExperiencePopupCanvas;
+    public GameObject HealParticles;
     public GameObject PlayerExperiencePopupPrefab;
     
     private Tween virtualTween;
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
         HealthController.playerHealthDefault = HealthDatabase.Items[Player.LVL];
         
         HealthController.PlayerHealth.value = (1f / HealthController.playerHealthDefault) * Player.HP;
-        HealthController.PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
+        HealthController.PlayerHealth.GetComponent<SliderProvider>().TextValue.text =
             $"{Player.HP} / {HealthController.playerHealthDefault}";
         
         
@@ -131,6 +132,26 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    [Button("Heal", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void Heal(int heal)
+    {
+        Debug.Log($"[DEBUG] - Player healing \"+{heal}\".");
+        MessageController.ConsolePopup($"You restore \"{heal}\" health points.");
+        if(Player.Status == Player._Status.Sitting && Player.Status != Player._Status.Die){
+            Player.HP += heal;
+            HealParticles.SetActive(true);
+            MessageController.HealPopup(heal);
+            HealthController.PlayerHealth.GetComponent<SliderProvider>().PreFill.DOFillAmount((1f / HealthController.playerHealthDefault) * Player.HP, 1f)
+                .SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    HealthController.PlayerHealth.value = (1f / HealthController.playerHealthDefault) * Player.HP;
+                    HealthController.PlayerHealth.GetComponent<SliderProvider>().TextValue.text = $"{Player.HP} / {HealthController.playerHealthDefault}";
+                    HealthController.PlayerHealth.GetComponent<DOTweenAnimation>().DORestart();
+                    HealParticles.SetActive(false);
+                });
+        }
+    }
+    
     [Button("Sit", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Sit()
     {
@@ -144,11 +165,7 @@ public class PlayerController : MonoBehaviour
             virtualTween = DOVirtual.DelayedCall(50f/Player.VIT, () =>
             {
                 if(Player.Status == Player._Status.Sitting && Player.Status != Player._Status.Die){
-                    Player.HP += Player.LVL * Player.VIT;
-
-                    HealthController.PlayerHealth.DOValue((1f / HealthController.playerHealthDefault) * Player.HP, 1f).SetEase(Ease.Linear);
-                    HealthController.PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-                        $"{Player.HP} / {HealthController.playerHealthDefault}";
+                    Heal(Player.LVL * Player.VIT);
                     Sit();
                 }
             });

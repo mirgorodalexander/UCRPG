@@ -69,8 +69,7 @@ public class MenuController : MonoBehaviour
     {
         PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
         PlayerHealth.value = (1f / HealthController.playerHealthDefault) * Player.HP;
-        HealthController.PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-            $"{Player.HP} / {HealthController.playerHealthDefault}";
+        HealthController.PlayerHealth.GetComponent<SliderProvider>().TextValue.text = $"{Player.HP} / {HealthController.playerHealthDefault}";
         
         ShowMenuButton.interactable = Player.Status != Player._Status.Fighting;
         
@@ -89,13 +88,14 @@ public class MenuController : MonoBehaviour
     {
         PlayerExperience.value = (1f / ExperienceDatabase.Items[Player.LVL]) * Player.EXP;
         PlayerHealth.value = (1f / HealthController.playerHealthDefault) * Player.HP;
-        HealthController.PlayerHealth.gameObject.transform.Find("Viewport").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text =
-            $"{Player.HP} / {HealthController.playerHealthDefault}";
+        HealthController.PlayerHealth.GetComponent<SliderProvider>().TextValue.text = $"{Player.HP} / {HealthController.playerHealthDefault}";
         
         ShowMenuButton.interactable = Player.Status != Player._Status.Fighting;
         
         CoinsValue.text = Coins.Value.ToString();
         CoinsValueInGame.text = Coins.Value.ToString();
+        
+        CoinsValueInGame.transform.parent.GetComponent<DOTweenAnimation>().DORestart();
         
         CurrentLevel.text = Player.LVL.ToString();
         CurrentLevelInGame.text = Player.LVL.ToString();

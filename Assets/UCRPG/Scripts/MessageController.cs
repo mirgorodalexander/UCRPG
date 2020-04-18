@@ -30,6 +30,7 @@ public class MessageController : MonoBehaviour
     [Title("FX")]
     public GameObject ConsolePopupPrefab;
     public GameObject PlayerExperiencePopupPrefab;
+    public GameObject PlayerHealPopupPrefab;
     public GameObject EnemyDamagePopupPrefab;
     public GameObject PlayerDamagePopupPrefab;
     public GameObject CriticalDamagePopupPrefab;
@@ -55,6 +56,30 @@ public class MessageController : MonoBehaviour
         });
     }
     
+    [Button("Health Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
+    public void HealPopup(int hp)
+    {
+        GameObject Heal = Instantiate(PlayerHealPopupPrefab, ExperiencePopupCanvas.transform.position, Quaternion.identity) as GameObject;
+        Heal.SetActive(false);
+        Heal.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.01f);
+        Heal.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"+ {hp}";
+        Heal.name = $"Heal + {hp}";
+        Heal.transform.SetParent(ExperiencePopupCanvas.transform);
+        Heal.transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0.01f).OnComplete(() =>
+        {
+            Heal.SetActive(true);
+            Heal.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(1f, ExperiencePopupLifetime);
+            Heal.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), ExperiencePopupLifetime);
+            Heal.transform.DOMoveY(450, ExperiencePopupLifetime, false).OnComplete(() =>
+            {
+                Heal.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, ExperiencePopupFadetime/2);
+                Heal.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), ExperiencePopupFadetime/2);
+                Heal.transform.DOMoveY(250f, ExperiencePopupLifetime/2, false).OnComplete(() => { 
+                    Destroy(Heal.gameObject);
+                });
+            });
+        });
+    }
     [Button("Experience Popup", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void ExperiencePopup(int experience)
     {
