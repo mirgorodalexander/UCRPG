@@ -16,7 +16,7 @@ public class AnimatorProvider : MonoBehaviour
     [Title("FX")]
     public GameObject ComboParticles;
 
-    private Tween tweenVirtual;
+    public Tween tweenVirtual;
 
     public void ComboFX()
     {
@@ -43,24 +43,35 @@ public class AnimatorProvider : MonoBehaviour
     }
     public void AnimationAttackEnemyEnd()
     {
-        this.GetComponent<Animator>().SetInteger("Motion", 0);
-        DOVirtual.DelayedCall(0.4f-WeaponController.Weapon.SPD*0.01f, () =>
-        {
+        if(PlayerController.Player.Status != Player._Status.Die){
             this.GetComponent<Animator>().SetInteger("Motion", 0);
-            WeaponController.AttackLock = false;
-        });
+            DOVirtual.DelayedCall(0.4f-WeaponController.Weapon.SPD*0.01f, () =>
+            {
+                if(PlayerController.Player.Status != Player._Status.Die){
+                    this.GetComponent<Animator>().SetInteger("Motion", 0);
+                }
+                WeaponController.AttackLock = false;
+            });
+        }
     }
 
     public void AnimationEnd()
     {
-        tweenVirtual.Kill();
-        this.GetComponent<Animator>().SetInteger("Motion", 0);
+        if (PlayerController.Player.Status != Player._Status.Die)
+        {
+            tweenVirtual.Kill();
+            this.GetComponent<Animator>().SetInteger("Motion", 0);
+        }
     }
 
     public void AnimationAttackEnd()
     {
         tweenVirtual.Kill();
-        this.GetComponent<Animator>().SetInteger("Motion", 0);
+        if (PlayerController.Player.Status != Player._Status.Die)
+        {
+            this.GetComponent<Animator>().SetInteger("Motion", 0);
+        }
+
         if (EnemyController.Enemy != null)
         {
             Debug.Log(

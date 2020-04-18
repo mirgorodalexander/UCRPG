@@ -138,6 +138,8 @@ public class MenuController : MonoBehaviour
 
             this.Draw();
             
+            PlayerHealth.gameObject.SetActive(true);
+            
             Menu.gameObject.SetActive(false);
         }
     }

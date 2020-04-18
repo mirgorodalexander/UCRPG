@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     public GameObject HealParticles;
     public GameObject PlayerExperiencePopupPrefab;
     
-    private Tween virtualTween;
+    public Tween virtualTween;
     
     [Title("Buttons")]
     [Button("Gain EXP", ButtonSizes.Large), GUIColor(1, 1, 1)]
@@ -79,14 +79,41 @@ public class PlayerController : MonoBehaviour
         
         MessageController.ConsolePopup($"You got new level!");
     }
+
+    public void PlayerStatusCorrect()
+    {
+        Debug.Log(" ------------------ PlayerStatusCorrect ---------------- ");
+        if (Player.Status == Player._Status.Die)
+        {
+            if (PlayerAvatar.GetInteger("Motion") != 9)
+            {
+                PlayerAvatar.SetInteger("Motion", 9);
+            }
+        }
+        virtualTween = DOVirtual.DelayedCall(1f, () =>
+        {
+            if (Player.Status != Player._Status.Die && PlayerAvatar.GetInteger("Motion") != 9)
+            {
+                PlayerAvatar.SetInteger("Motion", 9);
+                PlayerStatusCorrect();
+            }
+        });
+    }
+    
     [Button("Die", ButtonSizes.Large), GUIColor(1, 1, 1)]
     public void Die()
     {
+        PlayerStatusCorrect();
         virtualTween.Kill();
+        AnimatorProvider.tweenVirtual.Kill();
+        EnemyController.virtualTween.Kill();
+        EnemyController.tween.Kill();
         PlayerAvatar.SetInteger("Motion", 9);
         
         EnemyController.StopAttack();
         EnemyController.WalkOut();
+        
+        PlayerAvatar.SetInteger("Motion", 9);
         
         Player.Status = Player._Status.Die;
         
@@ -99,6 +126,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"[DEBUG] - Player is died and lose \"{playerexp}\" expirience.");
             MessageController.ConsolePopup($"You die and lose \"{playerexp}\" experience.");
             MenuController.ShowDefeated(playerexp);
+            PlayerAvatar.SetInteger("Motion", 9);
         }
         else
         {
@@ -106,6 +134,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"[DEBUG] - Player is died and lose {loseexp} expirience.");
             MessageController.ConsolePopup($"You die and lose \"{loseexp}\" experience.");
             MenuController.ShowDefeated(loseexp);
+            PlayerAvatar.SetInteger("Motion", 9);
         }
         
         PlayerExperience.gameObject.transform.Find("Line").gameObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = $"{Player.EXP} / {ExperienceDatabase.Items[Player.LVL]}";

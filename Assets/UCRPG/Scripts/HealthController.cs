@@ -83,12 +83,12 @@ public class HealthController : MonoBehaviour
     {
         if (Player.Status != Player._Status.Fighting && Player.Status != Player._Status.Die)
         {
-            if (Player.HP <= HealthDatabase.Items[Player.LVL] / 4f)
+            if (Player.HP <= HealthDatabase.Items[Player.LVL] / 4f && Player.HP != 0)
             {
                 DOVirtual.DelayedCall(0.2f, () =>
                 {
                     if (Player.Status != Player._Status.Menu && Player.Status != Player._Status.Sitting &&
-                        Player.Status != Player._Status.Fighting)
+                        Player.Status != Player._Status.Fighting && Player.Status != Player._Status.Die)
                     {
                         Player.Status = Player._Status.Sitting;
                         Debug.Log(
@@ -102,7 +102,7 @@ public class HealthController : MonoBehaviour
             {
                 DOVirtual.DelayedCall(0.2f, () =>
                 {
-                    if (Player.Status != Player._Status.Menu && Player.Status == Player._Status.Sitting)
+                    if (Player.Status != Player._Status.Menu && Player.Status == Player._Status.Sitting && Player.Status != Player._Status.Die)
                     {
                         PlayerController.Stay();
                         HealSittingParticles.SetActive(false);

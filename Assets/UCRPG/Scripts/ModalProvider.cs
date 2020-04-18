@@ -11,6 +11,7 @@ public class ModalProvider : MonoBehaviour
 {
     [Title("Controllers")]
     public PlayerController PlayerController;
+    public MenuController MenuController;
     
     public TextMeshProUGUI Title;
     public TextMeshProUGUI Description;
@@ -29,9 +30,10 @@ public class ModalProvider : MonoBehaviour
     {
         Title.text = TitleDefault;
         Description.text = DescriptionDefault;
-        this.gameObject.SetActive(false);
         PlayerController.Respawn();
+        MenuController.Hide();
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        this.gameObject.SetActive(false);
     }
 
     private void OnEnable()

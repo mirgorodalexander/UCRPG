@@ -41,8 +41,8 @@ public class EnemyController : MonoBehaviour
 
     private GameObject enemy;
     private GameObject item;
-    private Tween tween;
-    private Tween virtualTween;
+    public Tween tween;
+    public Tween virtualTween;
     private bool paused = false;
 
     private Vector3 enemyWrapperDefaultPosition;
